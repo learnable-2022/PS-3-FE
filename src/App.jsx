@@ -1,13 +1,13 @@
-
+import MainContentContainer from './components/MainContentContainer'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <section className=' max-h-screen max-w-screen-sm'>
+      <MainContentContainer />
+    </section>
     </>
   )
 }
