@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom-width: 4px;
+    font-weight: 600;
+    color: #0052cc;
+    border-color: #0052cc;
+}
