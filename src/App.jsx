@@ -1,13 +1,18 @@
+import { Route, Routes } from "react-router-dom";
 import MainContentContainer from './components/MainContentContainer'
-import './App.css'
+import SignUp from "./components/SignUp"
+import SignIn from "./components/SignIn"
+// import './App.css'
 
 function App() {
 
   return (
     <>
-      <section className=' max-h-screen max-w-screen-sm'>
-      <MainContentContainer />
-    </section>
+    <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/dashboard" element={<MainContentContainer />} />
+        <Route path="/signup" element={<SignUp />} />
+    </Routes>
     </>
   )
 }
