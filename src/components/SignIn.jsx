@@ -45,6 +45,10 @@ function SignIn() {
     .then(data => {
       console.log(data);
       navigate("/dashboard")
+
+      // Save the token to local storage
+      localStorage.setItem('token', data.token);
+
       setSuccess(() => true);
       setFormData({
         email: "", 
@@ -120,7 +124,7 @@ function SignIn() {
                       
                         <button type="submit" className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#422FC6] `}>Sign In</button>
                         <p className="text-sm font-light text-gray-500">
-                            Don’t have an account yet? <Link to="/signup"> <a href="#" className="ml-2 font-medium text-primary-600 hover:underline">Sign Up</a></Link>
+                            Don’t have an account yet? <Link to="/signup" className="ml-2 font-medium text-primary-600 hover:underline">Sign Up</Link>
                         </p>
                     </form>
                 </div>
