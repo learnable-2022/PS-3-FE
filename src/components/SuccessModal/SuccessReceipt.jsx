@@ -1,27 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import close from "../../assets/closecircle.svg"
 import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
+import { displaydate } from "../date"
 
 function SuccessReceipt() {
   const [pop, setpop] = useState(true)
   const closepop = () => {
   setpop(false);
   }
-
-  const [data, setData] = useState(null);
-
-  useEffect(() =>{
-    fetch("https://autopay-qv54.onrender.com/api/v1/transaction/total/netsalary")
-    .then(response => response.json())
-    .then(json => setData(json))
-    .catch(error => console.error(error));
-    });
-
-    const showdate= new Date();
-    const displaydate= showdate.getDate()+'th,'+'May'+','+showdate.getFullYear();
 
   return (
     <>
@@ -39,7 +28,7 @@ function SuccessReceipt() {
         
         <div className={styles.align3}>
         <h4>Tenece employee salary payment receipt</h4>
-        <img src={good} alt="complete-icon" />
+        <img src={good} alt="complete-icon"  />
         <h1>Thank you!</h1>
         <h5>Your payment is successful</h5>
         <p>we've sent you an email confirmation.</p>
@@ -57,7 +46,7 @@ function SuccessReceipt() {
 
         <div className={styles.align4}>
           <p className={styles.col}>Net salary total:</p>
-          <p className={styles.col1}>{JSON.stringify(data, null)}</p>
+          <p className={styles.col1}>NGN 3,607,255</p>
         </div>
 
         <div className={styles.align4}>

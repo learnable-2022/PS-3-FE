@@ -1,27 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import close from "../../assets/closecircle.svg"
 import money from "../../assets/moneysend.svg"
 import printer from "../../assets/printer.svg"
+import { displaydate } from "../date"
+import SuccessReceipt from "./SuccessReceipt"
 
 function SuccessSlip() {
   const [pop, setpop] = useState(true)
   const closepop = () => {
   setpop(false);
-
-  const [data, setData] = useState(null);
-
-  useEffect(() =>{
-    fetch("https://autopay-qv54.onrender.com/api/v1/transaction/total/netsalary")
-    .then(response => response.json())
-    .then(json => setData(json))
-    .catch(error => console.error(error));
-    });
-
-    const showdate= new Date();
-    const displaydate= showdate.getDate()+'th,'+'May'+','+showdate.getFullYear();
   }
+
+ const [isShown, setIsShown] = useState(false);
+
+ const handleClick = () => {
+  setIsShown(!isShown);
+ }
+  
+ useEffect(() =>{
+  fetch('https://autopay-qv54.onrender.com/api/v1/transaction/total/netsalary', {
+  method: 'GET',
+  headers: { 'Content-Type':'application/json' },
+})
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+  .catch(error => console.error(error));
+  });
+
 
   return (
     <>
@@ -53,12 +60,12 @@ function SuccessSlip() {
 
         <div className={styles.align4}>
           <p className={styles.col}>No of employees:</p>
-          <p className={styles.col1}>20</p>
+          <p className={styles.col1}>15</p>
         </div>
 
         <div className={styles.align4}>
           <p className={styles.col}>Net salary total:</p>
-          <p className={styles.col1}>{JSON.stringify(data, null)}</p>
+          <p className={styles.col1}></p>
         </div>
 
         <div className={styles.align4}>
@@ -71,13 +78,14 @@ function SuccessSlip() {
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
-          <div className={styles.pay}>
+          <div className={styles.pay} onClick={handleClick}>
             <p>Pay now</p>
             <img src={money} alt="pay-icon" />
           </div>
         </div>
 
         </section>:""}
+        {isShown && <SuccessReceipt />}
       </section>
     </>
   )
