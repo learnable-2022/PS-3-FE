@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Route, Routes } from "react-router-dom";
 import MainContentContainer from './components/MainContentContainer'
-import './App.css'
+import SignUp from "./components/SignUp"
+import SignIn from "./components/SignIn"
+// import './App.css'
 
 function App() {
   const [data, setData] = useState(null);
@@ -20,9 +23,11 @@ function App() {
   }, []);
   return (
     <>
-      <section className=' max-h-screen max-w-screen-sm'>
-      <MainContentContainer data={data} />
-    </section>
+    <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/dashboard" element={<MainContentContainer data={data} />} />
+        <Route path="/signup" element={<SignUp />} />
+    </Routes>
     </>
   )
 }
