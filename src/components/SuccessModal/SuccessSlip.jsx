@@ -6,6 +6,7 @@ import money from "../../assets/moneysend.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
+import { setAuthToken } from "../SetAuthToken";
 
 function SuccessSlip() {
   const [pop, setpop] = useState(true)
@@ -19,13 +20,15 @@ function SuccessSlip() {
   setIsShown(!isShown);
  }
   
+ const [item, setItem] = useState([]);
  useEffect(() =>{
   fetch('https://autopay-qv54.onrender.com/api/v1/transaction/total/netsalary', {
   method: 'GET',
-  headers: { 'Content-Type':'application/json' },
+  headers: { 'Content-Type':'application/json',
+  ...setAuthToken()},
 })
-  .then((res) => res.json())
-  .then((data) => console.log(data))
+  .then(response => response.json())
+  .then(data => console.log(data))
   .catch(error => console.error(error));
   });
 
@@ -65,7 +68,10 @@ function SuccessSlip() {
 
         <div className={styles.align4}>
           <p className={styles.col}>Net salary total:</p>
-          <p className={styles.col1}></p>
+          
+         {item.map((p) => (
+          <p className={styles.col1}>{p.totalNetSalary}</p>
+          ))}
         </div>
 
         <div className={styles.align4}>
