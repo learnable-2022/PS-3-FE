@@ -24,7 +24,6 @@ function MainContainer ({data}) {
     employee.firstName.toLowerCase().includes(searchText.toLowerCase()) || employee.lastName.toLowerCase().includes(searchText.toLowerCase())
   ) : [];
 
-  console.log(filteredNames)
   return (
     <main className="px-1 flex flex-col w-full h-full"> 
         <div className="flex flex-col w-full px-4 relative">
