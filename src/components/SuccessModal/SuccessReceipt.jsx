@@ -1,10 +1,11 @@
-import { useState, } from "react";
+import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import close from "../../assets/closecircle.svg"
 import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
+import FetchTotalnetpay from "../FetchTotalnetpay"
 
 function SuccessReceipt() {
   const [pop, setpop] = useState(true)
@@ -46,7 +47,7 @@ function SuccessReceipt() {
 
         <div className={styles.align4}>
           <p className={styles.col}>Net salary total:</p>
-          <p className={styles.col1}>NGN 3,607,255</p>
+          <p className={styles.col1}>NGN<FetchTotalnetpay /></p>
         </div>
 
         <div className={styles.align4}>

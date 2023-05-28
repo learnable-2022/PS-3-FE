@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import close from "../../assets/closecircle.svg"
@@ -6,7 +6,7 @@ import money from "../../assets/moneysend.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
-import { setAuthToken } from "../SetAuthToken";
+import FetchTotalnetpay from "../FetchTotalnetpay"
 
 function SuccessSlip() {
   const [pop, setpop] = useState(true)
@@ -20,19 +20,6 @@ function SuccessSlip() {
   setIsShown(!isShown);
  }
   
- const [item, setItem] = useState([]);
- useEffect(() =>{
-  fetch('https://autopay-qv54.onrender.com/api/v1/transaction/total/netsalary', {
-  method: 'GET',
-  headers: { 'Content-Type':'application/json',
-  ...setAuthToken()},
-})
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
-  });
-
-
   return (
     <>
       <section className={styles.background}>
@@ -69,9 +56,8 @@ function SuccessSlip() {
         <div className={styles.align4}>
           <p className={styles.col}>Net salary total:</p>
           
-         {item.map((p) => (
-          <p className={styles.col1}>{p.totalNetSalary}</p>
-          ))}
+          <p className={styles.col1}>NGN<FetchTotalnetpay /></p>
+          
         </div>
 
         <div className={styles.align4}>
