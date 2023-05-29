@@ -1,8 +1,29 @@
+import React, { useState } from 'react'
 import {RiSearchLine} from "react-icons/ri";
 import {RxCaretDown} from "react-icons/rx";
 import "../assets/styles/tablescroll.css"
 
-function MainContainer () {
+function MainContainer ({data}) {
+  const [searchText, setSearchText] = useState("");
+  const [selectedValue, setSelectedValue] = useState("");
+  const departments = data ? Array.from(new Set(data.map(item => item.department))) : null;
+  const employeeData = data ? data.filter((employee) => employee.department.includes(selectedValue)) : null;
+
+  const handleSearchName = (event) => {
+    setSearchText(event)
+  };
+  const handleSelectChange = (event) => {
+    if (event == 'all') {
+      setSelectedValue("")
+    } else {
+      setSelectedValue(event)
+    }
+  };
+
+  const filteredNames = employeeData ? employeeData.filter((employee) =>
+    employee.firstName.toLowerCase().includes(searchText.toLowerCase()) || employee.lastName.toLowerCase().includes(searchText.toLowerCase())
+  ) : [];
+
   return (
     <main className="px-1 flex flex-col w-full h-full"> 
         <div className="flex flex-col w-full px-4 relative">
@@ -15,12 +36,21 @@ function MainContainer () {
               Who would you like to Pay?
             </label>
             <div className="relative ml-6">
-              <select className="block appearance-none w-full bg-gray-200 border border-[#899197] text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                <option>All Employees</option>
-                <option>Backend only</option>
-                <option>Frontend only</option>
-                <option>Product Designers only</option>
-                <option>Web 3 only</option>
+              <select 
+                value={selectedValue} 
+                onChange={(event) => handleSelectChange(event.target.value)}
+                className="block appearance-none w-full bg-gray-200 border border-[#899197] text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                id="grid-state"
+              >
+                <option value='all'>All Employees</option>
+                {departments ? (
+                  departments.map((items, index) => (
+                    <option value={items} key={index}>{items}</option>
+                  ))
+                
+                ) : (
+                  <option>...</option>
+                )}
               </select>
             <span className="pointer-events-none text-2xl absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <RxCaretDown />
@@ -35,7 +65,8 @@ function MainContainer () {
                 type="search" 
                 name="search" 
                 id="search" 
-                placeholder="Search Employee" 
+                placeholder="Search Employee"
+                onChange={(event) => handleSearchName(event.target.value)}
                 className="w-60 h-9 rounded-tl-lg rounded-bl-lg focus:border-[#422FC6] outline-none px-2 border border-[#899197]"/>
               <button className="flex justify-center items-center h-full rounded-tr-lg rounded-br-lg bg-[#422FC6]">
                 <span className=" px-3 py-[9px] text-lg h-full text-white font-bold"><RiSearchLine/></span>
@@ -49,7 +80,7 @@ function MainContainer () {
               <button className=" py-2 px-5 rounded-lg text-white bg-[#422FC6]">Pay Now</button> 
             </div>
           </div>
-          {/* BEGIN: The search input and pay button */}
+          {/* END: The search input and pay button */}
 
           {/* BEGIN: Table development */}
           
@@ -83,351 +114,37 @@ function MainContainer () {
                         </tr>
                     </thead>
                     <tbody className="text-xs text-center">
-                        <tr className="bg-white border-b capitalize">
-                            <th scope="row" className="px-4 capitalize py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #1
-                            </th>
-                            <td className="px-12 py-4">
-                              Chimaobi chukwuegbo
-                            </td>
-                            <td className="px-6 py-4">
-                                Frontend
-                            </td>
-                            <td className="px-6 py-4">
-                                4.7
-                            </td>
-                            <td className="px-6 py-4">
-                              123456789
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN250,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN390,210
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                #2
-                            </th>
-                            <td className="px-12 py-4">
-                              charles oriih
-                            </td>
-                            <td className="px-6 py-4">
-                                Frontend
-                            </td>
-                            <td className="px-6 py-4">
-                                4.6
-                            </td>
-                            <td className="px-6 py-4">
-                              4233242324
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN250,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN360,210
-                            </td>
-                        </tr>
-                        <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                #3
-                            </th>
-                            <td className="px-12 py-4">
-                            onyinyechi Okeke
-                            </td>
-                            <td className="px-6 py-4">
-                              Frontend
-                            </td>
-                            <td className="px-6 py-4">
-                                4.8
-                            </td>
-                            <td className="px-6 py-4">
-                              787767XXXX
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN250,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN410,500
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #4
-                            </th>
-                            <td className="px-12 py-4">
-                              daniel atuonwu
-                            </td>
-                            <td className="px-6 py-4">
-                                Frontend
-                            </td>
-                            <td className="px-6 py-4">
-                                4.2
-                            </td>
-                            <td className="px-6 py-4">
-                              1376533XXX
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN250,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN275,900
-                            </td>
-                        </tr>
-                        <tr className="border-b capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #5
-                            </th>
-                            <td className="px-12 py-4 ">
-                              fidelis awamba
-                            </td>
-                            <td className="px-6 py-4">
-                              Frontend
-                            </td>
-                            <td className="px-6 py-4">
-                                4.5
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN250,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN310,210
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #6
-                            </th>
-                            <td className="px-12 py-4">
-                              bartholomew alaekwe
-                            </td>
-                            <td className="px-6 py-4">
-                              backend
-                            </td>
-                            <td className="px-6 py-4">
-                                4.7
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN270,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN340,500
-                            </td>
-                        </tr>
-                        <tr className="border-b capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #7
-                            </th>
-                            <td className="px-12 py-4">
-                              famous edoh
-                            </td>
-                            <td className="px-6 py-4">
-                              backend
-                            </td>
-                            <td className="px-6 py-4">
-                              4.4
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN250,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN300,200
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #8
-                            </th>
-                            <td className="px-12 py-4">
-                              vivian ani
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                                4.6
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN310,189
-                            </td>
-                        </tr>
-                        <tr className="border-b capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #9
-                            </th>
-                            <td className="px-12 py-4">
-                              newman ogbo
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                              4.9
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN370,200
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #10
-                            </th>
-                            <td className="px-12 py-4">
-                              ijeoma mbaronye
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                                2.0
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN120,210
-                            </td>
-                        </tr>
-                        <tr className="border-b capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #11
-                            </th>
-                            <td className="px-12 py-4">
-                              victory uwadoka
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                                4.6
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN310,210
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                              #12
-                            </th>
-                            <td className="px-12 py-4">
-                              queen elliot
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                                4.5
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN310,210
-                            </td>
-                        </tr>
-                        <tr className="border-b capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #13
-                            </th>
-                            <td className="px-12 py-4">
-                              elizabeth osuwa
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                                4.6
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN320,210
-                            </td>
-                        </tr>
-                        <tr className="border-b bg-gray-50 capitalize">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #14
-                            </th>
-                            <td className="px-12 py-4">
-                              EMMANUEL AGBOR
-                            </td>
-                            <td className="px-6 py-4">
-                              product design
-                            </td>
-                            <td className="px-6 py-4">
-                                2.1
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN245,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN75,210
-                            </td>
-                        </tr>
-                        <tr className="border-b">
-                            <th scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap">
-                              #15
-                            </th>
-                            <td className="px-12 py-4">
-                              JOSEPH ABANOBI
-                            </td>
-                            <td className="px-6 py-4">
-                              WEB 3
-                            </td>
-                            <td className="px-6 py-4">
-                                4.7
-                            </td>
-                            <td className="px-6 py-4">
-                              XXXXX1234
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN255,000
-                            </td>
-                            <td className="px-6 py-4 uppercase">
-                              NGN310,210
-                            </td>
-                        </tr>
+                        {filteredNames.length !== 0 ? (
+                          filteredNames.map(details => (
+                            <tr className="bg-white border-b capitalize" key={details._id}>
+                          <th scope="row" className="px-4 capitalize py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {details._id}
+                          </th>
+                          <td className="px-12 py-4">
+                            {`${details.firstName} ${details.lastName}`}
+                          </td>
+                          <td className="px-6 py-4">
+                            {details.department}
+                          </td>
+                          <td className="px-6 py-4">
+                              4.7
+                          </td>
+                          <td className="px-6 py-4">
+                            {details.accountNumber}
+                          </td>
+                          <td className="px-6 py-4 uppercase">
+                            NGN{details.grossSalary}
+                          </td>
+                          <td className="px-6 py-4 uppercase">
+                            NGN{details.netSalary}
+                          </td>
+                      </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td colSpan={6} className="px-6 py-4 uppercase font-medium text-gray-900">No item found.</td>
+                          </tr>
+                        )}
                         
                     </tbody>
                 </table>
