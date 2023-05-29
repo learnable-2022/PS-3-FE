@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import {RiSearchLine} from "react-icons/ri";
 import {RxCaretDown} from "react-icons/rx";
 import "../assets/styles/tablescroll.css"
 
-function MainContainer ({data}) {
+function MainContainer (props) { 
   const [searchText, setSearchText] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
-  const departments = data ? Array.from(new Set(data.map(item => item.department))) : null;
-  const employeeData = data ? data.filter((employee) => employee.department.includes(selectedValue)) : null;
+  const departments = props.data ? Array.from(new Set(props.data.map(item => item.department))) : null;
+  const employeeData = props.data ? props.data.filter((employee) => employee.department.includes(selectedValue)) : null;
 
   const handleSearchName = (event) => {
     setSearchText(event)
@@ -24,6 +26,7 @@ function MainContainer ({data}) {
     employee.firstName.toLowerCase().includes(searchText.toLowerCase()) || employee.lastName.toLowerCase().includes(searchText.toLowerCase())
   ) : [];
 
+  
   return (
     <main className="px-1 flex flex-col w-full h-full"> 
         <div className="flex flex-col w-full px-4 relative">
@@ -77,7 +80,7 @@ function MainContainer ({data}) {
               <div className="mr-4 text-sm">
                 <h4 className="font-bold">Total Net Salary: <span className="text-[#422FC6] font-bold">NGN3,607,255</span></h4>
               </div>
-              <button className=" py-2 px-5 rounded-lg text-white bg-[#422FC6]">Pay Now</button> 
+              <button className=" py-2 px-5 rounded-lg text-white bg-[#422FC6]" onClick={props.togglePaySLip}>Pay Now</button> 
             </div>
           </div>
           {/* END: The search input and pay button */}
@@ -151,6 +154,7 @@ function MainContainer ({data}) {
             </div>
 
           </div>
+          
           {/* END: Table development */}
 
         </div>

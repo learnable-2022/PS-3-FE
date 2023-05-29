@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+// import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import close from "../../assets/closecircle.svg"
@@ -8,27 +9,17 @@ import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
 import FetchTotalnetpay from "../FetchTotalnetpay"
 
-function SuccessSlip() {
-  const [pop, setpop] = useState(true)
-  const closepop = () => {
-  setpop(false);
-  }
-
- const [isShown, setIsShown] = useState(false);
-
- const handleClick = () => {
-  setIsShown(!isShown);
- }
+function SuccessSlip(props) {
   
   return (
     <>
       <section className={styles.background}>
-        {pop?
+        {props.popSlip ?
         <section className={styles.container1}>
          
         <div className={styles.align}>
           <img src={logo} alt="logo" />
-          <div className={styles.align1} onClick={closepop}>
+          <div className={styles.align1} onClick={props.togglePaySLip}>
             <p>close</p>
             <img src={close} alt="close-icon" />
           </div>
@@ -70,18 +61,18 @@ function SuccessSlip() {
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
-          <div className={styles.pay} onClick={handleClick}>
+          <div className={styles.pay} onClick={props.handlePayNow}>
             <p>Pay now</p>
             <img src={money} alt="pay-icon" />
           </div>
         </div>
 
         </section>:""}
-        {isShown && <SuccessReceipt />}
+        {props.showReceipt && <SuccessReceipt />}
       </section>
     </>
   )
-};
+}
 
 export default SuccessSlip;
 

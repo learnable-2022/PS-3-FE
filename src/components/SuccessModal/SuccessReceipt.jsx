@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+// import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import close from "../../assets/closecircle.svg"
@@ -7,21 +8,18 @@ import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
 
-function SuccessReceipt() {
-  const [pop, setpop] = useState(true)
-  const closepop = () => {
-  setpop(false);
-  }
+function SuccessReceipt(props) {
+  
 
   return (
     <>
       <section className={styles.background}>
-        {pop?
+        {props.showReceipt ?
         <section className={styles.container}>
          
         <div className={styles.align}>
           <img src={logo} alt="logo" />
-          <div className={styles.align1} onClick={closepop}>
+          <div className={styles.align1} onClick={props.closePopReceipt}>
             <p>close</p>
             <img src={close} alt="close-icon" />
           </div>
@@ -32,7 +30,7 @@ function SuccessReceipt() {
         <img src={good} alt="complete-icon"  />
         <h1>Thank you!</h1>
         <h5>Your payment is successful</h5>
-        <p>we've sent you an email confirmation.</p>
+        <p>We have sent you an email confirmation.</p>
         </div>
 
         <div className={styles.align4}>
@@ -67,6 +65,6 @@ function SuccessReceipt() {
       </section>
     </>
   )
-};
+}
 
 export default SuccessReceipt;
