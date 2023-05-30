@@ -2,8 +2,8 @@
 // import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
-import close from "../../assets/closecircle.svg"
 import money from "../../assets/moneysend.svg"
+import {AiOutlineCloseCircle} from "react-icons/ai"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
@@ -21,7 +21,7 @@ function SuccessSlip(props) {
           <img src={logo} alt="logo" />
           <div className={styles.align1} onClick={props.togglePaySLip}>
             <p>close</p>
-            <img src={close} alt="close-icon" />
+            <span><AiOutlineCloseCircle /></span>
           </div>
           </div>
         

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import {RiSearchLine} from "react-icons/ri";
 import {RxCaretDown} from "react-icons/rx";
+import FetchTotalnetpay from "./FetchTotalnetpay";
 import "../assets/styles/tablescroll.css"
 
 function MainContainer (props) { 
@@ -78,7 +79,8 @@ function MainContainer (props) {
 
             <div  className="flex justify-between items-center">
               <div className="mr-4 text-sm">
-                <h4 className="font-bold">Total Net Salary: <span className="text-[#422FC6] font-bold">NGN3,607,255</span></h4>
+                {/* <h4 className="font-bold">Total Net Salary: <span className="text-[#422FC6] font-bold">NGN3,607,255</span></h4> */}
+                <h4 className="font-bold">Total Net Salary: <span className="text-[#422FC6] font-bold">NGN<FetchTotalnetpay/></span></h4>
               </div>
               <button className=" py-2 px-5 rounded-lg text-white bg-[#422FC6]" onClick={props.togglePaySLip}>Pay Now</button> 
             </div>

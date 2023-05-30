@@ -43,9 +43,9 @@ function Aside () {
     <>
         <div className=" z-2 w-full h-full bg-[#F6F5FF] transition-transform -translate-x-full sm:translate-x-0 flex flex-col justify-between" aria-label="Sidebar">
           <div className="mt-4 px-3 overflow-y-auto bg-transparent">
-              <SidebarBtn icon={<BiHomeAlt />} title="Dashboard"/>
-              <SidebarBtn icon={<TbGraph />} title="Transactions" />
-              <SidebarBtn icon={<RiAccountCircleLine />} title="Account management" />
+              <SidebarBtn icon={<BiHomeAlt />} title="Transactions"/>
+              <SidebarBtn icon={<TbGraph />} title="History" />
+              <SidebarBtn icon={<RiAccountCircleLine />} title="Manage" />
           </div>
           <div className="px-3 py-4 overflow-y-auto bg-transparent mb-4">
               <SidebarBtn icon={<MdErrorOutline />} title="Policies" />
