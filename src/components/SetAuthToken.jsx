@@ -1,5 +1,5 @@
 
-export function setAuthToken  () {
+export function setAuthToken () {
     const token = localStorage.getItem('token');
     if (token) {
       return token;
@@ -7,3 +7,4 @@ export function setAuthToken  () {
     return {};
   }
   
+  // setAuthToken();

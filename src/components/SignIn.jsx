@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-vars */
 import {useState} from "react"
 import Logo from "../assets/images/Logo.png"
 import {MdOutlineVisibility, MdOutlineVisibilityOff} from "react-icons/md"
+import {RiErrorWarningLine} from "react-icons/ri"
 import { Link, useNavigate  } from "react-router-dom";
 
 function SignIn() {
-  // eslint-disable-next-line no-unused-vars
   const [success, setSuccess] = useState(false)
   const [loginError, setLoginError] = useState(null);
-  // const [signUpBtn, setSignUpBtn] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [formData, setFormData] = useState(
     {
@@ -30,6 +30,7 @@ function SignIn() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    // change password type back to password if on type="text".
     if (isPasswordVisible === true) {
       setIsPasswordVisible(false)
     }
@@ -40,18 +41,25 @@ function SignIn() {
   })
     .then(response => response.json())
     .then(data => {
-      // console.log(data);
+      // Save the token to local storage
+      localStorage.setItem('token', data.token);
+
+      // redirect to dashboard on succefull login.
       navigate("/dashboard")
+      
       setSuccess(() => true);
       setFormData({
         email: "", 
         password: ""
       });
       
-      setLoginError(null)
     })
     
-    .catch(error => console.error(error));
+    .catch(error => {
+      // console.error(error)
+      // Set error message on failed login
+      setLoginError("Invalid Credentials");
+    });
    
   }
   
@@ -78,10 +86,11 @@ function SignIn() {
             <div className="w-[400px] border bg-white rounded-lg shadow-md  md:mt-0 sm:max-w-md xl:p-0 ">
                 <div className="p-5 space-y-4 md:space-y-6 sm:p-8">
                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                    <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg">
+                    <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg ">
                         Unlock Performance. Elevate Rewards.
                     </h3>
-                    {loginError && <p className="text-sm text-red-500">{loginError}</p>}
+                    {loginError === null ? null :
+                    <p className="text-sm h-1 text-red-500 font-semibold flex justify-center items-center"><span className="mr-1"><RiErrorWarningLine /></span>{loginError}</p>}
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Email <span className=" text-red-500">*</span></label>
                             <input 
@@ -117,8 +126,8 @@ function SignIn() {
                       
                         <button type="submit" className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#422FC6] `}>Sign In</button>
                         <p className="text-sm font-light text-gray-500">
-                            Don't have an account yet? 
-                            <Link to="/signup" className="ml-2 font-medium text-primary-600 hover:underline">Sign Up</Link>
+                             Don't have an account yet? 
+                            <Link to="/signup" className="ml-2 font-bold text-primary-600 hover:underline">Sign Up</Link>
                         </p>
                     </form>
                 </div>

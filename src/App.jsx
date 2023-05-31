@@ -15,12 +15,11 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const token = SetAuthToken();
         const response = await fetch("https://autopay-qv54.onrender.com/api/v1/transaction", {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${setAuthToken()}`
+            'Authorization': `${setAuthToken()}`,
+            'Content-Type': 'application/json'
           },
         });
         const responseData = await response.json();
