@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import {RiSearchLine} from "react-icons/ri";
 import {RxCaretDown} from "react-icons/rx";
+import FetchTotalnetpay from "./FetchTotalnetpay";
 import "../assets/styles/tablescroll.css"
 
 function MainContainer (props) { 
@@ -42,7 +43,7 @@ function MainContainer (props) {
               <select 
                 value={selectedValue} 
                 onChange={(event) => handleSelectChange(event.target.value)}
-                className="block appearance-none w-full bg-gray-200 border border-[#899197] text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                className="block appearance-none w-full border border-[#735290] text-[#735290] py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                 id="grid-state"
               >
                 <option value='all'>All Employees</option>
@@ -77,10 +78,10 @@ function MainContainer (props) {
             </form>
 
             <div  className="flex justify-between items-center">
-              <div className="mr-4 text-sm">
-                <h4 className="font-bold">Total Net Salary: <span className="text-[#422FC6] font-bold">NGN3,607,255</span></h4>
+              <div className="mr-4 text-sm px-7 py-2 border border-[#A396FF] rounded-md">
+                <h4 className="font-bold text-[#735290]">Total Net Salary: <span className="text-[#422FC6] font-bold">NGN<FetchTotalnetpay/></span></h4>
               </div>
-              <button className=" py-2 px-5 rounded-lg text-white bg-[#422FC6]" onClick={props.togglePaySLip}>Pay Now</button> 
+              <button className=" py-2 px-5 rounded-lg text-white bg-[#422FC6] hover:scale-105" onClick={props.togglePaySLip}>Pay Now</button> 
             </div>
           </div>
           {/* END: The search input and pay button */}

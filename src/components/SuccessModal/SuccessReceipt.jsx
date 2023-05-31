@@ -2,7 +2,8 @@
 // import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
-import close from "../../assets/closecircle.svg"
+import {AiOutlineCloseCircle} from "react-icons/ai"
+import {MdOutlineMail} from "react-icons/md"
 import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
@@ -21,7 +22,7 @@ function SuccessReceipt(props) {
           <img src={logo} alt="logo" />
           <div className={styles.align1} onClick={props.closePopReceipt}>
             <p>close</p>
-            <img src={close} alt="close-icon" />
+            <span><AiOutlineCloseCircle /></span>
           </div>
           </div>
         
@@ -58,7 +59,7 @@ function SuccessReceipt(props) {
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
-          <button>Continue</button>
+          <button><span><MdOutlineMail/></span>Notify Employees</button>
         </div>
 
         </section>:""}
