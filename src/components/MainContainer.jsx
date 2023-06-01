@@ -24,7 +24,7 @@ function MainContainer (props) {
   };
 
   const filteredNames = employeeData ? employeeData.filter((employee) =>
-    employee.firstName.toLowerCase().includes(searchText.toLowerCase()) || employee.lastName.toLowerCase().includes(searchText.toLowerCase())
+    employee.firstName.toLowerCase().includes(searchText.toLowerCase()) || employee.lastName.toLowerCase().includes(searchText.toLowerCase()) || employee._id.toLowerCase().includes(searchText.toLowerCase())
   ) : [];
 
   
