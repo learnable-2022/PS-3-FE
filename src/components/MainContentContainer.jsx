@@ -32,10 +32,10 @@ function MainContentContainer({data}) {
         </div>
         
         <div className="flex w-screen h-full">
-            <div className="bg-[#F9FAFB] w-1/5 h-full">
+            <div className="bg-[#F9FAFB] w-[16%] h-full">
                 <Aside />
             </div>
-            <div className="w-4/5 h-full">
+            <div className="w-[84%] h-full">
                 <MainContainer data={data} togglePaySLip={togglePaySLip} />
             </div>
         </div>
