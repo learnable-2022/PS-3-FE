@@ -34,9 +34,9 @@ function BarChartMonthly () {
             legend: {
                 display: false,
                 position: 'bottom',
-                labels: {
-                    color: 'rgb(66, 47, 198)'
-                }
+                // labels: {
+                //   color: 'rgb(66, 47, 198)',
+                // }
             }
         }
         }

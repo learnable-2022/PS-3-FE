@@ -35,7 +35,9 @@ function DoughnutChart () {
                 display: true,
                 position: 'bottom',
                 labels: {
-                    color: 'rgb(66, 47, 198)'
+                  color: '#6C757D', 
+                  usePointStyle: true,
+                  pointStyle: 'circle',
                 }
             }
         }
