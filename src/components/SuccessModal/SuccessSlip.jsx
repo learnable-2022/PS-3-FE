@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-// import { useState } from "react";
+import { useEffect } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import money from "../../assets/moneysend.svg"
@@ -8,8 +8,21 @@ import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
 import FetchTotalnetpay from "../FetchTotalnetpay"
+import { setAuthToken } from "../setAuthToken";
 
 function SuccessSlip(props) {
+  const pay =() => {
+    fetch('https://autopay-qv54.onrender.com/api/v1/transaction/autopay/payment', {
+      method: 'GET',
+      headers: {
+        'Authorization': `${setAuthToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response =>  response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  []};
   
   return (
     <>
@@ -61,7 +74,10 @@ function SuccessSlip(props) {
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
-          <div className={styles.pay} onClick={props.handlePayNow}>
+          <div className={styles.pay} onClick= {() => {
+            props.handlePayNow()
+            pay()
+            }}>
             <p>Pay now</p>
             <img src={money} alt="pay-icon" />
           </div>

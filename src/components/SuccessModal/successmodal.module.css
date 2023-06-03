@@ -17,7 +17,7 @@
 .container {
   height: 546px;
   box-shadow: rgba(117, 114, 114, 0.116) 2px 2px 10px 2px;
-  top: 7%;
+  top: 10%;
 }
 
 .container1 {
@@ -144,3 +144,165 @@ color: white;
 padding: 8px 12px;
 }
 
+.sent {
+  font-weight: bold;
+  color: green;
+}
+
+@media screen and (max-width: 768px) {
+  .container, .container1 {
+    width: 546px; 
+    left: 24%; 
+    padding: 30px 25px;
+}
+
+.container {
+  height: 670px;
+  top: 24%;
+}
+
+.container1 {
+  top: 24%;
+  height: 496px;
+}
+
+.align1 span {
+  font-size: 30px;
+}
+
+.align p {
+  display: none;
+}
+
+.align3 {
+  margin: 20px auto 35px auto;
+}
+
+.align3 h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.align3 img {
+  width: 70px;
+}
+
+.align3 h1 {
+font-size: 2em;
+}
+
+.align3 h5 {
+  font-size: 18px;
+}
+
+.align3 p {
+  font-size: 18px;
+}
+
+.align4 {
+  margin-bottom: 30px;
+}
+
+.col {
+  font-size: 18px;
+}
+
+.col1 {
+  font-size: 18px;
+}
+
+.align5 {
+  margin-top: 30px;
+}
+
+.align5 button {
+  padding: 12px 16px;
+  font-size: 18px;
+}
+
+
+.print, .pay{
+  font-size: 18px;
+  border-radius: 4px;
+  gap: 8px;
+}
+
+.print {
+  width: 90px;
+  padding: 8px 12px;
+}
+
+.pay {
+  padding: 10px 16px;
+}
+}
+
+@media screen and (max-width: 450px) {
+  .container, .container1 {
+    width: 280px;
+  }
+
+  .container {
+    height: 700px;
+    top: 14%;
+  }
+  
+  .container1 {
+    top: 24%;
+    height: 506px;
+  }
+  
+  .align1 span {
+    font-size: 30px;
+  }
+
+  .print {
+    width: 90px;
+  }
+  
+  .align p {
+    display: none;
+  }
+  
+  .align3 {
+    margin: 20px auto 35px auto;
+  }
+  
+  .align3 h4 {
+    font-size: 16px;
+  }
+  
+  .align3 img {
+    width: 70px;
+  }
+  
+  .align3 h1 {
+  font-size: 2em;
+  }
+  
+  .align3 h5 {
+    font-size: 14px;
+  }
+
+  
+  .align3 p {
+    font-size: 14px;
+  }
+  
+  .align4 {
+    margin-bottom: 30px;
+  }
+  
+  .col {
+    font-size: 16px;
+  }
+  
+  .col1 {
+    font-size: 16px;
+  }
+
+  .sent {
+    font-size: 12px;
+    margin-left: 30px;
+  }
+}

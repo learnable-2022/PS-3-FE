@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-// import { useState } from "react";
+import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import {AiOutlineCloseCircle} from "react-icons/ai"
@@ -8,10 +8,32 @@ import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
+import { setAuthToken } from "../setAuthToken";
+
 
 function SuccessReceipt(props) {
-  
+  const email = () => {
+    fetch('https://autopay-qv54.onrender.com/api/v1/mail', {
+      method: 'GET',
+      headers: {
+        'Authorization': `${setAuthToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => {
+        // console.log('Response status:', response.status);
+        return response.json();
+      })
+      .then(data => {console.log(data);
+      })
+      .catch(error => console.error(error));
+  []}; 
 
+  const [pop, setpop] = useState(true);
+  const handleOpen = () => {
+  setpop(!pop);
+  }
+  
   return (
     <>
       <section className={styles.background}>
@@ -30,7 +52,7 @@ function SuccessReceipt(props) {
         <h4>Tenece employee salary payment receipt</h4>
         <img src={good} alt="complete-icon"  />
         <h1>Thank you!</h1>
-        <h5>Your payment is successful</h5>
+        <h5>Your payment was successful</h5>
         <p>We have sent you an email confirmation.</p>
         </div>
 
@@ -59,7 +81,14 @@ function SuccessReceipt(props) {
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
-          <button><span><MdOutlineMail/></span>Notify Employees</button>
+          
+            {pop?
+          <button onClick= {() => {
+            handleOpen()
+            email()
+            }}><span><MdOutlineMail/></span>
+          Notify Employees</button>:
+          <p className={styles.sent}>Emails successfully sent!</p>}
         </div>
 
         </section>:""}

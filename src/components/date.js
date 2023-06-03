@@ -1,5 +1,5 @@
 
   const showdate= new Date();
-  const displaydate= showdate.getDate()+'th,'+'May'+','+showdate.getFullYear();
+  const displaydate= showdate.getDate()+'th,'+'June'+','+showdate.getFullYear();
 
   export { displaydate };
