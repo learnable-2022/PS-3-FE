@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Route, Routes } from "react-router-dom";
 
 import MainContentContainer from './components/MainContentContainer'
+import HistoryPage from './components/HistoryPage';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
 import { setAuthToken } from './components/setAuthToken';
@@ -36,6 +37,7 @@ function App() {
     <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/dashboard" element={<MainContentContainer data={data} />} />
+        <Route path="/history/*" element={<HistoryPage data={data} />} />
         <Route path="/signup" element={<SignUp />} />
     </Routes>
     </>
