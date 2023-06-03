@@ -5,16 +5,16 @@ import {BiHomeAlt} from 'react-icons/bi';
 import {RiAccountCircleLine} from 'react-icons/ri';
 import {MdOutlineSettings} from 'react-icons/md';
 import {FiLogOut} from 'react-icons/fi';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 
 
 function SidebarBtn(props) {
   return (
-    <button className='font-semibold bg-transparent hover:bg-[#422FC6] group flex h-8 my-2 w-full items-center py-1 rounded-lg'>
+    <NavLink to={props.location} className='font-semibold border-b-[4px] border-[#ffffff00] bg-transparent hover:bg-[#422FC6] group flex h-8 my-2 w-full items-center py-1 rounded-lg'>
         <span className='text-xl pl-6 bg-transparent text-[#241E4E] group-hover:text-white'> {props.icon} </span>
         <p className="ml-3 text-xs bg-transparent text-[#241E4E] group-hover:text-white"> {props.title} </p>
-    </button>
+    </NavLink>
   )
 }
 
@@ -43,8 +43,8 @@ function Aside () {
     <>
         <div className=" z-2 w-full h-full bg-[#F6F5FF] transition-transform -translate-x-full sm:translate-x-0 flex flex-col justify-between" aria-label="Sidebar">
           <div className="mt-4 px-3 overflow-y-auto bg-transparent">
-              <SidebarBtn icon={<BiHomeAlt />} title="Transactions"/>
-              <SidebarBtn icon={<TbGraph />} title="History" />
+              <SidebarBtn icon={<BiHomeAlt />} title="Transactions" location={'/dashboard' }/>
+              <SidebarBtn icon={<TbGraph />} title="History" location={'/history' }/>
               <SidebarBtn icon={<RiAccountCircleLine />} title="Manage" />
           </div>
           <div className="px-3 py-4 overflow-y-auto bg-transparent mb-4">
