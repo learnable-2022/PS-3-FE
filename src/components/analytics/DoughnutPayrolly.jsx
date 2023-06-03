@@ -10,11 +10,11 @@ ChartJS.register(
 
 function DoughnutPayroll () {
   const data ={
-    labels: ['Pending Payment', 'Approved Payment'], 
+    labels: ['Pending Payment', 'Successful Payment'], 
     datasets: [
       {
         label: "Department", 
-        data: [100, 260], 
+        data: [9, 35], 
         backgroundColor: ['#FF6384', '#36A2EB'],
         cutout: "75%",
         spacing: -15,
@@ -27,7 +27,8 @@ function DoughnutPayroll () {
       }
     ]
   }
-
+   // Calculate the sum of the data array
+   const sum = data.datasets[0].data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
   const options = {
           responsive: true,
           plugins: {
@@ -44,8 +45,15 @@ function DoughnutPayroll () {
         }
 
   return (
-    <div className='w-4/5 h-4/5 flex justify-center items-center'>
+    <div className='w-4/5 h-4/5 relative flex justify-center items-center'>
       <Doughnut data={data} options={options}/>
+      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-1/2' >
+        <span className='font-bold text-sm '>
+          {sum}
+        </span>
+        <br />
+        <p className='text-sm font-semibold '>Payments</p>
+      </div>
     </div>
   );
 }

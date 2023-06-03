@@ -7,7 +7,6 @@ import HistoryPage from './components/HistoryPage';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
 import { setAuthToken } from './components/setAuthToken';
-import AllCharts from './components/analytics/AllCharts';
 
 // import './App.css'
 
@@ -40,7 +39,6 @@ function App() {
         <Route path="/dashboard" element={<MainContentContainer data={data} />} />
         <Route path="/history/*" element={<HistoryPage data={data} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/don" element={<AllCharts />} />
     </Routes>
     </>
   )

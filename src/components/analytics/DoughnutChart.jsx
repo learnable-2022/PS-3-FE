@@ -28,29 +28,34 @@ function DoughnutChart () {
     ]
   }
 
+  // Calculate the sum of the data array
+  const sum = data.datasets[0].data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
   const options = {
-          responsive: true,
-          plugins: {
-            legend: {
-                display: true,
-                position: 'bottom',
-                labels: {
-                  color: '#6C757D', 
-                  usePointStyle: true,
-                  pointStyle: 'circle',
-                }
-            }
-        }
-        }
+    responsive: true,
+    plugins: {
+      legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            color: '#6C757D', 
+            usePointStyle: true,
+            pointStyle: 'circle',
+          }
+      }
+    }
+  }
 
   return (
-    <div className='w-4/5 h-4/5 flex justify-center items-center border border-red-600'>
-      <Doughnut data={data} options={options}/>
-      {/* <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full">
-        <span className="text-slate-500 mt-0.5 text-center">
-          15 <br /> Employees
+    <div className='w-4/5 h-4/5 relative flex justify-center items-center'>
+      <Doughnut data={data} options={options} />
+      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-1/2' >
+        <span className='font-bold text-sm '>
+          {sum}
         </span>
-      </div> */}
+        <br />
+        <p className='text-sm font-semibold '>Employees</p>
+      </div>
     </div>
   );
 }

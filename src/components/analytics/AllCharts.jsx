@@ -4,24 +4,27 @@ import DoughnutChart from './DoughnutChart'
 import BarChartMonthly from './BarChartMonthly'
 import DoughnutPayroll from './DoughnutPayrolly'
 import ChartTitle from './ChartTitle'
+import BarChartYearly from './BarChartYearly'
+
+
 
 function AllCharts() {
   return (
-    <div className='flex justify-center items-center w-screen h-screen'>
+    <div className='flex justify-center items-center w-full min-h-[490px]'>
         <div className=' grid grid-cols-2 w-full h-full' >
-            <div className='flex justify-center flex-col items-center border border-green-500 row-span-2'>
+            <div className='flex justify-center flex-col items-center row-span-2'>
                 <ChartTitle title="Employees’ Summary" />
                 <DoughnutChart />
             </div>
-            <div className='flex justify-center flex-col items-center border border-blue-500 row-span-2'>
+            <div className='flex justify-center flex-col items-center row-span-2'>
                 <ChartTitle title="Monthly payment summary" />
                 <BarChartMonthly />
             </div>
-            <div className='flex justify-center flex-col items-center border border-pink-500 row-span-2'>
+            <div className='flex justify-center flex-col items-center row-span-2'>
             <ChartTitle title="Yearly Summary" />
-                <BarChartMonthly />
+                <BarChartYearly />
             </div>
-            <div className='flex justify-center flex-col items-center border border-purple-500 row-span-2'>
+            <div className='flex justify-center flex-col items-center row-span-2'>
                 <ChartTitle title="Payroll Summary" />
                 <DoughnutPayroll />
             </div>
