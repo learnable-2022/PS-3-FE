@@ -45,7 +45,7 @@ function SignIn() {
       localStorage.setItem('token', data.token);
 
       // redirect to dashboard on succefull login.
-      navigate("/dashboard")
+      navigate("/landingpage")
       
       setSuccess(() => true);
       setFormData({

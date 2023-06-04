@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 
 import MainContentContainer from './components/MainContentContainer'
 import HistoryPage from './components/HistoryPage';
+import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
 import { setAuthToken } from './components/setAuthToken';
@@ -36,6 +37,7 @@ function App() {
     <>
     <Routes>
         <Route path="/" element={<SignIn />} />
+        <Route path="/landingpage" element={<LandingPageMain />} />
         <Route path="/dashboard" element={<MainContentContainer data={data} />} />
         <Route path="/history/*" element={<HistoryPage data={data} />} />
         <Route path="/signup" element={<SignUp />} />
