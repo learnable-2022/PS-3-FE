@@ -15,10 +15,8 @@ function PerformanceTable() {
             <tr className="text-gray-400 text-left border-b text-sm">
                 <th className="py-3 font-medium px-5">Full Name</th>
                 <th className="py-3 font-medium px-5">Phone NUmber</th>
-                <th className="py-3 font-medium px-5">Company</th>
                 <th className="py-3 font-medium px-5">Department</th>
                 <th className="py-3 font-medium px-5">EPA Reviewer</th>
-                <th className="py-3 font-medium px-5">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -30,13 +28,9 @@ function PerformanceTable() {
                         <span className="text-sm text-gray-400">j.chukwunonso@genesystechhub.com</span>
                     </div>
                 </td>
-                <td className="py-3 font-semibold px-5">+2348097543468</td> 
-                <td className="py-3 font-semibold px-5">Genesys</td> 
+                <td className="py-3 font-semibold px-5">+2348097543468</td>
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -47,12 +41,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">+2348097543468</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
-                <td className="py-3 font-semibold px-5">Dev Studio</td> 
+                <td className="py-3 font-semibold px-5">Dev Studio</td>
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -63,12 +53,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -79,12 +65,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
-                <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-blue-200 px-1 rounded-sm">Approved</span>
-                </td>
+                <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -95,12 +77,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -111,12 +89,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
-                <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-blue-300 px-1 rounded-sm">Not Submited</span>
-                </td>
+                <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -127,12 +101,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -143,12 +113,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
-                <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-blue-200 px-1 rounded-sm">Approved</span>
-                </td>
+                <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -159,12 +125,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -175,12 +137,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -191,12 +149,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -207,12 +161,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -223,12 +173,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -239,12 +185,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
             <tr className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                 <td className="py-3 font-semibold px-5 flex flex-row gap-3">
@@ -255,12 +197,8 @@ function PerformanceTable() {
                     </div>
                 </td>
                 <td className="py-3 font-semibold px-5">-</td> 
-                <td className="py-3 font-semibold px-5">Tenece</td> 
                 <td className="py-3 font-semibold px-5">Dev Studio</td> 
                 <td className="py-3 font-semibold px-5">Ositadinma Nwangwu</td> 
-                <td className="py-3 font-semibold px-5">
-                    <span className="bg-yellow-200 px-1 rounded-sm">Pending Approval</span>
-                </td>
             </tr>
         </tbody>
     </table>
