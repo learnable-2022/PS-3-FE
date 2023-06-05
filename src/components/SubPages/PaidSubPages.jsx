@@ -5,7 +5,8 @@ import "./../../assets/styles/checkbox.css";
 
 function PaidSubPage(props) {
   const [searchText, setSearchText] = useState("");
-  const employeeData = props.data ? props.data : null;
+  const employeeData = props.item.length ? props.item : null;
+  console.log(props.item.length)
 
   const handleSearchName = (event) => {
     setSearchText(event);
@@ -42,10 +43,10 @@ function PaidSubPage(props) {
       </div>
       {/* BEGIN: Table development */}
 
-      <div className="relative w-full mt-4 max-h-96 min-h-[420px] flex justify-center items-start overflow-y-scroll shadow">
+      <div className="relative w-full mt-4 max-h-96 min-h-[420px] flex justify-center items-start overflow-y-scroll">
         <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg w-full">
           <table className=" border-l border-r w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-white capitalize bg-[#422FC6] rounded-t-md text-center">
+            <thead className="text-xs text-white capitalize bg-[#422FC6] border border-[#422FC6] rounded-t-md text-center">
               <tr>
                 <th scope="col" className="px-9 py-3">
                   Full Name
@@ -54,13 +55,7 @@ function PaidSubPage(props) {
                   Department
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Score
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Gross Salary
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Net Salary
+                  Amount Paid 
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Account Number
@@ -81,11 +76,9 @@ function PaidSubPage(props) {
                       {`${details.firstName} ${details.lastName}`}
                     </th>
                     <td className="px-12 py-4">{`${details.department}`}</td>
-                    <td className="px-6 py-4">4.7</td>
                     <td className="px-6 py-4 uppercase">
-                      NGN{details.grossSalary}
+                      NGN{details.amount}
                     </td>
-                    <td className="px-6 py-4">NGN{details.netSalary}</td>
                     <td className="px-6 py-4">{details.accountNumber}</td>
                     <td className="px-6 py-4 text-green-400 font-semibold italic">
                       successful

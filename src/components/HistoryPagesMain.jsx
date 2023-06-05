@@ -6,7 +6,7 @@ import HistorySubPage from "./SubPages/HistorySubPage";
 import PendingSubPage from "./SubPages/PendingSubPage";
 import PaidSubPage from "./SubPages/PaidSubPages";
 
-function HistoryPagesMain({ data, item}) {
+function HistoryPagesMain({ data, item }) {
   const location = useLocation();
   const pathname = location.pathname;
   const pageName = pathname.substring(pathname.lastIndexOf("/"));
@@ -22,12 +22,12 @@ function HistoryPagesMain({ data, item}) {
           <main className="w-full">
             {pageName.includes("/schedule") ? (
               <ScheduleSubPage data={data} />
-            ) : pageName.includes("/history") || pageName === "/" ? (
-              <HistorySubPage />
-            ) : pageName.includes("/pending") || pageName === "/" ? (
-              <PendingSubPage />
+            ) : pageName.includes("/paid") ? (
+              <PaidSubPage item={item} />
+            ) : pageName.includes("/pending") ? (
+              <PendingSubPage item={item} />
             ) : (
-              <PaidSubPage data={data} item={item} />
+              <HistorySubPage item={item} />
             )}
           </main>
         </div>
