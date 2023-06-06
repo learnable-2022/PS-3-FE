@@ -37,10 +37,10 @@ function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
         </div>
         
         <div className="flex w-full h-full overflow-y-auto relative">
-            <div className='md:bg-[#F9FAFB] w-fit relative h-full overflow-hidden z-50 md:z-10'>
+            <div className=' w-fit absolute md:relative h-full overflow-hidden z-50 md:z-10'>
               <Aside sideBarIsOpen={sideBarIsOpen} />
             </div>
-            <div className="w-screen md:w-[84%] relative h-fit z-0 md:z-10 px-4">
+            <div className="w-screen md:w-[84%] md:relative h-fit z-0 md:z-10 px-4">
                 <HistoryPagesMain data={data} item={item}>
                     <Routes>
                         <Route path="/history/" element={<HistoryPage />} />

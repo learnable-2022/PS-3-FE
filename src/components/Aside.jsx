@@ -58,9 +58,9 @@ function Aside({ sideBarIsOpen }) {
     <div
       className={`${
         sideBarIsOpen ? "block" : "hidden"
-      } md:block transition ease-in duration-300 bg-black text-white w-[50%] md:w-[16%]  min-w-[200px]`}
+      } md:block transition ease-in duration-300 bg-black text-white w-[50%] md:w-[16%] min-w-[300px]`}
     >
-    <div className="md:block flex flex-row w-[50%] md:w-[16%] fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
+    <div className="md:block flex flex-row fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
         <div
           className="z-2 w-full h-full sm:translate-x-0 flex flex-col justify-between bg-[#F9FAFB]"
           aria-label="Sidebar"
