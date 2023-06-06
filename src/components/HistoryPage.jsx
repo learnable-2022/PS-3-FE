@@ -37,7 +37,7 @@ function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
         </div>
         
         <div className="flex w-full h-full overflow-y-auto relative">
-            <div className=' w-fit absolute md:relative h-full overflow-hidden z-50 md:z-10'>
+            <div className='w-fit md:w-[16%] absolute md:relative h-full overflow-hidden z-50 md:z-10'>
               <Aside sideBarIsOpen={sideBarIsOpen} />
             </div>
             <div className="w-screen md:w-[84%] md:relative h-fit z-0 md:z-10 px-4">
