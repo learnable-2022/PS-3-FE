@@ -7,7 +7,7 @@ import SuccessReceipt from "./SuccessModal/SuccessReceipt"
 
 import NavPay from "./NavPay"
 
-function MainContentContainer({data}) {
+function MainContentContainer({data,  sideBarIsOpen, setSideBarIsOpen }) {
     const [popSlip, setPopSlip] = useState(false)
     const [showReceipt, setShowReceipt] = useState(false);
 
@@ -28,14 +28,14 @@ function MainContentContainer({data}) {
   return (
     <div className="flex flex-col w-screen h-screen ">
         <div className="h-14 flex justify-center items-center w-full">
-            <NavPay />
+            <NavPay sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>
         </div>
         
-        <div className="flex w-screen h-full">
-            <div className="bg-[#F9FAFB] w-[16%] h-full">
-                <Aside />
-            </div>
-            <div className="w-[84%] h-full">
+        <div className="flex w-full h-full overflow-hidden relative">
+          <div className='md:bg-[#F9FAFB] w-fit relative h-full overflow-hidden z-50 md:z-10'>
+            <Aside sideBarIsOpen={sideBarIsOpen} />
+          </div>
+            <div className="w-screen md:w-[84%] relative h-full z-0 md:z-10 px-4">
                 <MainContainer data={data} togglePaySLip={togglePaySLip} />
             </div>
         </div>

@@ -42,7 +42,7 @@ function BarChartYearly () {
         }
 
   return (
-    <div className='w-4/5 h-4/5 flex justify-center items-center'>
+    <div className='w-[90%] md:w-4/5 h-full md:h-4/5 relative flex justify-center items-center'>
       <Bar data={data} options={options}/>
     </div>
   );
