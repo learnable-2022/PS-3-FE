@@ -13,6 +13,7 @@ import { setAuthToken } from './components/setAuthToken';
 
 function App() {
   const [data, setData] = useState(null);
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -38,8 +39,8 @@ function App() {
     <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
-        <Route path="/dashboard" element={<MainContentContainer data={data} />} />
-        <Route path="/history/*" element={<HistoryPage data={data} />} />
+        <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
+        <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
         <Route path="/signup" element={<SignUp />} />
     </Routes>
     </>

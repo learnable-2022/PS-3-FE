@@ -6,11 +6,10 @@ import HistoryPagesMain from "./HistoryPagesMain"
 import { setAuthToken } from './setAuthToken';
 
 import NavPay from "./NavPay"
-import ScheduleSubPage from './SubPages/ScheduleSubPage';
 import PaidSubPage from './SubPages/PaidSubPages';
 import PendingSubPage from './SubPages/PendingSubPage';
 
-function HistoryPage({data}) {
+function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
     const [item, setItem] = useState({});
   
   useEffect(() => {
@@ -31,23 +30,20 @@ function HistoryPage({data}) {
     })
     .catch(error => console.error(error));
 }, []);
-console.log(item)
   return (
-    <div className="flex flex-col w-screen h-screen ">
+    <div className="flex flex-col w-full h-screen">
         <div className="h-14 flex justify-center items-center w-full">
-            <NavPay />
+            <NavPay sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />
         </div>
         
-        <div className="flex w-screen h-full">
-            <div className="bg-[#F9FAFB] w-[16%] h-full">
-                <Aside />
-                
+        <div className="flex w-full h-full overflow-y-auto relative">
+            <div className='w-fit md:w-[16%] absolute md:relative h-full overflow-hidden z-50 md:z-10'>
+              <Aside sideBarIsOpen={sideBarIsOpen} />
             </div>
-            <div className="w-[84%] h-full">
+            <div className="w-screen md:w-[84%] md:relative h-fit z-0 md:z-10 px-4">
                 <HistoryPagesMain data={data} item={item}>
                     <Routes>
                         <Route path="/history/" element={<HistoryPage />} />
-                        <Route path="/history/schedule" element={<ScheduleSubPage data={data} />} />
                         <Route path="/history/pending" element={<PendingSubPage />} />
                         <Route path="/history/paid" element={<PaidSubPage item={item} />} />
                     </Routes>
