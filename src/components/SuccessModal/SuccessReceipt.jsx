@@ -9,6 +9,8 @@ import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
 import { setAuthToken } from "../setAuthToken";
+import { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 
 
 function SuccessReceipt(props) {
@@ -33,11 +35,18 @@ function SuccessReceipt(props) {
   const handleOpen = () => {
   setpop(!pop);
   }
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint ({
+    content: () => componentRef.current,
+    documentTitle: 'Payment Slip/Receipt',
+    onAfterPrint: () => alert('Print success')
+  });
   
   return (
     <>
-      <section className={styles.background}>
-        {props.showReceipt ?
+    {props.showReceipt ?
+      <section className={styles.back} ref={componentRef}>
         <section className={styles.container}>
          
         <div className={styles.align}>
@@ -77,7 +86,7 @@ function SuccessReceipt(props) {
         </div>
 
         <div className={styles.align5}>
-          <div className={styles.print}>
+          <div className={styles.print} onClick={handlePrint}>
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
@@ -90,9 +99,8 @@ function SuccessReceipt(props) {
           Notify Employees</button>:
           <p className={styles.sent}>Emails successfully sent!</p>}
         </div>
-
-        </section>:""}
       </section>
+      </section>:""}
     </>
   )
 }

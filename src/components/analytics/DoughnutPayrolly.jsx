@@ -45,14 +45,14 @@ function DoughnutPayroll () {
         }
 
   return (
-    <div className='w-4/5 h-4/5 relative flex justify-center items-center'>
+    <div className='w-[90%] md:w-4/5 h-[90%] md:h-4/5 relative flex justify-center items-center'>
       <Doughnut data={data} options={options}/>
-      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-1/2' >
-        <span className='font-bold text-sm '>
+      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-4 md:-translate-y-1/2' >
+        <span className='font-bold text-5xl md:text-sm  '>
           {sum}
         </span>
         <br />
-        <p className='text-sm font-semibold '>Payments</p>
+        <p className='text-3xl md:text-sm font-semibold '>Payments</p>
       </div>
     </div>
   );

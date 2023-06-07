@@ -15,13 +15,6 @@ function HistoryPageNav() {
           History
         </NavLink>
         <NavLink
-          to={"/history/schedule"}
-          className="text-sm"
-          activeClassName="nav"
-        >
-          Schedule
-        </NavLink>
-        <NavLink
           to={"/history/pending"}
           className="text-sm"
           activeClassName="nav"

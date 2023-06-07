@@ -9,6 +9,8 @@ import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
 import FetchTotalnetpay from "../FetchTotalnetpay"
 import { setAuthToken } from "../setAuthToken";
+import { useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 
 function SuccessSlip(props) {
   const pay =() => {
@@ -23,14 +25,21 @@ function SuccessSlip(props) {
       .then(data => console.log(data))
       .catch(error => console.error(error));
   []};
+
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint ({
+    content: () => componentRef.current,
+    documentTitle: 'Payment Slip/Receipt',
+    onAfterPrint: () => alert('Print success')
+  });
+  
   
   return (
     <>
-      <section className={styles.background}>
-        {props.popSlip ?
-        <section className={styles.container1}>
-         
-        <div className={styles.align}>
+    {props.popSlip ?
+        <section className={styles.back} ref={componentRef}>
+          <section className={styles.container1}>
+         <div className={styles.align}>
           <img src={logo} alt="logo" />
           <div className={styles.align1} onClick={props.togglePaySLip}>
             <p>close</p>
@@ -70,7 +79,7 @@ function SuccessSlip(props) {
         </div>
 
         <div className={styles.align5}>
-          <div className={styles.print}>
+          <div className={styles.print} onClick={handlePrint}>
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
@@ -83,9 +92,9 @@ function SuccessSlip(props) {
           </div>
         </div>
 
-        </section>:""}
+        </section>
         {props.showReceipt && <SuccessReceipt />}
-      </section>
+      </section>:""}
     </>
   )
 }
