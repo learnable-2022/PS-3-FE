@@ -202,7 +202,7 @@ function MainContainer(props) {
           </div>
         </div>
         {/* END: The search input and pay button */}
-
+        
         {/* BEGIN: Table development */}
 
         <div className="relative w-full max-h-96 justify-center items-start overflow-y-scroll hidden md:flex">
