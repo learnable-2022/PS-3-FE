@@ -120,9 +120,9 @@ function MainContainer (props) {
                     <tbody className="text-xs text-center">
                         {filteredNames.length !== 0 ? (
                           filteredNames.map(details => (
-                            <tr className="bg-white border-b capitalize" key={details._id}>
+                            <tr className="bg-white border-b capitalize" key={details.employeeId}>
                           <th scope="row" className="px-4 capitalize py-4 font-medium text-gray-900 whitespace-nowrap">
-                            {details._id}
+                            {details.employeeId}
                           </th>
                           <td className="px-12 py-4">
                             {`${details.firstName} ${details.lastName}`}

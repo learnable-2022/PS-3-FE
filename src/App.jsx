@@ -15,29 +15,29 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://autopay-qv54.onrender.com/api/v1/transaction", {
-          method: 'GET',
-          headers: {
-            'Authorization': `${setAuthToken()}`,
-            'Content-Type': 'application/json'
-          },
-        });
-        const responseData = await response.json();
-        setData(responseData.data);
-      } catch (error) {
-        console.log("Error: ", error);
-      }
-    };
-
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://autopay-qv54.onrender.com/api/v1/transaction", {
+        method: 'GET',
+        headers: {
+          'Authorization': `${setAuthToken()}`,
+          'Content-Type': 'application/json'
+        },
+      });
+      const responseData = await response.json();
+      setData(responseData.data);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
   return (
     <>
     <Routes>
         <Route path="/" element={<SignIn />} />
-        <Route path="/landingpage" element={<LandingPageMain />} />
+        <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
         <Route path="/dashboard" element={<MainContentContainer data={data} />} />
         <Route path="/history/*" element={<HistoryPage data={data} />} />
         <Route path="/signup" element={<SignUp />} />

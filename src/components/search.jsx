@@ -7,7 +7,7 @@ function Search() {
       <div className="flex flex-row items-center justify-center border border-gray-400 px-2 py-1 rounded">
         <input
           type="text"
-          placeholder="search"
+          placeholder="searcha"
           className="outline-none text-xs"
         />
         <CiSearch />
@@ -18,8 +18,8 @@ function Search() {
           id="year"
           className="bg-gray-100 h-full outline-none rounded text-sm"
         >
-          <option value="2021" selected>
-            2021
+          <option value="2023">
+            2023
           </option>
           <option value="2020">2020</option>
           <option value="2019">2019</option>
@@ -33,8 +33,7 @@ function Search() {
           id="status"
           className="bg-gray-100 h-full outline-none rounded text-sm"
         >
-          <option value="status" selected>
-            status
+          <option value=""> status
           </option>
           <option value="Approved">Approved</option>
           <option value="Pending Approval">Pending Approval</option>
@@ -47,11 +46,13 @@ function Search() {
           id="Department"
           className="bg-gray-100 h-full outline-none rounded text-sm"
         >
-          <option value="Department" selected>
+          <option value="">
             Department
           </option>
           <option value="Dev Studio">Dev Studio</option>
           <option value="Learnable">Learnable</option>
+          <option value="Learnable">Scuudu</option>
+          <option value="Learnable">Upskill</option>
         </select>
       </div>
       <div>
@@ -60,8 +61,8 @@ function Search() {
           id="All Companies"
           className="bg-gray-100 h-full outline-none rounded text-sm"
         >
-          <option value="All companies" selected>
-            All companies
+          <option value="Genesys" >
+          Genesys
           </option>
         </select>
       </div>
