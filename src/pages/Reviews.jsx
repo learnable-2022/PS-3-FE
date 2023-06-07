@@ -1,10 +1,13 @@
+/* eslint-disable react/prop-types */
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import Search from "../components/search";
+// import Search from "../components/search";
 import ReviewTable from "../components/tables/ReviewTable";
-import Pagecontrol from "../components/Pagecontrol";
-import { NavLink } from "react-router-dom";
+// import Pagecontrol from "../components/Pagecontrol";
+// import { NavLink } from "react-router-dom";
+// import { FiPlus } from "react-icons/fi";
 
-function Reviews() {
+function Reviews(props) {
   return (
     <div className="flex items-center justify-center p-6">
         <div className="w-[1000px] min-h-[700px]">
@@ -15,15 +18,28 @@ function Reviews() {
             </h2>
             <p className="text-sm mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, earum cumque perferendis tempore molestiae eius odio dolorum quibusdam illo modi quos. Autem blanditiis corrupti libero debitis beatae reprehenderit quae sint consequatur vero atque veritatis esse saepe quos voluptatibus laboriosam alias animi, aut, fugiat exercitationem ratione quod perferendis.</p>
             <div className="flex flex-row gap-10 text-sm mb-8">
-                <span>Period in Review: July 1, 2020 - July 31, 2020</span>
-                <span>Start - End Date: July 1, 2020 - July 10, 2020</span>
+                <span>Period in Review: April 1, 2023 - July 31, 2023</span>
+                <span>Start - End Date: May 1, 2023 - June 1, 2023</span>
             </div>
-            <div className="flex flex-row items-center justify-between">
-              <Search />
-              <NavLink to={"/dashboard"} className="text-sm rounded p-2 bg-[#0052cc] text-white">Payroll</NavLink>
+            {/* <div className="flex flex-row items-center justify-between">
+              <Search data={props.data} />
+              <div className="flex justify-end items-center w-full">
+              <button 
+                onClick={() => props.toggleAddEmployee()}
+                className="bg-primary hover:bg-primaryHover rounded text-white py-2 text-sm px-4 flex items-start justify-center">
+                <span className="mt-[2px] text-base font-bold mr-1"><FiPlus /></span> 
+                Add Employee
+              </button>
+              <NavLink to={"/dashboard"} onClick={props.reloadDash} className="rounded ml-14 bg-primary hover:bg-primaryHover text-white py-2 text-sm px-4">Payroll</NavLink>
             </div>
-            <ReviewTable />
-            <Pagecontrol />
+            </div> */}
+            <ReviewTable 
+              data={props.data} 
+              loading={props.loading}
+              handleEmployeeClick={props.handleEmployeeClick} 
+              reloadDash={props.reloadDash}
+              toggleAddEmployee={props.toggleAddEmployee}/>
+            {/* <Pagecontrol /> */}
         </div>
     </div>
   );
