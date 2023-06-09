@@ -60,22 +60,22 @@ function SignUp() {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900 flex justify-between flex-col h-screen">
+      <section className="bg-gray-50 flex justify-between flex-col md:h-screen">
         <nav className="bg-white w-full h-14 z-20 shadow-md ">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-              <a href="#" className="flex items-center">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-center md:justify-start mx-auto p-4">
+              <span className="flex items-center">
                   <img src={Logo} className="h-5 mr-3" alt="AutoPay Logo" />
-              </a>
+              </span>
           </div>
         </nav>
         <div className="flex max-w-screen-xl flex-col items-center justify-center px-5 py-6 mx-auto ">
-          <h1 className="text-xl text-[#422FC6] font-bold leading-tight tracking-tight md:text-2xl mb-3">
+          <h1 className="text-2xl text-[#422FC6] font-bold leading-tight tracking-tight md:text-3xl mb-3">
               Sign Up
           </h1>
-          <div className="w-[400px] border bg-white rounded-lg shadow-md  md:mt-0 sm:max-w-md xl:p-0 ">
+          <div className="md:w-[400px] border bg-white rounded-lg shadow-md  md:mt-0 sm:max-w-md xl:p-0 ">
                 <div className="p-5 space-y-4 md:space-y-6 sm:p-8">
                 <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                        <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg">
+                        <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg text-center">
                         Unlock Performance. Elevate Rewards.
                     </h3>
                         <div>

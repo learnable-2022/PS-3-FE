@@ -8,8 +8,8 @@ function GetInitials({a, b}) {
 
     
 useEffect(()=>{
-setFirst(a.charAt(0))
-setLast(b.charAt(0))
+setFirst(a.charAt(0).toUpperCase())
+setLast(b.charAt(0).toUpperCase())
 },[])
   return (
     <p>{`${first} ${last}`}</p>

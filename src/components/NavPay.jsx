@@ -1,6 +1,7 @@
 // import React from 'react'
 import Logo from "../assets/images/Logo.png";
 import { BsBell } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
     
@@ -37,9 +38,9 @@ function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
             )}
           </svg>
         </button>
-        <a href="https://www.google.com/" className="flex items-center">
+        <Link to="/landingpage" className="flex items-center">
           <img src={Logo} className="h-5 mr-3" alt="AutoPay Logo" />
-        </a>
+        </Link>
         <div className="flex flex-row items-center justify-between w-fit md:flex md:w-auto md:order-1">
           <span className="text-lg mr-6 cursor-pointer">
             <BsBell />
