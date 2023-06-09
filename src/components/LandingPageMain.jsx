@@ -127,14 +127,19 @@ function toggleDelEmployee () {
               <GiHamburgerMenu className="text-xl" />
               <div className="flex flex-row items-center gap-3">
                 <img src={ResourceEdgeLogo} alt="" />
-                <h2 className="border-l border-gray-300 px-3">
-                  Performance Management
+                <h2 className="border-l border-gray-300 hidden px-3 sm:block">
+                 Genesys Performance Management
                 </h2>
               </div>
             </div>
             <div>
               <img src={AdminAvatar} alt="abssa" />
             </div>
+          </div>
+          <div className="flex justify-center items-center sm:hidden">
+            <h2 className="font-bold text-lg">
+              Genesys Performance Management
+            </h2>
           </div>
           <div className="flex flex-row items-center gap-4 px-4 pt-2 shadow">
             <div
@@ -153,13 +158,12 @@ function toggleDelEmployee () {
         </nav>
         <div>{currentPage == "review" ? 
         <Reviews 
-          reloadDash={props.reloadDash} 
           data={data}  
           loading={loading}
           handleEmployeeClick={handleEmployeeClick} 
           toggleAddEmployee={toggleAddEmployee}/>  : 
           
-          <PerformanceAgreement loading={loading} data={data}/>}</div>
+          <PerformanceAgreement loading={loading} data={data} reloadDash={props.reloadDash}/>} </div>
       
         <AddEmployee showaddEmp={showaddEmp} toggleAddEmployee={toggleAddEmployee} fetchData={fetchData} />
         <DeleteEmployeeModal 

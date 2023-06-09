@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { TbGraph } from "react-icons/tb";
 import { BiHomeAlt } from "react-icons/bi";
