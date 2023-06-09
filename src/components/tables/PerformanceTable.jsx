@@ -48,7 +48,7 @@ function PerformanceTable(props) {
                         type="search"
                         placeholder="search"
                         onChange={(event) => handleSearchName(event.target.value)}
-                        className="outline-none text-xs"
+                        className="outline-none text-xs w-24 sm:w-40"
                         />
                         <CiSearch />
                     </div>
@@ -57,7 +57,7 @@ function PerformanceTable(props) {
                         <select 
                             value={selectedValue} 
                             onChange={(event) => handleSelectChange(event.target.value)}
-                            className=" bg-gray-100 h-full outline-none rounded text-sm py-2 focus:outline-none focus:border-gray-500" 
+                            className="w-24 sm:w-36 sm:px-2 bg-gray-100 h-full outline-none rounded text-sm py-2 focus:outline-none focus:border-gray-500" 
                             id="grid-state"
                         >
                             <option value='all'>All Employees</option>
@@ -73,13 +73,21 @@ function PerformanceTable(props) {
                     </div>
                     
                 </section>
-                <NavLink to={"/dashboard"} onClick={props.reloadDash} className="rounded ml-2 bg-primary hover:bg-primaryHover text-white py-2 text-sm px-4">Payroll</NavLink>
+                <NavLink 
+                    to={"/dashboard"} 
+                    onClick={() => {
+                        props.reloadDash();
+                        
+                      }}
+                    className="rounded ml-2 bg-primary hover:bg-primaryHover text-white py-2 text-sm px-2 sm:px-4">
+                        Payroll
+                </NavLink>
             </div>
             <div className="overflow-x-auto overflow-hidden">
                 <table className="mt-8 w-full border-2 border-gray-100">
                     <thead>
                         <tr className="text-left border-b">
-                            <th colSpan={4} className="px-5 text-xl py-3">Performance Agreements <span>{empLength}</span></th>
+                            <th colSpan={4} className="px-5 text-xl py-3">Performance Agreements <span className="text-primary">{empLength}</span></th>
                         </tr>
                         <tr className="text-gray-400 text-left border-b  text-sm">
                             <th className="py-3 font-medium px-5">Employee Id</th>

@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import {BiUserX} from 'react-icons/bi'
 import {CiSearch} from 'react-icons/ci'
-import { FiPlus } from "react-icons/fi";
+import {BiUserPlus} from 'react-icons/bi'
 import GetInitials from "./GetInitials";
 import Loader from "./Loader";
 
@@ -52,7 +52,7 @@ const filteredNames = employeeData
                     type="search"
                     placeholder="search"
                     onChange={(event) => handleSearchName(event.target.value)}
-                    className="outline-none text-xs w-24"
+                    className="outline-none text-xs w-24 sm:w-40"
                     />
                     <CiSearch />
                 </div>
@@ -61,7 +61,7 @@ const filteredNames = employeeData
                     <select 
                         value={selectedValue} 
                         onChange={(event) => handleSelectChange(event.target.value)}
-                        className="w-24 bg-gray-100 h-full outline-none rounded text-sm py-2 focus:outline-none focus:border-gray-500" 
+                        className="w-24 sm:w-36 sm:px-2 bg-gray-100 h-full outline-none rounded text-sm py-2 focus:outline-none focus:border-gray-500" 
                         id="grid-state"
                     >
                         <option value='all'>All Employees</option>
@@ -79,9 +79,9 @@ const filteredNames = employeeData
             <div className="flex justify-end items-center w-full">
                 <button 
                 onClick={() => props.toggleAddEmployee()}
-                className="h-9 bg-primary rounded text-white hover:bg-primaryHover py-2 text-xs ms:text-lg px-1 sm:px-2 flex items-start justify-center">
-                <span className="mt-[1px] text-xs font-bold mr-1"><FiPlus /></span> 
-                Add Employee
+                className="h-9 bg-primary rounded text-white hover:bg-primaryHover py-2 text-lg px-1 sm:px-2 flex items-center justify-center">
+                <span className="text-xl font-bold mr-1"><BiUserPlus /></span> 
+                Add <span className="hidden md:block ml-1"> Employee</span>
                 </button>
                 
             </div>
@@ -91,7 +91,7 @@ const filteredNames = employeeData
             <table className="mt-8 w-full border-2 border-gray-100 ">
                 <thead color="">
                     <tr className="text-left border-b">
-                        <th colSpan={4} className="px-5 text-xl py-3">Review Participants <span>{empLength}</span></th>
+                        <th colSpan={4} className="px-5 text-xl py-3">Review Participants: <span className="text-primary">{empLength}</span></th>
                     </tr>
                     <tr className="text-gray-400 text-left border-b text-sm">
                         <th className="py-3 font-medium px-5">Employee Id</th>

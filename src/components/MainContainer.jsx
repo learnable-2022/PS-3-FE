@@ -184,14 +184,14 @@ function MainContainer(props) {
             )}
           </div>
           <div className="flex justify-between items-center w-full md:w-fit">
-            <div className="md:mr-4 mr-2 flex-1 text-sm px-7 py-2 border border-[#A396FF] rounded-md">
-              <h4 className="font-bold text-[#735290]">
+            <div className="md:mr-2 mr-1 text-center flex-1 px-[2px] py-2 border border-[#A396FF] rounded-md">
+              <h3 className=" text-xs lg:text-sm font-bold text-[#735290]">
                 Total Net Salary:{" "}
                 <span className="text-[#422FC6] font-bold">
                   NGN
                   <FetchTotalnetpay />
                 </span>
-              </h4>
+              </h3>
             </div>
             <button
               className="py-2 px-5 rounded-lg text-white bg-[#422FC6] hover:scale-105"
