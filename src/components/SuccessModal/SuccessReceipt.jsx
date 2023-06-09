@@ -11,9 +11,12 @@ import FetchTotalnetpay from "../FetchTotalnetpay"
 import { setAuthToken } from "../setAuthToken";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import { useNavigate } from "react-router-dom";
+
 
 
 function SuccessReceipt(props) {
+  
   const email = () => {
     fetch('https://autopay-qv54.onrender.com/api/v1/mail', {
       method: 'GET',
@@ -26,7 +29,8 @@ function SuccessReceipt(props) {
         // console.log('Response status:', response.status);
         return response.json();
       })
-      .then(data => {console.log(data);
+      .then(data => {console.log(data)
+        navigate("/history")
       })
       .catch(error => console.error(error));
   []}; 
@@ -36,6 +40,7 @@ function SuccessReceipt(props) {
   setpop(!pop);
   }
 
+  const navigate = useNavigate();
   const componentRef = useRef();
   const handlePrint = useReactToPrint ({
     content: () => componentRef.current,
@@ -91,13 +96,11 @@ function SuccessReceipt(props) {
             <img src={printer} alt="a printer" />
           </div>
           
-            {pop?
+            
           <button onClick= {() => {
-            handleOpen()
             email()
             }}><span><MdOutlineMail/></span>
-          Notify Employees</button>:
-          <p className={styles.sent}>Emails successfully sent!</p>}
+          Notify Employees</button>
         </div>
       </section>
       </section>:""}

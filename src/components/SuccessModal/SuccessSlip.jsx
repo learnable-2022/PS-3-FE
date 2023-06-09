@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import { useEffect } from "react";
+import { useState } from "react";
 import styles from "./successmodal.module.css"
 import logo from "../../assets/Logo.svg"
 import money from "../../assets/moneysend.svg"
@@ -11,8 +10,14 @@ import FetchTotalnetpay from "../FetchTotalnetpay"
 import { setAuthToken } from "../setAuthToken";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import Employeeno from "./Employeeno";
+import { nanoid } from 'nanoid';
+
 
 function SuccessSlip(props) {
+  const nan =  nanoid()
+  const [fit, setFit] =useState({})
+  
   const pay =() => {
     fetch('https://autopay-qv54.onrender.com/api/v1/transaction/autopay/payment', {
       method: 'GET',
@@ -22,7 +27,7 @@ function SuccessSlip(props) {
       },
     })
       .then(response =>  response.json())
-      .then(data => console.log(data))
+      .then(data => (setFit(data)))
       .catch(error => console.error(error));
   []};
 
@@ -30,10 +35,19 @@ function SuccessSlip(props) {
   const handlePrint = useReactToPrint ({
     content: () => componentRef.current,
     documentTitle: 'Payment Slip/Receipt',
-    onAfterPrint: () => alert('Print success')
   });
   
-  
+  const timeoutRef = useRef(null);
+  const handleClick = () => {
+    clearTimeout(timeoutRef.current);
+
+    timeoutRef.current = setTimeout(() => {
+   alert('Sorry, you are not authorized to make payment! However, if authorized, click on the pay now button again. Thank You')
+   console.log("Function executed after 1 minutes");
+
+    }, 30 * 1000); // 1 minute in milliseconds
+  };
+ 
   return (
     <>
     {props.popSlip ?
@@ -63,7 +77,7 @@ function SuccessSlip(props) {
 
         <div className={styles.align4}>
           <p className={styles.col}>No of employees:</p>
-          <p className={styles.col1}>15</p>
+          <p className={styles.col1}><Employeeno /></p>
         </div>
 
         <div className={styles.align4}>
@@ -75,7 +89,7 @@ function SuccessSlip(props) {
 
         <div className={styles.align4}>
           <p className={styles.col}>Payment ID:</p>
-          <p className={styles.col1}>12ndbbnd202ksl</p>
+          <p className={styles.col1}>{nan}</p>
         </div>
 
         <div className={styles.align5}>
@@ -84,16 +98,18 @@ function SuccessSlip(props) {
             <img src={printer} alt="a printer" />
           </div>
           <div className={styles.pay} onClick= {() => {
-            props.handlePayNow()
+            {fit.sumOfSalary?
+            props.handlePayNow():handleClick()}
             pay()
-            }}>
+          }}>
             <p>Pay now</p>
             <img src={money} alt="pay-icon" />
           </div>
         </div>
 
-        </section>
         {props.showReceipt && <SuccessReceipt />}
+        </section>
+        
       </section>:""}
     </>
   )
