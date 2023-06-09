@@ -12,15 +12,15 @@ const DeleteEmployeeModal = (props) => {
         {props.isDelOpen ? 
         <div  className='w-screen h-screen fixed top-0 left-0 flex items-center justify-center z-10'>
           <div  className='w-screen h-screen absolute bg-gray-500 flex justify-center items-center bg-opacity-70'>
-            <div className='w-[95%] md:w-4/5 h-[35%] rounded-lg border border-red-500'>
+            <div className='w-[95%] md:w-4/5 h-[35%] rounded-lg border'>
             <article 
-                className='flex flex-col justify-between bg-white h-full border border-green-500 rounded-lg px-4 pb-4 '
+                className='flex flex-col justify-between bg-white h-full rounded-lg px-4 pb-4 '
             >
                 <div className='text-[#30343F]'>
                   <h2 className=' text-lg'>Remove Account</h2> 
                 </div>
                 <div className=' w-full'>
-                <table className=" border-l border-r w-full text-sm text-left text-gray-500 rounded-lg">
+                <table className=" border-l border-r w-full text-sm text-left text-gray-500 overflow-hidden rounded-lg">
                     <thead className="text-xs text-white capitalize bg-[#422FC6] rounded-t-md text-center rounded-lg">
                         <tr>
                             <th scope="col" className="md:px-3 py-3 rounded-tl-lg">
@@ -32,7 +32,7 @@ const DeleteEmployeeModal = (props) => {
                             <th scope="col" className="md:px-6 py-3">
                               Department
                             </th>
-                            <th scope="col" className="md:px-6 py-3 sm:rounded-tr-lg">
+                            <th scope="col" className="md:px-6 py-3 rounded-tr-lg sm:rounded-none">
                               Performance
                             </th>
                             <th scope="col" className="hidden sm:block px-6 py-3 rounded-tr-lg">

@@ -10,21 +10,21 @@ function HistoryPageNav() {
         <NavLink
           to={"/history/"}
           className="text-sm"
-          activeClassName="nav"
+          activeclassname="nav"
         >
           History
         </NavLink>
         <NavLink
           to={"/history/pending"}
           className="text-sm"
-          activeClassName="nav"
+          activeclassname="nav"
         >
           Pending
         </NavLink>
         <NavLink
           to={"/history/paid"}
           className="text-sm"
-          activeClassName="nav"
+          activeclassname="nav"
         >
           Paid
         </NavLink>
