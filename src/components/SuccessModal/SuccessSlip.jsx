@@ -12,43 +12,42 @@ import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import Employeeno from "./Employeeno";
 import { nanoid } from 'nanoid';
+import ClipLoader from "react-spinners/ClipLoader";
+
+
+
 
 
 function SuccessSlip(props) {
   const nan =  nanoid()
-  const [fit, setFit] =useState({})
   
-  const pay =() => {
-    fetch('https://autopay-qv54.onrender.com/api/v1/transaction/autopay/payment', {
+  const [loading, setLoading] =useState(true);
+  const [item, setItem] =useState({})
+
+  
+  const pay = async() => {
+    setLoading(!loading)
+    await fetch('https://autopay-qv54.onrender.com/api/v1/transaction/autopay/payment', {
       method: 'GET',
       headers: {
         'Authorization': `${setAuthToken()}`,
         'Content-Type': 'application/json'
       },
+      
     })
       .then(response =>  response.json())
-      .then(data => (setFit(data)))
+      .then(data => (setItem(data)))
       .catch(error => console.error(error));
-  []};
+  []; setLoading(loading)};
 
   const componentRef = useRef();
   const handlePrint = useReactToPrint ({
     content: () => componentRef.current,
     documentTitle: 'Payment Slip/Receipt',
   });
-  
-  const timeoutRef = useRef(null);
-  const handleClick = () => {
-    clearTimeout(timeoutRef.current);
 
-    timeoutRef.current = setTimeout(() => {
-   alert('Sorry, you are not authorized to make payment! However, if authorized, click on the pay now button again. Thank You')
-   console.log("Function executed after 1 minutes");
 
-    }, 30 * 1000); // 1 minute in milliseconds
-  };
- 
-  return (
+   return (
     <>
     {props.popSlip ?
         <section className={styles.back} ref={componentRef}>
@@ -62,7 +61,7 @@ function SuccessSlip(props) {
           </div>
         
         <div className={styles.align3}>
-        <h4>Tenece employee salary payment slip</h4>
+        <h4>Genesys employee salary payment slip</h4>
         </div>
 
         <div className={styles.align4}>
@@ -82,10 +81,8 @@ function SuccessSlip(props) {
 
         <div className={styles.align4}>
           <p className={styles.col}>Net salary total:</p>
-          
           <p className={styles.col1}>NGN<FetchTotalnetpay /></p>
-          
-        </div>
+          </div>
 
         <div className={styles.align4}>
           <p className={styles.col}>Payment ID:</p>
@@ -97,14 +94,26 @@ function SuccessSlip(props) {
             <p>Print</p>
             <img src={printer} alt="a printer" />
           </div>
-          <div className={styles.pay} onClick= {() => {
-            {fit.sumOfSalary?
-            props.handlePayNow():handleClick()}
-            pay()
-          }}>
-            <p>Pay now</p>
+          {loading ? (
+          <div className={styles.pay} onClick= {() => { 
+          pay()
+          {item.sumOfSalary ?
+          props.handlePayNow:""}
+            }}>
+           <p>Pay now</p>
             <img src={money} alt="pay-icon" />
-          </div>
+
+          </div>):(
+          
+           <ClipLoader
+           color={"blue"}
+           loading={!loading} 
+           size={40}
+           display={"block"}/> 
+           
+          )
+          }
+
         </div>
 
         {props.showReceipt && <SuccessReceipt />}
