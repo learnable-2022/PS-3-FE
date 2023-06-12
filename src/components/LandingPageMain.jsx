@@ -10,13 +10,10 @@ import axios from "axios";
 import { setAuthToken } from "./setAuthToken";
 import AddEmployee from "./AddEmployee";
 import DeleteEmployeeModal from "./DeleteEmployeeModal";
-// import UpdateEmployee from "./UpdateEmployee";
+// import EditEmployee from "./EditEmployee";
 
 
 
-
-
-// eslint-disable-next-line react/prop-types
 function LandingPageMain(props) {
   const [currentPage, setCurrentPage] = useState("performance");
   const [data, setData] = useState([]); 
@@ -63,7 +60,6 @@ function LandingPageMain(props) {
   const reviewhandleClick = () => {
     setCurrentPage("review");
   };
-  // console.log(currentPage);
 
     // Add employee modal functions
     function toggleAddEmployee () {
@@ -102,21 +98,6 @@ function toggleDelEmployee () {
   setIsDelOpen(false);
 
   }
-  
-  // update employee details functions
-  // function toggleUpdateEmployee () {
-  //   setShowUpdateEmp(!showUpdateEmp);
-  // }
-
-  // function handleUpdateClick(employeeId){
-  //   const clickedItemUpdate = data.find(employeee => employeee.employeeId === employeeId);
-  //   setSelectedEmpUpdate(clickedItemUpdate);
-  //   setShowUpdateEmp(true);
-  //   console.log("Clicked handle update");
-  //   console.log(selectedEmpUpdate);
-  // }
-
-
 
   return (
     <>
@@ -144,13 +125,13 @@ function toggleDelEmployee () {
           <div className="flex flex-row items-center gap-4 px-4 pt-2 shadow">
             <div
               onClick={performancehandleClick}
-              className="text-sm font-semibold py-2 border-b-[4px] border-[#ffffff00] cursor-pointer hover:text-[#0052cc] hover:border-[#0052cc]"
+              className={`text-sm font-semibold py-2 border-b-[4px] cursor-pointer hover:text-[#0052cc] hover:border-[#0052cc] ${currentPage === 'performance' ? 'border-primary text-primary': 'border-[#ffffff00]' }`}
             >
               Performance Agreements
             </div>
             <div
               onClick={reviewhandleClick}
-              className="text-sm py-2 font-semibold border-b-[4px] border-[#ffffff00] cursor-pointer hover:text-[#0052cc] hover:border-[#0052cc]"
+              className={`text-sm py-2 font-semibold border-b-[4px] border-[#ffffff00] cursor-pointer hover:text-[#0052cc] hover:border-[#0052cc] ${currentPage === 'review' ? 'border-primary text-primary': 'border-[#ffffff00]' } `}
             >
               Reviews
             </div>
@@ -158,12 +139,12 @@ function toggleDelEmployee () {
         </nav>
         <div>{currentPage == "review" ? 
         <Reviews 
-          data={data}  
+          data={data} currentPage={currentPage}
           loading={loading}
           handleEmployeeClick={handleEmployeeClick} 
-          toggleAddEmployee={toggleAddEmployee}/>  : 
+          toggleAddEmployee={toggleAddEmployee} />  :
           
-          <PerformanceAgreement loading={loading} data={data} reloadDash={props.reloadDash}/>} </div>
+          <PerformanceAgreement loading={loading} data={data} currentPage={currentPage} reloadDash={props.reloadDash}/>} </div>
       
         <AddEmployee showaddEmp={showaddEmp} toggleAddEmployee={toggleAddEmployee} fetchData={fetchData} />
         <DeleteEmployeeModal 
@@ -173,7 +154,12 @@ function toggleDelEmployee () {
             toggleDelEmployee={toggleDelEmployee}
             successModal={successModal}
             />
-        
+        {/* <EditEmployee 
+          showUpdateEmp={showUpdateEmp} 
+          toggleUpdateEmployee={toggleUpdateEmployee} 
+          fetchData={fetchData}
+          selectedEmpUpdate={selectedEmpUpdate}
+          cancelUpdateEmployee={cancelUpdateEmployee} /> */}
         </div>
     </>
   );

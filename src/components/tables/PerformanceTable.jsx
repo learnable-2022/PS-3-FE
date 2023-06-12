@@ -87,7 +87,7 @@ function PerformanceTable(props) {
                 <table className="mt-8 w-full border-2 border-gray-100">
                     <thead>
                         <tr className="text-left border-b">
-                            <th colSpan={4} className="px-5 text-xl py-3">Performance Agreements <span className="text-primary">{empLength}</span></th>
+                            <th colSpan={4} className="px-5 text-xl py-3">Performance Agreements (<span className="text-primary">{empLength}</span>)</th>
                         </tr>
                         <tr className="text-gray-400 text-left border-b  text-sm">
                             <th className="py-3 font-medium px-5">Employee Id</th>
@@ -100,7 +100,7 @@ function PerformanceTable(props) {
                         {props.loading ? 
                         <tr>
                         <td colSpan={4} className="px-6 py-4 font-medium text-center text-gray-900">
-                            <Loader />
+                            <Loader sizenum={40}/>
                         </td>
                     </tr>
                         :  

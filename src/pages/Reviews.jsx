@@ -25,8 +25,7 @@ function Reviews(props) {
             <ReviewTable 
               data={props.data} 
               loading={props.loading}
-              handleEmployeeClick={props.handleEmployeeClick} 
-              
+              handleEmployeeClick={props.handleEmployeeClick}
               toggleAddEmployee={props.toggleAddEmployee}/>
             {/* <Pagecontrol /> */}
         </div>
