@@ -8,11 +8,11 @@ function HistoryPageNav() {
     <nav>
       <div className="flex flex-row h-full items-center gap-4">
         <NavLink
-          to={"/history/"}
+          to={"/history/summary"}
           className="text-sm"
           activeclassname="nav"
         >
-          History
+          Summary
         </NavLink>
         <NavLink
           to={"/history/pending"}

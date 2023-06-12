@@ -13,7 +13,7 @@ function HistoryPagesMain({ data, item }) {
     <main className="px-1 flex flex-col w-full h-full overflow-x-hidden">
       <div className="flex flex-col w-full px-4 h-full">
         <div className="min-w-full flex mt-6 mb-3">
-          <h2 className="font-bold">Transactions</h2>
+          <h2 className="font-bold text-primary">Transactions History</h2>
         </div>
 
         <div className="w-full mb-6 md:mb-0 h-full flex items-center">

@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect} from 'react'
-import {BiUserPlus} from 'react-icons/bi'
+import {FiUserCheck} from 'react-icons/fi'
 import {ImCancelCircle} from 'react-icons/im'
 import { setAuthToken } from './setAuthToken'
 
@@ -68,7 +68,6 @@ function AddEmployee(props) {
   })
     .then(data => {
         // console.log('Data:', data);
-        // setResMessage((prevmessage) => data.message);
         props.toggleAddEmployee();
         
         // console.log(resMessage);
@@ -134,18 +133,17 @@ function AddEmployee(props) {
         { code: '057', name: 'Zenith Bank' }
       ]
 
-    //   onClick={props.toggleAddEmployee} 
   return ( 
     <>
         { props.showaddEmp ? 
             <div  className='md:w-screen md:h-screen fixed top-0 left-0 flex items-center justify-center z-10'>
-                <div className='w-screen h-screen bg-gray-500 flex justify-center items-center bg-opacity-70'>
+                <div className='w-screen h-screen bg-gray-500 flex justify-center items-center bg-opacity-70' onClick={props.toggleAddEmployee}>
                     <div className='sm:w-4/5 sm:h-4/5 w-[90%] h-[90%] rounded-lg'>
                         
-                        <form onSubmit={handleSubmit} className='flex flex-col justify-between py-6 sm:py-4 bg-white h-full rounded-lg px-4'>
-                            <div className='text-[#30343F] mb-1'>
+                        <form onSubmit={handleSubmit} onClick={(event) => event.stopPropagation()} className='flex flex-col justify-between items-center py-6 sm:py-4 bg-white h-full rounded-lg px-4 bg-opacity-100'>
+                            <div className='text-[#30343F] mb-1 text-center'>
                                 <h2 className=' text-lg font-bold text-primary'>Add Employee</h2> 
-                                <p className='text-sm mt-1'>Add a new employee account </p>
+                                <p className='text-sm mt-1'>Add new employee details </p>
                             </div>
                             <div className=' w-full grid grid-cols-1  sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
 
@@ -210,7 +208,7 @@ function AddEmployee(props) {
                                 </div>
 
                                 <div className='w-full flex justify-center items-center'>
-                                    <div className=' w-[90%] sm:w-3/4 '>
+                                    <div className='w-[90%] sm:w-3/4'>
                                         <label htmlFor="department" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Department <span className=" text-red-500">*</span></label>
                                         <select 
                                             type="text" 
@@ -333,9 +331,18 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full grid grid-cols-2 text-sm text-white mt-4">
+                            <div className="w-[90%] sm:w-full grid grid-cols-2 place-items-center text-sm text-white mt-4">
                                 <div className='w-full flex justify-center items-center'>
-                                    <div className=' w-[90%] sm:w-3/4'>
+                                    <div className='w-full sm:w-3/4 flex justify-start items-center'>
+                                        <button
+                                            className="bg-primary hover:bg-blue-600 py-2  px-4 flex items-start justify-center rounded-md">
+                                            <span className=" text-lg mr-1"><FiUserCheck /></span> 
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className='w-full flex justify-center items-center'>
+                                    <div className='w-full sm:w-3/4 flex justify-end'>
                                         <span 
                                             onClick={props.toggleAddEmployee}
                                             className=" w-24 bg-red-600 hover:bg-red-500 py-2 px-4 flex items-start justify-center rounded-md">
@@ -345,15 +352,6 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-end items-center'>
-                                    <div className=' w-[90%] sm:w-3/4 flex justify-end items-center pr-6 sm:pr-9'>
-                                        <button
-                                            className="bg-primary hover:bg-blue-600 py-2  px-4 flex items-start justify-center rounded-md">
-                                            <span className="mt-[2px] text-lg mr-1"><BiUserPlus /></span> 
-                                            Add
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
                         </form>
                         

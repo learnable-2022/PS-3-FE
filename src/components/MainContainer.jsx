@@ -42,7 +42,7 @@ function MainContainer(props) {
     <main className="px-1 flex flex-col w-full h-full">
       <div className="flex flex-col w-full h-full md:px-4 relative">
         <div className="min-w-full mt-6 mb-3 flex flex-row justify-between items-center">
-          <h2 className="font-bold text-xl md:text-base">Employees</h2>
+          <h2 className="font-bold text-xl md:text-base text-primary">Payment Dashboard</h2>
           <form className="md:hidden rounded-lg flex items-center border border-[#7352907d]">
             <input
               type="search"

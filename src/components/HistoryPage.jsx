@@ -25,7 +25,7 @@ function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
         return response.json();
       })
       .then(data => {
-        console.log('Data:', data);
+        // console.log('Data:', data);
         setItem(data.data);
     })
     .catch(error => console.error(error));

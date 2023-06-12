@@ -91,7 +91,7 @@ const filteredNames = employeeData
             <table className="mt-8 w-full border-2 border-gray-100 ">
                 <thead color="">
                     <tr className="text-left border-b">
-                        <th colSpan={4} className="px-5 text-xl py-3">Review Participants: <span className="text-primary">{empLength}</span></th>
+                        <th colSpan={4} className="px-5 text-xl py-3">Review Participants (<span className="text-primary">{empLength}</span>)</th>
                     </tr>
                     <tr className="text-gray-400 text-left border-b text-sm">
                         <th className="py-3 font-medium px-5">Employee Id</th>
@@ -99,6 +99,7 @@ const filteredNames = employeeData
                         <th className="py-3 font-medium px-5">Department</th>
                         <th className="py-3 font-medium px-5">Performance</th>
                         <th className="py-3 font-medium px-5">Action</th>
+                        {/* <th className="py-3 font-medium px-5">Action</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -132,6 +133,14 @@ const filteredNames = employeeData
                             Remove
                         </button>
                         </td>
+                        {/* <td className="py-3 font-semibold px-5">
+                        <button 
+                            onClick={() => props.handleUpdateClick(dets.employeeId)}
+                            className="bg-primary py-1 text-white px-2 flex items-start justify-center rounded-md">
+                            <span className="mt-[2px] text-sm mr-1"><BiUserX /></span>
+                            Edit
+                        </button>
+                        </td> */}
                         
                     </tr>
                             )

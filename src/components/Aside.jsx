@@ -1,27 +1,28 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState } from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { TbGraph } from "react-icons/tb";
 import { BiHomeAlt } from "react-icons/bi";
 // import { RiAccountCircleLine } from "react-icons/ri";
 import { MdOutlineSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, useLocation } from "react-router-dom";
 
 function SidebarBtn(props) {
+  const location = useLocation();
+  const isActive = location.pathname === props.location;
+
   return (
     <NavLink
       to={props.location}
-      className="font-semibold border-b-[4px] border-[#ffffff00] bg-transparent hover:bg-[#422FC6] group flex h-8 my-2 w-full items-center py-1"
+      className={`font-semibold border-b-[4px] border-[#ffffff00] bg-transparent hover:bg-primary group flex h-8 my-2 w-full items-center py-1 ${isActive ? "border-primary" : ""}`}
     >
-      <span className="text-xl md:pl-3 lg:pl-6 bg-transparent text-[#241E4E] group-hover:text-white">
-        {" "}
-        {props.icon}{" "}
+      <span className={`text-xl md:pl-3 lg:pl-6 bg-transparent text-[#241E4E] group-hover:text-white`}>
+        {props.icon}
       </span>
-      <p className="lg:ml-3 ml-1 md:text-xs bg-transparent text-[#241E4E] group-hover:text-white">
-        {" "}
-        {props.title}{" "}
+      <p className={`lg:ml-3 ml-1 md:text-xs bg-transparent text-[#241E4E] group-hover:text-white `}>
+        {props.title}
       </p>
     </NavLink>
   );
@@ -75,7 +76,7 @@ function Aside({ sideBarIsOpen }) {
             <SidebarBtn
               icon={<TbGraph />}
               title="History"
-              location={"/history"}
+              location={"/history/summary"}
             />
             {/* <SidebarBtn icon={<RiAccountCircleLine />} title="Manage" /> */}
           </div>
