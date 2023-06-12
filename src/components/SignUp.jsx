@@ -1,15 +1,17 @@
 import {useState} from "react"
 import Logo from "../assets/images/Logo.png"
 import {MdOutlineVisibility, MdOutlineVisibilityOff} from "react-icons/md"
+import {RiErrorWarningLine} from "react-icons/ri"
 import { Link, useNavigate } from "react-router-dom";
+import LoaderMini from "./tables/LoaderMini";
 
 function SignUp() {
-  // eslint-disable-next-line no-unused-vars
-  const [success, setSuccess] = useState(false)
-  // const [signUpBtn, setSignUpBtn] = useState(false)
+  const [networkError, setNetworkError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [formData, setFormData] = useState(
     {
+      name: "", 
       email: "", 
       password: ""
     }
@@ -30,9 +32,16 @@ function SignUp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-        if (isPasswordVisible === true) {
-          setIsPasswordVisible(false)
-        }
+    setLoading(true);
+    if (isPasswordVisible === true) {
+      setIsPasswordVisible(false)
+    }
+    // Check if the user is connected to the internet
+    if (!navigator.onLine) {
+      setLoading(false);
+      setNetworkError("Please check your internet connection.");
+      return;
+    }
     fetch('https://autopay-qv54.onrender.com/api/v1/auth/signup', {
     method: 'POST',
     headers: { 'Content-Type':'application/json' },
@@ -46,12 +55,12 @@ function SignUp() {
         email: "", 
         password: ""
       });
-      setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-      }, 3000);
+      
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+      setLoading(false);
+      console.error(error); 
+    });
   }
 
   function togglePasswordVisibility() {
@@ -78,6 +87,21 @@ function SignUp() {
                         <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg text-center">
                         Unlock Performance. Elevate Rewards.
                     </h3>
+                    {networkError === null ? null :
+                    <p className="text-sm h-1 text-red-500 font-semibold flex justify-center items-center"><span className="mr-1"><RiErrorWarningLine /></span>{networkError}</p>}
+                        <div>
+                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 ">Full Name <span className=" text-red-500">*</span></label>
+                            <input 
+                              type="text" 
+                              name="name" 
+                              id="name" 
+                              placeholder="Enter Name" 
+                              autoComplete="off"
+                              required
+                              value={formData.name} 
+                              onChange={handleChange} 
+                              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "/>
+                        </div>
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Email <span className=" text-red-500">*</span></label>
                             <input 
@@ -113,7 +137,11 @@ function SignUp() {
                         </div>
                       
                         {/*  */}
-                        <button type="submit" className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#422FC6] `}>Sign Up</button>
+                        <button type="submit" className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#422FC6] `}>
+                        {loading ? 
+                          <LoaderMini/> 
+                          : "Sign Up"}
+                        </button>
                         <p className="text-sm font-light text-gray-500">
                           Aleady have an account? <Link to="/" className="ml-2 font-bold text-primary-600 hover:underline">Sign In</Link>
                         </p>

@@ -4,9 +4,10 @@ import Logo from "../assets/images/Logo.png"
 import {MdOutlineVisibility, MdOutlineVisibilityOff} from "react-icons/md"
 import {RiErrorWarningLine} from "react-icons/ri"
 import { Link, useNavigate  } from "react-router-dom";
+import LoaderMini from "./tables/LoaderMini";
 
 function SignIn() {
-  const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false); 
   const [loginError, setLoginError] = useState(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [formData, setFormData] = useState(
@@ -30,10 +31,19 @@ function SignIn() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     // change password type back to password if on type="text".
     if (isPasswordVisible === true) {
       setIsPasswordVisible(false)
     }
+
+    // Check if the user is connected to the internet
+    if (!navigator.onLine) {
+      setLoading(false);
+      setLoginError("Please check your internet connection.");
+      return;
+    }
+
     fetch('https://autopay-qv54.onrender.com/api/v1/auth/login', {
     method: 'POST',
     headers: { 'Content-Type':'application/json' },
@@ -43,11 +53,12 @@ function SignIn() {
     .then(data => {
       // Save the token to local storage
       localStorage.setItem('token', data.token);
+      localStorage.setItem('username', data.data.name);
+      // console.log(data);
+      console.log(data.data.name);
 
       // redirect to dashboard on succefull login.
       navigate("/landingpage")
-      
-      setSuccess(() => true);
       setFormData({
         email: "", 
         password: ""
@@ -56,13 +67,14 @@ function SignIn() {
     })
     
     .catch(error => {
-      // console.error(error)
+      console.error(error)
+      setLoading(false);
       // Set error message on failed login
       setLoginError("Invalid Credentials");
     });
    
   }
-  
+   
   
 
   function togglePasswordVisibility() {
@@ -129,7 +141,12 @@ function SignIn() {
                         </div>
                       
                       
-                        <button type="submit" className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#422FC6] `}>Sign In</button>
+                        <button type="submit" 
+                        className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled bg-primary ${loading ? " cursor-not-allowed": ""}`}>
+                          {loading ? 
+                          <LoaderMini/> 
+                          : "Sign In"}
+                          </button>
                         <p className="text-sm font-light text-gray-500">
                              Don’t have an account yet? 
                             <Link to="/signup" className="ml-2 font-bold text-primary-600 hover:underline">Sign Up</Link>

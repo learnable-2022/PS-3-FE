@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 
 function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
     
+
+  const username = localStorage.getItem('username'); 
+  const nameArray = username.split(" ");
+  const firstName = nameArray[0].charAt(0).toUpperCase();
+  const lastName = nameArray[1].charAt(0).toUpperCase();
+
   const toggleSidebar = () => {
     setSideBarIsOpen(!sideBarIsOpen);
   };
@@ -45,9 +51,9 @@ function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
           <span className="text-lg mr-6 cursor-pointer">
             <BsBell />
           </span>
-          <button className="justify-center text-white text-sm items-center hidden md:flex h-7 w-7 bg-[#5243AA] rounded-full">
-            ON
-          </button>
+          <span className="justify-center text-white text-sm font-bold items-center hidden md:flex h-7 w-7 bg-[#5243AA] rounded-full">
+            {`${firstName} ${lastName}`}
+          </span>
         </div>
       </div>
     </nav>
