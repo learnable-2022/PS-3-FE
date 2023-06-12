@@ -147,7 +147,7 @@ function AddEmployee(props) {
                                 <h2 className=' text-lg font-bold text-primary'>Add Employee</h2> 
                                 <p className='text-sm mt-1'>Add a new employee account </p>
                             </div>
-                            <div className=' w-full grid grid-cols-1  sm:grid-cols-2 md:gap-y-3 sm:gap-y-2 bg-white overflow-y-auto overflow-hidden'>
+                            <div className=' w-full grid grid-cols-1  sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
 
                             <div className='w-full flex justify-center items-center'>
                                     <div className=' w-[90%] sm:w-3/4 '>
@@ -236,7 +236,7 @@ function AddEmployee(props) {
                             
                                 <div className='w-full flex justify-center items-center'>
                                     <div className=' w-[90%] sm:w-3/4 '>
-                                        <label htmlFor="performance" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Performance (between 0 and 5.0) <span className=" text-red-500">*</span></label>
+                                        <label htmlFor="performance" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Performance (0 to 5.0) <span className=" text-red-500">*</span></label>
                                         <input 
                                             type="number" 
                                             name="performance" 
