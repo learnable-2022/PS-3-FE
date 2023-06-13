@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {useState} from "react"
 import Logo from "../assets/images/Logo.png"
 import {MdOutlineVisibility, MdOutlineVisibilityOff} from "react-icons/md"
@@ -6,7 +5,7 @@ import {RiErrorWarningLine} from "react-icons/ri"
 import { Link, useNavigate  } from "react-router-dom";
 import LoaderMini from "./tables/LoaderMini";
 
-function SignIn() {
+function SignIn(props) {
   const [loading, setLoading] = useState(false); 
   const [loginError, setLoginError] = useState(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -51,14 +50,14 @@ function SignIn() {
   })
     .then(response => response.json())
     .then(data => {
-      // Save the token to local storage
+      // Save the token to local storage, and login data to local storage
       localStorage.setItem('token', data.token);
-      localStorage.setItem('username', data.data.name);
+      localStorage.setItem('firstname', data.data.firstName);
+      localStorage.setItem('lastname', data.data.lastName);
       // console.log(data);
-      console.log(data.data.name);
 
       // redirect to dashboard on succefull login.
-      navigate("/landingpage")
+      navigate("/dashboard")
       setFormData({
         email: "", 
         password: ""
@@ -69,6 +68,8 @@ function SignIn() {
     .catch(error => {
       console.error(error)
       setLoading(false);
+      // props.hideVerifyMessage();
+
       // Set error message on failed login
       setLoginError("Invalid Credentials");
     });
@@ -83,7 +84,7 @@ function SignIn() {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900 flex justify-between flex-col h-screen">
+      <section className="bg-gray-50 flex justify-between flex-col h-screen">
         <nav className="bg-white w-full h-14 z-20 shadow-md ">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-center md:justify-start mx-auto p-4">
               <span className="flex items-center">
@@ -106,8 +107,10 @@ function SignIn() {
                     <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg text-center">
                         Unlock Performance. Elevate Rewards.
                     </h3>
+                    {props.showVerifyMail ? <p className="text-sm text-yellow-500 text-center">Verify your email address before Sign In</p>: null}
                     {loginError === null ? null :
-                    <p className="text-sm h-1 text-red-500 font-semibold flex justify-center items-center"><span className="mr-1"><RiErrorWarningLine /></span>{loginError}</p>}
+                    <p className="text-sm h-1 text-red-500 font-semibold flex justify-center items-center">
+                      <span className="mr-1"><RiErrorWarningLine /></span>{loginError}</p>}
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Email <span className=" text-red-500">*</span></label>
                             <input 

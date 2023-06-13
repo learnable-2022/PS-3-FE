@@ -1,15 +1,17 @@
-// import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from "../assets/images/Logo.png";
 import { BsBell } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
-    
+  const [first, setFirst] = useState(localStorage.getItem('firstname'))
+  const [last, setLast] = useState(localStorage.getItem('lastname'))
 
-  const username = localStorage.getItem('username'); 
-  const nameArray = username.split(" ");
-  const firstName = nameArray[0].charAt(0).toUpperCase();
-  const lastName = nameArray[1].charAt(0).toUpperCase();
+    
+useEffect(()=>{
+setFirst(first.charAt(0).toUpperCase())
+setLast(last.charAt(0).toUpperCase())
+},[])
 
   const toggleSidebar = () => {
     setSideBarIsOpen(!sideBarIsOpen);
@@ -52,7 +54,7 @@ function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
             <BsBell />
           </span>
           <span className="justify-center text-white text-sm font-bold items-center hidden md:flex h-7 w-7 bg-[#5243AA] rounded-full">
-            {`${firstName} ${lastName}`}
+          {`${first} ${last}`}
           </span>
         </div>
       </div>
