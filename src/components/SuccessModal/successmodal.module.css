@@ -26,10 +26,10 @@
 
 
 .container, .container1 {
-  width: 646px;
+  width: 55%;
   background-color: white;
   position: absolute;
-  left: 27%;
+  left: 17%;
   z-index: 999;
   padding: 40px 58px;
   box-shadow: rgba(117, 114, 114, 0.116) 2px 2px 10px 2px;
@@ -43,7 +43,7 @@
 }
 
 .container1 {
-  top: 20%;
+  top: 23%;
   height: 396px;
   box-shadow: rgba(117, 114, 114, 0.116) 2px 2px 20px 2px;
 }
@@ -173,8 +173,8 @@ padding: 8px 12px;
 
 @media screen and (max-width: 768px) {
   .container, .container1 {
-    width: 546px; 
-    left: 24%; 
+    width: 80%; 
+    left: 18%; 
     padding: 30px 25px;
 }
 
@@ -184,7 +184,7 @@ padding: 8px 12px;
 }
 
 .container1 {
-  top: 24%;
+  top: 22%;
   height: 496px;
 }
 
@@ -261,8 +261,9 @@ font-size: 2em;
 
 @media screen and (max-width: 450px) {
   .container, .container1 {
-    width: 280px;
-    left: 15%;
+    width: 95%;
+    margin: auto;
+    left: 2%;
   }
 
   .container {
