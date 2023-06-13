@@ -100,7 +100,7 @@ function PerformanceTable(props) {
                         {props.loading ? 
                         <tr>
                         <td colSpan={4} className="px-6 py-4 font-medium text-center text-gray-900">
-                            <Loader sizenum={40}/>
+                            <Loader/>
                         </td>
                     </tr>
                         :  

@@ -9,7 +9,7 @@ function PerformanceAgreement(props) {
         <div className="w-full min-h-[700px]">
             <h1 className="text-sm font-semibold text-gray-500">Performance Agreement /</h1>
             <h3 className="text-lg sm:text-xl font-semibold mb-4">2023 Employee Performance Agreements</h3>
-            <PerformanceTable data={props.data} loading={props.loading} reloadDash={props.reloadDash} />
+            <PerformanceTable data={props.data} loading={props.loading} />
         </div>
     </div>
   );
