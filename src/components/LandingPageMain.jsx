@@ -82,7 +82,7 @@ const handleDeleteEmp = async () => {
         'Content-Type': 'application/json'
       }
     });
-    // Perform any further actions upon successful deletion
+   
     // console.log("clicked Delete Employee");
     fetchData();
     setIsDelOpen(false);
