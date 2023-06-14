@@ -26,7 +26,8 @@ function MainContentContainer({data,  sideBarIsOpen, setSideBarIsOpen }) {
     }
 
   return (
-    <div className="flex flex-col w-screen h-screen ">
+    
+    <div className="flex flex-col w-screen h-screen">
         <div className="h-14 flex justify-center items-center w-full">
             <NavPay sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>
         </div>
@@ -34,14 +35,16 @@ function MainContentContainer({data,  sideBarIsOpen, setSideBarIsOpen }) {
         <div className="flex w-full h-full overflow-hidden relative">
           <div className='w-fit md:w-[16%] absolute md:relative h-full overflow-hidden z-50 md:z-10'>
             <Aside sideBarIsOpen={sideBarIsOpen} />
+            
           </div>
             <div className="w-screen md:w-[84%] md:relative h-full z-0 md:z-10 px-4">
                 <MainContainer data={data} togglePaySLip={togglePaySLip} />
+                <SuccessSlip showReceipt={showReceipt} popSlip={popSlip} togglePaySLip={togglePaySLip} handlePayNow={handlePayNow}/> 
+                <SuccessReceipt showReceipt={showReceipt} closePopReceipt={closePopReceipt} />
             </div>
-        </div>
-        <SuccessSlip showReceipt={showReceipt} popSlip={popSlip} togglePaySLip={togglePaySLip} handlePayNow={handlePayNow}/> 
-        <SuccessReceipt showReceipt={showReceipt} closePopReceipt={closePopReceipt} />
+        </div> 
     </div>
+
   )
 }
 
