@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import styles from "./successmodal.module.css"
-import logo from "../../assets/Logo.svg"
+import logo from "../../assets/images/Logo.png"
 import {AiOutlineCloseCircle} from "react-icons/ai"
 import {MdOutlineMail} from "react-icons/md"
 import good from "../../assets/good.svg"
