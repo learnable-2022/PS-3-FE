@@ -14,6 +14,7 @@ import { setAuthToken } from './components/setAuthToken';
 function App() {
   const [data, setData] = useState(null);
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
+  const [showVerifyMail, setShowVerifyMail] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -34,14 +35,21 @@ function App() {
       console.log("Error: ", error);
     }
   };
+
+  function showVerifyMessage (){
+    setShowVerifyMail(true);
+  }
+  function hideVerifyMessage (){
+    setShowVerifyMail(false);
+  }
   return (
     <>
     <Routes>
-        <Route path="/" element={<SignIn />} />
+        <Route path="/" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage}/>} />
         <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
         <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
         <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
     </Routes>
     </>
   )

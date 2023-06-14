@@ -79,7 +79,7 @@ const filteredNames = employeeData
             <div className="flex justify-end items-center w-full">
                 <button 
                 onClick={() => props.toggleAddEmployee()}
-                className="h-9 bg-primary rounded text-white hover:bg-primaryHover py-2 text-lg px-1 sm:px-2 flex items-center justify-center">
+                className="h-9 border border-primary  rounded text-primary font-bold hover:text-white hover:bg-[#0052CC] py-2 text-sm px-1 sm:px-2 flex items-center justify-center">
                 <span className="text-xl font-bold mr-1"><BiUserPlus /></span> 
                 Add <span className="hidden md:block ml-1"> Employee</span>
                 </button>
@@ -91,21 +91,20 @@ const filteredNames = employeeData
             <table className="mt-8 w-full border-2 border-gray-100 ">
                 <thead color="">
                     <tr className="text-left border-b">
-                        <th colSpan={4} className="px-5 text-xl py-3">Review Participants (<span className="text-primary">{empLength}</span>)</th>
+                        <th colSpan={4} className="px-5 text-xl py-3">Employee Review (<span className="text-primary">{empLength}</span>)</th>
                     </tr>
                     <tr className="text-gray-400 text-left border-b text-sm">
                         <th className="py-3 font-medium px-5">Employee Id</th>
                         <th className="py-3 font-medium px-5">Full Name & Email</th>
                         <th className="py-3 font-medium px-5">Department</th>
                         <th className="py-3 font-medium px-5">Performance</th>
-                        <th className="py-3 font-medium px-5">Action</th>
-                        {/* <th className="py-3 font-medium px-5">Action</th> */}
+                        <th className="py-3 font-medium px-5 ">Edit/Delete Emp.</th> 
                     </tr>
                 </thead>
                 <tbody>
                     { props.loading ? 
                         <tr>
-                        <td colSpan={4} className="px-6 py-3 font-medium text-center text-gray-900">
+                        <td colSpan={5} className="px-6 py-3 font-medium text-center text-gray-900">
                             <Loader />
                         </td>
                     </tr>
@@ -130,23 +129,14 @@ const filteredNames = employeeData
                             onClick={() => props.handleEmployeeClick(dets.employeeId)}
                             className="bg-red-600 py-1 text-white px-2 flex items-start justify-center rounded-md">
                             <span className="mt-[2px] text-sm mr-1"><BiUserX /></span>
-                            Remove
-                        </button>
-                        </td>
-                        {/* <td className="py-3 font-semibold px-5">
-                        <button 
-                            onClick={() => props.handleUpdateClick(dets.employeeId)}
-                            className="bg-primary py-1 text-white px-2 flex items-start justify-center rounded-md">
-                            <span className="mt-[2px] text-sm mr-1"><BiUserX /></span>
                             Edit
                         </button>
-                        </td> */}
-                        
+                        </td>                       
                     </tr>
                             )
                         )) : (
                             <tr>
-                        <td colSpan={4} className="px-6 py-4 font-medium text-center text-gray-900">No item found.</td>
+                        <td colSpan={5} className="px-6 py-4 font-medium text-center text-gray-900">No item found.</td>
                     </tr>
                         )
                     }
