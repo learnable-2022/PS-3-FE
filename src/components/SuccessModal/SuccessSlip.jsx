@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./successmodal.module.css"
-import logo from "../../assets/Logo.svg"
+import logo from "../../assets/images/Logo.png"
 import money from "../../assets/moneysend.svg"
 import {AiOutlineCloseCircle} from "react-icons/ai"
 import printer from "../../assets/printer.svg"
@@ -98,7 +98,7 @@ function SuccessSlip(props) {
           <div className={styles.pay} onClick= {() => { 
           pay()
           {item.sumOfSalary ?
-          props.handlePayNow:""}
+          props.handlePayNow():""}
             }}>
            <p>Pay now</p>
             <img src={money} alt="pay-icon" />
