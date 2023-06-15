@@ -10,37 +10,36 @@ import BarChartYearly from './BarChartYearly'
 
 
 
-function AllCharts() {
-    // const [record, setRecord] = useState([]); 
-    // const [loading, setLoading] = useState(false); 
-
-    // useEffect(() => {
-    //     fetchRecord();
-    //   }, []);
+function AllCharts({ data, item}) {
+    const filteredArrays = [];
+    const historyData = data ? data : [];
+    const departments = [];
+    const departmentNumbers = [];
     
-    //   const fetchRecord = async () => {
-    //     setLoading(true);
-    //     try {
-    //       const response = await axios.get("https://autopay-qv54.onrender.com/api/v1/history", {
-    //         headers: {
-    //           'Authorization': `${setAuthToken()}`,
-    //         },
-    //       });
-    //       setRecord(response.data.data);
-    //       console.log(record);
-    //       setLoading(false)
-    //     } catch (error) {
-    //         setLoading(false)
-    //         console.log("Error: ", error);
-    //     }
-    //   };
+    const employeeData = item.length ? (item) : null;
+    const pendingData = employeeData ? employeeData.filter(employee => employee.status != "Paid").length : [];
+    const paidData = employeeData ? employeeData.filter(employee => employee.status == "Paid").length : [];
+
+    historyData.forEach(person => {
+        if(filteredArrays[person.department]){
+            filteredArrays[person.department].push(person);
+        } else {
+            filteredArrays[person.department] = [person];
+        }
+    })
+
+    
+    if(filteredArrays){
+        Object.entries(filteredArrays).map(item => departments.push(item[0]));
+        Object.entries(filteredArrays).map(item => departmentNumbers.push(item[1].length));
+    }
 
   return (
     <div className='flex justify-center items-center w-full min-h-[490px]'>
         <div className='grid grid-cols-1 md:grid-cols-2 w-full h-full' >
             <div className='flexjustify-center flex-col items-center row-span-2'>
                 <ChartTitle title="Employees’ Summary" />
-                <DoughnutChart />
+                <DoughnutChart departments={departments} departmentNumbers={departmentNumbers} />
             </div>
             <div className='flex justify-center flex-col items-center row-span-2 min-h-[300px]'>
                 <ChartTitle title="Monthly payment summary" />
@@ -52,7 +51,7 @@ function AllCharts() {
             </div>
             <div className='flex justify-center flex-col items-center row-span-2'>
                 <ChartTitle title="Payroll Summary" />
-                <DoughnutPayroll />
+                <DoughnutPayroll paidData={paidData} pendingData={pendingData} />
             </div>
         </div>
     </div>

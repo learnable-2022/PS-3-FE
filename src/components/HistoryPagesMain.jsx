@@ -23,7 +23,7 @@ function HistoryPagesMain({ data, item }) {
             ) : pageName.includes("/pending") ? (
               <PendingSubPage item={item} />
             ) : (
-              <HistorySubPage item={item} />
+              <HistorySubPage item={item} data={data} />
             )}
           </main>
         </div>

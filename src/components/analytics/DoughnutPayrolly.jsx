@@ -8,13 +8,13 @@ ChartJS.register(
   Legend
 ); 
 
-function DoughnutPayroll () {
+function DoughnutPayroll ({paidData, pendingData}) {
   const data ={
     labels: ['Pending Payment', 'Successful Payment'], 
     datasets: [
       {
         label: "Department", 
-        data: [9, 35], 
+        data: [pendingData, paidData], 
         backgroundColor: ['#FF6384', '#36A2EB'],
         cutout: "75%",
         spacing: -15,
