@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { GiHamburgerMenu } from "react-icons/gi";
-import ResourceEdgeLogo from "../assets/images/resourceedgelogo.png";
+import ResourceEdgeLogo from '../assets/images/ResourceEdgeLogo.png';
 import Reviews from "../pages/Reviews";
 import axios from "axios";
 import AuthTokenSet from "./AuthTokenSet";
