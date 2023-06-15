@@ -3,7 +3,6 @@ import { useState, useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
 import Aside from "./Aside"
 import HistoryPagesMain from "./HistoryPagesMain"
-// import { setAuthToken } from './setAuthToken';
 import AuthTokenSet from './setAuthToken';
 
 import NavPay from "./NavPay"

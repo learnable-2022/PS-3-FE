@@ -1,10 +1,8 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+
+import React from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { TbGraph } from "react-icons/tb";
 import { BiHomeAlt } from "react-icons/bi";
-// import { RiAccountCircleLine } from "react-icons/ri";
 import { MdOutlineSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate, NavLink, useLocation } from "react-router-dom";

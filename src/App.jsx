@@ -8,9 +8,6 @@ import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
 import AuthTokenSet from './components/setAuthToken';
-// import setAuthToken  from './components/setAuthToken';
-
-// console.log(AuthTokenSet, setAuthToken());
 
 function App() {
   const [data, setData] = useState(null);

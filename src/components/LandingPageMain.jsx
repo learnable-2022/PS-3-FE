@@ -1,11 +1,8 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 // import { GiHamburgerMenu } from "react-icons/gi";
 import ResourceEdgeLogo from "../assets/images/resourceedgelogo.png";
 import Reviews from "../pages/Reviews";
 import axios from "axios";
-// import { setAuthToken } from "./setAuthToken";
 import AuthTokenSet from "./setAuthToken";
 import AddEmployee from "./AddEmployee";
 import DeleteEmployeeModal from "./DeleteEmployeeModal";

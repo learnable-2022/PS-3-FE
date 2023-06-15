@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, {useState, useEffect} from 'react'
 import {FiUserCheck} from 'react-icons/fi'
 import {ImCancelCircle} from 'react-icons/im'
-// import { setAuthToken } from './setAuthToken'
 import AuthTokenSet from './setAuthToken';
 import LoaderMini from './tables/LoaderMini';
 
