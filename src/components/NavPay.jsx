@@ -1,9 +1,18 @@
-// import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from "../assets/images/Logo.png";
 import { BsBell } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
+  const [first, setFirst] = useState(localStorage.getItem('firstname'))
+  const [last, setLast] = useState(localStorage.getItem('lastname'))
+
     
+useEffect(()=>{
+setFirst(first.charAt(0).toUpperCase())
+setLast(last.charAt(0).toUpperCase())
+},[])
+
   const toggleSidebar = () => {
     setSideBarIsOpen(!sideBarIsOpen);
   };
@@ -37,16 +46,16 @@ function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
             )}
           </svg>
         </button>
-        <a href="https://www.google.com/" className="flex items-center">
+        <Link to="/landingpage" className="flex items-center">
           <img src={Logo} className="h-5 mr-3" alt="AutoPay Logo" />
-        </a>
+        </Link>
         <div className="flex flex-row items-center justify-between w-fit md:flex md:w-auto md:order-1">
           <span className="text-lg mr-6 cursor-pointer">
             <BsBell />
           </span>
-          <button className="justify-center text-white text-sm items-center hidden md:flex h-7 w-7 bg-[#5243AA] rounded-full">
-            ON
-          </button>
+          <span className="justify-center text-white text-sm font-bold items-center hidden md:flex h-7 w-7 bg-[#5243AA] rounded-full">
+          {`${first} ${last}`}
+          </span>
         </div>
       </div>
     </nav>

@@ -1,10 +1,11 @@
+import React from 'react'
 
-export function setAuthToken () {
+function AuthTokenSet() {
     const token = localStorage.getItem('token');
     if (token) {
       return token;
     }
     return {};
-  }
-  
-  // setAuthToken();
+}
+
+export default AuthTokenSet

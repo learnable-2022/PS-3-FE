@@ -7,13 +7,12 @@ import HistoryPage from './components/HistoryPage';
 import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
-import { setAuthToken } from './components/setAuthToken';
-
-// import './App.css'
+import AuthTokenSet from './components/AuthTokenSet';
 
 function App() {
   const [data, setData] = useState(null);
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
+  const [showVerifyMail, setShowVerifyMail] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -24,7 +23,7 @@ function App() {
       const response = await fetch("https://autopay-qv54.onrender.com/api/v1/transaction", {
         method: 'GET',
         headers: {
-          'Authorization': `${setAuthToken()}`,
+          'Authorization': `${AuthTokenSet()}`,
           'Content-Type': 'application/json'
         },
       });
@@ -34,14 +33,21 @@ function App() {
       console.log("Error: ", error);
     }
   };
+
+  function showVerifyMessage (){
+    setShowVerifyMail(true);
+  }
+  function hideVerifyMessage (){
+    setShowVerifyMail(false);
+  }
   return (
     <>
     <Routes>
-        <Route path="/" element={<SignIn />} />
+        <Route path="/" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage}/>} />
         <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
         <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
         <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
     </Routes>
     </>
   )

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../assets/styles/historyPage.css";
@@ -8,23 +7,23 @@ function HistoryPageNav() {
     <nav>
       <div className="flex flex-row h-full items-center gap-4">
         <NavLink
-          to={"/history/"}
+          to={"/history/summary"}
           className="text-sm"
-          activeClassName="nav"
+          activeclassname="nav"
         >
-          History
+          Summary
         </NavLink>
         <NavLink
           to={"/history/pending"}
           className="text-sm"
-          activeClassName="nav"
+          activeclassname="nav"
         >
           Pending
         </NavLink>
         <NavLink
           to={"/history/paid"}
           className="text-sm"
-          activeClassName="nav"
+          activeclassname="nav"
         >
           Paid
         </NavLink>

@@ -1,24 +1,30 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import styles from "./successmodal.module.css"
-import logo from "../../assets/Logo.svg"
+import logo from "../../assets/images/Logo.png"
 import {AiOutlineCloseCircle} from "react-icons/ai"
 import {MdOutlineMail} from "react-icons/md"
 import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
-import { setAuthToken } from "../setAuthToken";
+import AuthTokenSet from "../AuthTokenSet";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import { useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 
 function SuccessReceipt(props) {
+  const [loading, setLoading] =useState(true);
+  
   const email = () => {
+    setLoading(!loading)
     fetch('https://autopay-qv54.onrender.com/api/v1/mail', {
       method: 'GET',
       headers: {
-        'Authorization': `${setAuthToken()}`,
+        'Authorization': `${AuthTokenSet()}`,
         'Content-Type': 'application/json'
       },
     })
@@ -26,16 +32,15 @@ function SuccessReceipt(props) {
         // console.log('Response status:', response.status);
         return response.json();
       })
-      .then(data => {console.log(data);
+      .then(data => {console.log(data)
+        navigate("/history")
       })
       .catch(error => console.error(error));
   []}; 
 
-  const [pop, setpop] = useState(true);
-  const handleOpen = () => {
-  setpop(!pop);
-  }
+  
 
+  const navigate = useNavigate();
   const componentRef = useRef();
   const handlePrint = useReactToPrint ({
     content: () => componentRef.current,
@@ -58,7 +63,7 @@ function SuccessReceipt(props) {
           </div>
         
         <div className={styles.align3}>
-        <h4>Tenece employee salary payment receipt</h4>
+        <h4>Genesys employee salary payment receipt</h4>
         <img src={good} alt="complete-icon"  />
         <h1>Thank you!</h1>
         <h5>Your payment was successful</h5>
@@ -91,14 +96,22 @@ function SuccessReceipt(props) {
             <img src={printer} alt="a printer" />
           </div>
           
-            {pop?
+           {loading ? (
           <button onClick= {() => {
-            handleOpen()
             email()
             }}><span><MdOutlineMail/></span>
-          Notify Employees</button>:
-          <p className={styles.sent}>Emails successfully sent!</p>}
+          Notify Employees</button>):(
+            <ClipLoader
+           color={"blue"}
+           loading={!loading} 
+           size={40}
+           display={"block"}/> 
+          )
+          }
         </div>
+          
+        
+        
       </section>
       </section>:""}
     </>

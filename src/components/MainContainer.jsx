@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { RxCaretDown } from "react-icons/rx";
@@ -39,10 +38,10 @@ function MainContainer(props) {
     : [];
 
   return (
-    <main className="px-1 flex flex-col w-full h-full">
+    <main className="absolute px-1 flex flex-col w-full h-full right-1">
       <div className="flex flex-col w-full h-full md:px-4 relative">
         <div className="min-w-full mt-6 mb-3 flex flex-row justify-between items-center">
-          <h2 className="font-bold text-xl md:text-base">Employees</h2>
+          <h2 className="font-bold text-xl md:text-base text-primary">Payment Dashboard</h2>
           <form className="md:hidden rounded-lg flex items-center border border-[#7352907d]">
             <input
               type="search"
@@ -184,17 +183,17 @@ function MainContainer(props) {
             )}
           </div>
           <div className="flex justify-between items-center w-full md:w-fit">
-            <div className="md:mr-4 mr-2 flex-1 text-sm px-7 py-2 border border-[#A396FF] rounded-md">
-              <h4 className="font-bold text-[#735290]">
+            <div className="md:mr-2 mr-1 text-center flex-1 px-[2px] py-2 border border-[#A396FF] rounded-md">
+              <h3 className=" text-xs lg:text-sm font-bold text-[#735290]">
                 Total Net Salary:{" "}
                 <span className="text-[#422FC6] font-bold">
                   NGN
                   <FetchTotalnetpay />
                 </span>
-              </h4>
+              </h3>
             </div>
             <button
-              className="py-2 px-5 rounded-lg text-white bg-[#422FC6] hover:scale-105"
+              className="py-2 px-5 rounded-lg text-white bg-[#422FC6] hover:scale-105 mr-2"
               onClick={props.togglePaySLip}
             >
               Pay Now
@@ -263,7 +262,7 @@ function MainContainer(props) {
                 ) : (
                   <tr>
                     <td
-                      colSpan={6}
+                      colSpan={7}
                       className="px-6 py-4 uppercase font-medium text-gray-900"
                     >
                       No item found.

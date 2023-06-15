@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import HistoryPageNav from "../HistoryPageNav";
-import { RiSearchLine } from "react-icons/ri";
 import "./../../assets/styles/checkbox.css";
 import AllCharts from "../analytics/AllCharts";
 

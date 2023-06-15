@@ -1,12 +1,12 @@
-/* eslint-disable no-unused-vars */
 import {useState} from "react"
 import Logo from "../assets/images/Logo.png"
 import {MdOutlineVisibility, MdOutlineVisibilityOff} from "react-icons/md"
 import {RiErrorWarningLine} from "react-icons/ri"
 import { Link, useNavigate  } from "react-router-dom";
+import LoaderMini from "./tables/LoaderMini";
 
-function SignIn() {
-  const [success, setSuccess] = useState(false)
+function SignIn(props) {
+  const [loading, setLoading] = useState(false); 
   const [loginError, setLoginError] = useState(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [formData, setFormData] = useState(
@@ -30,10 +30,19 @@ function SignIn() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     // change password type back to password if on type="text".
     if (isPasswordVisible === true) {
       setIsPasswordVisible(false)
     }
+
+    // Check if the user is connected to the internet
+    if (!navigator.onLine) {
+      setLoading(false);
+      setLoginError("Please check your internet connection.");
+      return;
+    }
+
     fetch('https://autopay-qv54.onrender.com/api/v1/auth/login', {
     method: 'POST',
     headers: { 'Content-Type':'application/json' },
@@ -41,13 +50,14 @@ function SignIn() {
   })
     .then(response => response.json())
     .then(data => {
-      // Save the token to local storage
+      // Save the token to local storage, and login data to local storage
       localStorage.setItem('token', data.token);
+      localStorage.setItem('firstname', data.data.firstName);
+      localStorage.setItem('lastname', data.data.lastName);
+      // console.log(data);
 
       // redirect to dashboard on succefull login.
-      navigate("/landingpage")
-      
-      setSuccess(() => true);
+      navigate("/dashboard")
       setFormData({
         email: "", 
         password: ""
@@ -56,13 +66,16 @@ function SignIn() {
     })
     
     .catch(error => {
-      // console.error(error)
+      console.error(error)
+      setLoading(false);
+      // props.hideVerifyMessage();
+
       // Set error message on failed login
       setLoginError("Invalid Credentials");
     });
    
   }
-  
+   
   
 
   function togglePasswordVisibility() {
@@ -71,26 +84,33 @@ function SignIn() {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900 flex justify-between flex-col h-screen">
+      <section className="bg-gray-50 flex justify-between flex-col h-screen">
         <nav className="bg-white w-full h-14 z-20 shadow-md ">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-              <a href="#" className="flex items-center">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-center md:justify-start mx-auto p-4">
+              <span className="flex items-center">
                   <img src={Logo} className="h-5 mr-3" alt="AutoPay Logo" />
-              </a>
+              </span>
           </div>
         </nav>
         <div className="flex max-w-screen-xl flex-col items-center justify-center px-5 py-6 mx-auto ">
-          <h1 className="text-xl text-[#422FC6] font-bold leading-tight tracking-tight md:text-2xl mb-3">
+          <div className="flex flex-col items-center">
+            <h2 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg mb-4">
+              Welcome To AutoPay
+            </h2>
+            <h3 className="text-2xl text-[#422FC6] font-bold leading-tight tracking-tight md:text-3xl mb-3">
               Sign In
-          </h1>
-            <div className="w-[400px] border bg-white rounded-lg shadow-md  md:mt-0 sm:max-w-md xl:p-0 ">
+          </h3>
+          </div>
+            <div className="md:w-[400px] border bg-white rounded-lg shadow-md  md:mt-0 sm:max-w-md xl:p-0 ">
                 <div className="p-5 space-y-4 md:space-y-6 sm:p-8">
                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                    <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg ">
+                    <h3 className="text-lg font-bold leading-tight tracking-tight text-gray-600 md:text-lg text-center">
                         Unlock Performance. Elevate Rewards.
                     </h3>
+                    {props.showVerifyMail ? <p className="text-sm text-yellow-500 text-center">Verify your email address before Sign In</p>: null}
                     {loginError === null ? null :
-                    <p className="text-sm h-1 text-red-500 font-semibold flex justify-center items-center"><span className="mr-1"><RiErrorWarningLine /></span>{loginError}</p>}
+                    <p className="text-sm h-1 text-red-500 font-semibold flex justify-center items-center">
+                      <span className="mr-1"><RiErrorWarningLine /></span>{loginError}</p>}
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Email <span className=" text-red-500">*</span></label>
                             <input 
@@ -124,7 +144,12 @@ function SignIn() {
                         </div>
                       
                       
-                        <button type="submit" className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#422FC6] `}>Sign In</button>
+                        <button type="submit" 
+                        className={`w-full text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled bg-primary ${loading ? " cursor-not-allowed": ""}`}>
+                          {loading ? 
+                          <LoaderMini/> 
+                          : "Sign In"}
+                          </button>
                         <p className="text-sm font-light text-gray-500">
                              Don’t have an account yet? 
                             <Link to="/signup" className="ml-2 font-bold text-primary-600 hover:underline">Sign Up</Link>
