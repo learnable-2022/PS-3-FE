@@ -5,7 +5,7 @@ import HistorySubPage from "./SubPages/HistorySubPage";
 import PendingSubPage from "./SubPages/PendingSubPage";
 import PaidSubPage from "./SubPages/PaidSubPages";
 
-function HistoryPagesMain({ item }) {
+function HistoryPagesMain({ data, item }) {
   const location = useLocation();
   const pathname = location.pathname;
   const pageName = pathname.substring(pathname.lastIndexOf("/"));

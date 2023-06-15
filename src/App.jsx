@@ -45,7 +45,7 @@ function App() {
     <Routes>
         <Route path="/" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage}/>} />
         <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
-        <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
+        <Route path="/dashboard" element={<MainContentContainer fetchData={fetchData}  data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
         <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
         <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
     </Routes>
