@@ -3,7 +3,8 @@
 import React, {useState, useEffect} from 'react'
 import {FiUserCheck} from 'react-icons/fi'
 import {ImCancelCircle} from 'react-icons/im'
-import { setAuthToken } from './setAuthToken'
+// import { setAuthToken } from './setAuthToken'
+import AuthTokenSet from './setAuthToken';
 import LoaderMini from './tables/LoaderMini';
 
 function EditEmployee(props) {
@@ -53,7 +54,7 @@ function EditEmployee(props) {
     fetch(`https://autopay-qv54.onrender.com/api/v1/employee/${addEmployeeData.employeeId}`, {
     method: 'PATCH',
     headers: { 
-        'Authorization': `${setAuthToken()}`, 
+        'Authorization': `${AuthTokenSet()}`, 
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(addEmployeeData)

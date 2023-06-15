@@ -3,7 +3,8 @@ import { useState, useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
 import Aside from "./Aside"
 import HistoryPagesMain from "./HistoryPagesMain"
-import { setAuthToken } from './setAuthToken';
+// import { setAuthToken } from './setAuthToken';
+import AuthTokenSet from './setAuthToken';
 
 import NavPay from "./NavPay"
 import PaidSubPage from './SubPages/PaidSubPages';
@@ -16,7 +17,7 @@ function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
     fetch('https://autopay-qv54.onrender.com/api/v1/history', {
       method: 'GET',
       headers: {
-        'Authorization': `${setAuthToken()}`,
+        'Authorization': `${AuthTokenSet()}`,
         'Content-Type': 'application/json'
       },
     })
