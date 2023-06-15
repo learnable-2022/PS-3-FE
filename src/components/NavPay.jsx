@@ -3,7 +3,7 @@ import Logo from "../assets/images/Logo.png";
 import { BsBell } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function NavPay({ sideBarIsOpen, setSideBarIsOpen }) {
+function NavPay({ sideBarIsOpen, setSideBarIsOpen, sideRef }) {
   const [first, setFirst] = useState(localStorage.getItem('firstname'))
   const [last, setLast] = useState(localStorage.getItem('lastname'))
 
@@ -22,6 +22,7 @@ setLast(last.charAt(0).toUpperCase())
         <button
           className="text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 md:hidden"
           onClick={toggleSidebar}
+          ref={sideRef}
         >
           <svg
             className="h-6 w-6"

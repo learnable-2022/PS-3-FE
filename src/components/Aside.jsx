@@ -44,7 +44,7 @@ function SidebarLogoutBtn(props) {
   );
 }
 
-function Aside({ sideBarIsOpen }) {
+function Aside({ sideBarIsOpen, sideRef }) {
   const navigate = useNavigate();
 
   function handleLogout() {

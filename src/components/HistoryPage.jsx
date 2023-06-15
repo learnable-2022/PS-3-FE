@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 import { Route, Routes } from "react-router-dom";
 import Aside from "./Aside"
 import HistoryPagesMain from "./HistoryPagesMain"
@@ -9,7 +9,7 @@ import NavPay from "./NavPay"
 import PaidSubPage from './SubPages/PaidSubPages';
 import PendingSubPage from './SubPages/PendingSubPage';
 
-function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
+function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen, sideRef }) {
     const [item, setItem] = useState({});
   
   useEffect(() => {
@@ -33,7 +33,7 @@ function HistoryPage({data, sideBarIsOpen, setSideBarIsOpen }) {
   return (
     <div className="flex flex-col w-full h-screen">
         <div className="h-14 flex justify-center items-center w-full">
-            <NavPay sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />
+            <NavPay sideRef={sideRef} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />
         </div>
         
         <div className="flex w-full h-full overflow-y-auto relative">
