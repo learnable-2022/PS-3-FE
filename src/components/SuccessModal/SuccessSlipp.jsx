@@ -7,7 +7,7 @@ import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import SuccessReceipt from "./SuccessReceipt"
 import FetchTotalnetpay from "../FetchTotalnetpay"
-import AuthTokenSet from "../setAuthToken";
+import AuthTokenSet from "../AuthTokenSet";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import Employeeno from "./Employeeno";

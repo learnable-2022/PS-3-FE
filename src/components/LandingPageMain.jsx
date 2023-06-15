@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import ResourceEdgeLogo from "../assets/images/resourceedgelogo.png";
 import Reviews from "../pages/Reviews";
 import axios from "axios";
-import AuthTokenSet from "./setAuthToken";
+import AuthTokenSet from "./AuthTokenSet";
 import AddEmployee from "./AddEmployee";
 import DeleteEmployeeModal from "./DeleteEmployeeModal";
 import { NavLink } from "react-router-dom";

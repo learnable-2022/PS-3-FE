@@ -8,7 +8,7 @@ import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
-import AuthTokenSet from "../setAuthToken";
+import AuthTokenSet from "../AuthTokenSet";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { useNavigate } from "react-router-dom";
