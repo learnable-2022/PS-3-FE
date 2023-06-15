@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AuthTokenSet from "../setAuthToken";
+import AuthTokenSet from "../AuthTokenSet";
 import axios from "axios";
 
 function Employeeno() {

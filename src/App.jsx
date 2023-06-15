@@ -7,7 +7,7 @@ import HistoryPage from './components/HistoryPage';
 import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
-import AuthTokenSet from './components/setAuthToken';
+import AuthTokenSet from './components/AuthTokenSet';
 
 function App() {
   const [data, setData] = useState(null);
