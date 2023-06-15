@@ -1,12 +1,9 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 // import { GiHamburgerMenu } from "react-icons/gi";
 import ResourceEdgeLogo from "../assets/images/resourceedgelogo.png";
-// import PerformanceAgreement from "../pages/PerformanceAgreement";
 import Reviews from "../pages/Reviews";
 import axios from "axios";
-import { setAuthToken } from "./setAuthToken";
+import AuthTokenSet from "./setAuthToken";
 import AddEmployee from "./AddEmployee";
 import DeleteEmployeeModal from "./DeleteEmployeeModal";
 import { NavLink } from "react-router-dom";
@@ -44,7 +41,7 @@ function LandingPageMain(props) {
     try {
       const response = await axios.get("https://autopay-qv54.onrender.com/api/v1/employee", {
         headers: {
-          'Authorization': `${setAuthToken()}`,
+          'Authorization': `${AuthTokenSet()}`,
         },
       });
       setData(response.data.data);
@@ -74,7 +71,7 @@ const handleDeleteEmp = async () => {
     await axios.delete(`https://autopay-qv54.onrender.com/api/v1/employee/${selectedEmp.employeeId}`, {
       // method: 'POST',
       headers: { 
-        'Authorization': `${setAuthToken()}`, 
+        'Authorization': `${AuthTokenSet()}`, 
         'Content-Type': 'application/json'
       }
     });

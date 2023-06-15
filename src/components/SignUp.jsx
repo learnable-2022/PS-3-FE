@@ -51,7 +51,7 @@ function SignUp(props) {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      props.showVerifyMessage(); // to set the showVerify state located in App.jsx to show verify password true only on successfull signup. 
+      props.showVerifyMessage(); 
       navigate("/")
       setFormData({
         firstName: "", 

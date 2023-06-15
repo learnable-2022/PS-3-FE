@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+
 import React, {useState, useEffect} from 'react'
 import {FiUserCheck} from 'react-icons/fi'
 import {ImCancelCircle} from 'react-icons/im'
-import { setAuthToken } from './setAuthToken'
+import AuthTokenSet from './setAuthToken'
 import LoaderMini from './tables/LoaderMini';
 
 function AddEmployee(props) {
@@ -56,7 +55,7 @@ function AddEmployee(props) {
     fetch('https://autopay-qv54.onrender.com/api/v1/employee', {
     method: 'POST',
     headers: { 
-        'Authorization': `${setAuthToken()}`, 
+        'Authorization': `${AuthTokenSet()}`, 
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(addEmployeeData)

@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { RxCaretDown } from "react-icons/rx";
@@ -263,7 +262,7 @@ function MainContainer(props) {
                 ) : (
                   <tr>
                     <td
-                      colSpan={6}
+                      colSpan={7}
                       className="px-6 py-4 uppercase font-medium text-gray-900"
                     >
                       No item found.

@@ -8,7 +8,7 @@ import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
-import { setAuthToken } from "../setAuthToken";
+import AuthTokenSet from "../setAuthToken";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ function SuccessReceipt(props) {
     fetch('https://autopay-qv54.onrender.com/api/v1/mail', {
       method: 'GET',
       headers: {
-        'Authorization': `${setAuthToken()}`,
+        'Authorization': `${AuthTokenSet()}`,
         'Content-Type': 'application/json'
       },
     })

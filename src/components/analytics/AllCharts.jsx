@@ -5,7 +5,6 @@ import BarChartMonthly from './BarChartMonthly'
 import DoughnutPayroll from './DoughnutPayrolly'
 import ChartTitle from './ChartTitle'
 import BarChartYearly from './BarChartYearly'
-// import { setAuthToken } from '../setAuthToken'
 // import axios from 'axios'
 
 

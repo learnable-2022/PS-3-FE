@@ -1,8 +1,6 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
+
 import React from "react";
 import ReviewTable from "../components/tables/ReviewTable";
-// import Pagecontrol from "../components/Pagecontrol";
 
 function Reviews(props) {
   return (
@@ -23,7 +21,6 @@ function Reviews(props) {
               loading={props.loading}
               handleEmployeeClick={props.handleEmployeeClick}
               toggleAddEmployee={props.toggleAddEmployee}/>
-            {/* <Pagecontrol /> */}
         </div>
     </div>
   );
