@@ -115,7 +115,7 @@ function toggleDelEmployee () {
             <div className="flex flex-row items-center gap-4">
               {/* <GiHamburgerMenu className="text-xl" /> */}
               <div className="flex flex-row items-center gap-3">
-                <img src={ResourceEdgeLogo} alt="" />
+                <img src={ResourceEdgeLogo} alt="Resource Edge" />
                 <h2 className="border-l border-gray-300 hidden px-3 sm:block">
                  Genesys Performance Management
                 </h2>
