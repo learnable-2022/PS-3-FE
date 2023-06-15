@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import styles from "./successmodal.module.css"
-import logo from "../../assets/Logo.svg"
+import logo from "../../assets/images/Logo.png"
 import {AiOutlineCloseCircle} from "react-icons/ai"
 import {MdOutlineMail} from "react-icons/md"
 import good from "../../assets/good.svg"
 import printer from "../../assets/printer.svg"
 import { displaydate } from "../date"
 import FetchTotalnetpay from "../FetchTotalnetpay"
-import { setAuthToken } from "../setAuthToken";
+import AuthTokenSet from "../AuthTokenSet";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ function SuccessReceipt(props) {
     fetch('https://autopay-qv54.onrender.com/api/v1/mail', {
       method: 'GET',
       headers: {
-        'Authorization': `${setAuthToken()}`,
+        'Authorization': `${AuthTokenSet()}`,
         'Content-Type': 'application/json'
       },
     })

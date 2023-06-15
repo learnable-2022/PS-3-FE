@@ -7,9 +7,7 @@ import HistoryPage from './components/HistoryPage';
 import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
-import { setAuthToken } from './components/setAuthToken';
-
-// import './App.css'
+import AuthTokenSet from './components/AuthTokenSet';
 
 function App() {
   const [data, setData] = useState(null);
@@ -25,7 +23,7 @@ function App() {
       const response = await fetch("https://autopay-qv54.onrender.com/api/v1/transaction", {
         method: 'GET',
         headers: {
-          'Authorization': `${setAuthToken()}`,
+          'Authorization': `${AuthTokenSet()}`,
           'Content-Type': 'application/json'
         },
       });

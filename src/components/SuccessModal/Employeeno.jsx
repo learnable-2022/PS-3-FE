@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { setAuthToken } from "../setAuthToken";
+import AuthTokenSet from "../AuthTokenSet";
 import axios from "axios";
 
 function Employeeno() {
@@ -13,7 +13,7 @@ function Employeeno() {
     try {
       const response = await axios.get("https://autopay-qv54.onrender.com/api/v1/employee", {
         headers: {
-          'Authorization': `${setAuthToken()}`,
+          'Authorization': `${AuthTokenSet()}`,
         },
       });
       setItem(response.data.data);

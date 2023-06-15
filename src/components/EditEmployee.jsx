@@ -1,27 +1,24 @@
-
 import React, {useState, useEffect} from 'react'
 import {FiUserCheck} from 'react-icons/fi'
 import {ImCancelCircle} from 'react-icons/im'
-import AuthTokenSet from './AuthTokenSet'
+import AuthTokenSet from './AuthTokenSet';
 import LoaderMini from './tables/LoaderMini';
 
-function AddEmployee(props) {
-    const [successModal, setSuccessModal] = useState(false); 
-    const [loading, setLoading] = useState(false); 
-    const [addEmployeeData, setAddEmployeeData] = useState(
-        {
-            firstName: '',
-            lastName: '',
-            department: '',
-            email: '',
-            performance: '',
-            bankCode: '',
-            employeeId: '',
-            accountNumber: '',
-            month: '',
-            grossSalary: '',
+function EditEmployee(props) {
+    const [successModal, setSuccessModal] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [addEmployeeData, setAddEmployeeData] = useState()
+
+    // console.log(addEmployeeData);
+      useEffect(()=>{
+        try {
+            if (props && props.selectedEmp) {
+                setAddEmployeeData(props.selectedEmp)
+            }
+        } catch (error) {
+            console.log(error);
         }
-      )
+      },[props])
 
       useEffect(() => {
         if (successModal) {
@@ -41,25 +38,24 @@ function AddEmployee(props) {
         setAddEmployeeData(prevaddEmployeeData => {
             return {
                 ...prevaddEmployeeData,
-                [name]: parsedValue,
-                // [name]: value,
+                [name]: parsedValue
             }
         })
       }
 
 
-  function handleSubmit(e) {
+    function handleSubmit(e) {
     e.preventDefault();
     setLoading(true)
-    // console.log(addEmployeeData);
-    fetch('https://autopay-qv54.onrender.com/api/v1/employee', {
-    method: 'POST',
+    // console.log(updateEmployee);
+    fetch(`https://autopay-qv54.onrender.com/api/v1/employee/${addEmployeeData.employeeId}`, {
+    method: 'PATCH',
     headers: { 
         'Authorization': `${AuthTokenSet()}`, 
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(addEmployeeData)
-  })
+    })
 
   .then(response => {
     // console.log('Response status:', response.status);
@@ -69,8 +65,9 @@ function AddEmployee(props) {
   })
     .then(data => {
         // console.log('Data:', data);
-        props.toggleAddEmployee();
-        setLoading(false)
+        props.toggleUpdateEmployee();
+        setLoading(false);
+        props.toggleDelEmployee();
         
         
         // console.log(resMessage);
@@ -83,7 +80,6 @@ function AddEmployee(props) {
    
   }
     
-      // eslint-disable-next-line no-unused-vars
       const monthdetail = [
           { val: 'January', label: 'January' },
           { val: 'February', label: 'February'},
@@ -139,15 +135,15 @@ function AddEmployee(props) {
 
   return ( 
     <>
-        { props.showaddEmp ? 
+        { props.showUpdateEmp ? 
             <div  className='md:w-screen md:h-screen fixed top-0 left-0 flex items-center justify-center z-10'>
                 <div className='w-screen h-screen bg-gray-500 flex justify-center items-center bg-opacity-70' onClick={props.toggleAddEmployee}>
                     <div className='sm:w-4/5 sm:h-4/5 w-[90%] h-[90%] rounded-lg'>
                         
                         <form onSubmit={handleSubmit} onClick={(event) => event.stopPropagation()} className='flex flex-col justify-between items-center py-6 sm:py-4 bg-white h-full rounded-lg px-4 bg-opacity-100'>
                             <div className='text-[#30343F] mb-1 text-center'>
-                                <h2 className=' text-lg font-bold text-[#0052CC]'>Add Employee</h2> 
-                                <p className='text-sm mt-1'>Add new employee details </p>
+                                <h2 className=' text-lg font-bold text-[#0052CC]'>Edit Employee</h2> 
+                                <p className='text-sm mt-1'>Update employee details </p>
                             </div>
                             <div className=' w-full grid grid-cols-1  sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
 
@@ -191,7 +187,7 @@ function AddEmployee(props) {
                                             placeholder="Enter Employee Id" 
                                             required
                                             value={addEmployeeData.employeeId} 
-                                            onChange={handleChange} 
+                                            // onChange={handleChange} 
                                             className="bg-gray-50 border border-[#A396FF] outline-1 outline-[#A396FF] text-[#241E4E] sm:text-sm rounded-lg focus:ring-[#A396FF] focus:border-[#A396FF] block w-full p-2 bg-transparent "/>
                                     </div>
                                 </div>
@@ -227,7 +223,6 @@ function AddEmployee(props) {
                                                 <option 
                                                     key={department.val} 
                                                     value={department.val}
-                                                    // selected={addEmployeeData.department === department.val}
                                                     >
                                                     {department.label}
                                                 </option>
@@ -348,7 +343,7 @@ function AddEmployee(props) {
                                 <div className='w-full flex justify-center items-center'>
                                     <div className='w-full sm:w-3/4 flex justify-end'>
                                         <span 
-                                            onClick={props.toggleAddEmployee}
+                                            onClick={props.cancelUpdateEmployee}
                                             className=" w-24 bg-red-600 hover:bg-red-500 py-2 px-4 flex items-start justify-center rounded-md">
                                             <span className="mt-[2px] text-lg mr-1"><ImCancelCircle /></span> 
                                             Cancel
@@ -374,4 +369,4 @@ function AddEmployee(props) {
   )
 }
 
-export default AddEmployee
+export default EditEmployee

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { setAuthToken } from "./setAuthToken";
 import axios from "axios";
+import AuthTokenSet from "./AuthTokenSet";
 
 function Totalnetpay() {
   const [item, setItem] = useState({});
@@ -15,7 +15,7 @@ function Totalnetpay() {
     try {
       const response = await axios.get('https://autopay-qv54.onrender.com/api/v1/transaction/total/netsalary', {
         headers: {
-          'Authorization': `${setAuthToken()}`,
+          'Authorization': `${AuthTokenSet()}`,
         },
       });
       setItem(response.data);

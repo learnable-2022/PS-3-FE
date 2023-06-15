@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React, {useState} from "react";
-import {BiUserX} from 'react-icons/bi'
+import {FiEdit} from 'react-icons/fi'
 import {CiSearch} from 'react-icons/ci'
 import {BiUserPlus} from 'react-icons/bi'
 import GetInitials from "./GetInitials";
@@ -52,7 +52,7 @@ const filteredNames = employeeData
                     type="search"
                     placeholder="search"
                     onChange={(event) => handleSearchName(event.target.value)}
-                    className="outline-none text-xs w-24 sm:w-40"
+                    className="outline-none text-xs w-24 sm:w-44"
                     />
                     <CiSearch />
                 </div>
@@ -79,9 +79,9 @@ const filteredNames = employeeData
             <div className="flex justify-end items-center w-full">
                 <button 
                 onClick={() => props.toggleAddEmployee()}
-                className="h-9 border border-primary  rounded text-primary font-bold hover:text-white hover:bg-[#0052CC] py-2 text-sm px-1 sm:px-2 flex items-center justify-center">
+                className="h-9 border border-[#0052CC]  rounded text-[#0052CC] font-bold hover:text-white hover:bg-[#0052CC] py-2 text-sm px-1 sm:px-2 flex items-center justify-center">
                 <span className="text-xl font-bold mr-1"><BiUserPlus /></span> 
-                Add <span className="hidden md:block ml-1"> Employee</span>
+                Add <span className="hidden sm:block ml-1"> Employee</span>
                 </button>
                 
             </div>
@@ -91,7 +91,7 @@ const filteredNames = employeeData
             <table className="mt-8 w-full border-2 border-gray-100 ">
                 <thead color="">
                     <tr className="text-left border-b">
-                        <th colSpan={4} className="px-5 text-xl py-3">Employee Review (<span className="text-primary">{empLength}</span>)</th>
+                        <th colSpan={4} className="px-5 text-xl py-3">Employee Review (<span className="text-[#0052CC]">{empLength}</span>)</th>
                     </tr>
                     <tr className="text-gray-400 text-left border-b text-sm">
                         <th className="py-3 font-medium px-5">Employee Id</th>
@@ -114,7 +114,7 @@ const filteredNames = employeeData
                                 <tr key={dets.employeeId} className="text-left border-b text-sm hover:bg-slate-100 cursor-pointer" >
                         <td className="py-3 font-semibold px-5">{dets.employeeId}</td>
                         <td className="py-3 font-semibold px-5 flex flex-row gap-3">
-                            <span className="w-10 h-10 rounded-full border-2 border-green-500 bg-primary flex justify-center items-center text-white">
+                            <span className="w-10 h-10 rounded-full border-2 border-green-500 bg-[#0052CC] flex justify-center items-center text-white">
                                 <GetInitials a={dets.firstName} b={dets.lastName} />
                             </span>
                             <div className="flex flex-col">
@@ -127,8 +127,8 @@ const filteredNames = employeeData
                         <td className="py-3 font-semibold px-5">
                         <button 
                             onClick={() => props.handleEmployeeClick(dets.employeeId)}
-                            className="bg-red-600 py-1 text-white px-2 flex items-start justify-center rounded-md">
-                            <span className="mt-[2px] text-sm mr-1"><BiUserX /></span>
+                            className="bg-transparent hover:bg-[#0052CC] hover:text-white py-1 text-[#0052CC] px-2 flex items-start justify-center rounded-md">
+                            <span className="mt-[2px] text-sm mr-1"><FiEdit /></span>
                             Edit
                         </button>
                         </td>                       
