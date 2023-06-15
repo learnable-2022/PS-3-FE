@@ -71,7 +71,7 @@ const DeleteEmployeeModal = (props) => {
 
                     <div className="w-full ">
                       <button 
-                        // onClick={props.toggleDelEmployee}
+                            onClick={props.handleUpdate}
                             className=" bg-[#422FC6] hover:bg-blue-600 py-2 px-4 flex items-start justify-center rounded-md">
                             <span className="mt-[2px] text-lg mr-1"><FaUserEdit /></span>
                             Edit
