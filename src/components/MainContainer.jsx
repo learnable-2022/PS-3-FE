@@ -39,7 +39,7 @@ function MainContainer(props) {
     : [];
 
   return (
-    <main className="px-1 flex flex-col w-full h-full">
+    <main className="absolute px-1 flex flex-col w-full h-full right-1">
       <div className="flex flex-col w-full h-full md:px-4 relative">
         <div className="min-w-full mt-6 mb-3 flex flex-row justify-between items-center">
           <h2 className="font-bold text-xl md:text-base text-primary">Payment Dashboard</h2>
@@ -194,7 +194,7 @@ function MainContainer(props) {
               </h3>
             </div>
             <button
-              className="py-2 px-5 rounded-lg text-white bg-[#422FC6] hover:scale-105"
+              className="py-2 px-5 rounded-lg text-white bg-[#422FC6] hover:scale-105 mr-2"
               onClick={props.togglePaySLip}
             >
               Pay Now
