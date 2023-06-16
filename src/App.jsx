@@ -54,10 +54,10 @@ function App() {
   return (
     <>
     <Routes>
-        <Route path="/" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage}/>} />
-        <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
-        <Route path="/dashboard" element={<MainContentContainer fetchData={fetchData} sideRef={sideRef}  data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
-        <Route path="/history/*" element={<HistoryPage sideRef={sideRef} data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
+        <Route path="/signin" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage} fetchData={fetchData}/>} />
+        <Route path="/" element={<LandingPageMain reloadDash={fetchData}/>} />
+        <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} fetchData={fetchData} />} />
+        <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
         <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
     </Routes>
     </>

@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import Aside from "./Aside"
 import MainContainer from "./MainContainer"
-// import SuccessSlip from "./SuccessModal/SuccessSlip"
 import SuccessReceipt from "./SuccessModal/SuccessReceipt"
 import SuccessSlipp from './SuccessModal/SuccessSlipp';
 import NavPay from "./NavPay"
@@ -18,6 +17,7 @@ function MainContentContainer({fetchData, data,  sideBarIsOpen, setSideBarIsOpen
    function handlePayNow () {
     setPopSlip(false)
     setShowReceipt(true)
+    fetchData()
    }
 
    function closePopReceipt () {

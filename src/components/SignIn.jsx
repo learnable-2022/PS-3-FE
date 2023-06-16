@@ -56,6 +56,9 @@ function SignIn(props) {
       localStorage.setItem('lastname', data.data.lastName);
       // console.log(data);
 
+      // called the fetch function to refresh the dashboard page with data. 
+      props.fetchData();
+
       // redirect to dashboard on succefull login.
       navigate("/dashboard")
       setFormData({
