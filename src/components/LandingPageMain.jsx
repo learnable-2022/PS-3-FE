@@ -101,7 +101,7 @@ function toggleDelEmployee () {
     }
 
   function handleUpdate () {
-    console.log("edit clicked");
+    // console.log("edit clicked");
     setShowUpdateEmp(false);
     setShowUpdateEmp(true);
     // console.log(selectedEmp);
@@ -122,7 +122,7 @@ function toggleDelEmployee () {
               </div>
             </div>
             <NavLink 
-                to={"/"} 
+                to={"/signin"} 
                 onClick={() => {
                     props.reloadDash();
                   }}

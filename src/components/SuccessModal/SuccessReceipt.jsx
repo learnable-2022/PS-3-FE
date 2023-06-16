@@ -12,12 +12,12 @@ import AuthTokenSet from "../AuthTokenSet";
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { useNavigate } from "react-router-dom";
-import ClipLoader from "react-spinners/ClipLoader";
+import LoaderMini from "../tables/LoaderMini";
 
 
 
 function SuccessReceipt(props) {
-  const [loading, setLoading] =useState(true);
+  const [loading, setLoading] =useState(false);
   
   const email = () => {
     setLoading(!loading)
@@ -96,18 +96,11 @@ function SuccessReceipt(props) {
             <img src={printer} alt="a printer" />
           </div>
           
-           {loading ? (
-          <button onClick= {() => {
-            email()
-            }}><span><MdOutlineMail/></span>
-          Notify Employees</button>):(
-            <ClipLoader
-           color={"blue"}
-           loading={!loading} 
-           size={40}
-           display={"block"}/> 
-          )
-          }
+          <button onClick= {email}>
+          {loading ? <LoaderMini />:
+            <><span><MdOutlineMail/></span>
+          Notify Employees</>}</button>
+            
         </div>
           
         

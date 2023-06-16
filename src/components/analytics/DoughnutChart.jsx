@@ -8,13 +8,13 @@ ChartJS.register(
   Legend
 ); 
 
-function DoughnutChart () {
+function DoughnutChart ({departments, departmentNumbers}) {
   const data ={
-    labels: ['Learnable', 'Dev Studio', 'Upskill', 'Scuudu'], 
+    labels: departments, 
     datasets: [
       {
         label: "Department", 
-        data: [90, 120, 90, 60], 
+        data: departmentNumbers, 
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8bc34a'],
         cutout: "75%",
         spacing: -15,
@@ -49,7 +49,7 @@ function DoughnutChart () {
   return (
     <div className='w-full md:w-4/5 h-[90%] md:h-4/5 relative flex justify-center items-center'>
       <Doughnut data={data} options={options} />
-      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-4 md:-translate-y-1/2' >
+      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-4 md:-translate-y-1/5' >
         <span className='font-bold text-5xl md:text-sm '>
           {sum}
         </span>

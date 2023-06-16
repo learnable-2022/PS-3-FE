@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Route, Routes } from "react-router-dom";
 
 import MainContentContainer from './components/MainContentContainer'
@@ -13,11 +13,22 @@ function App() {
   const [data, setData] = useState(null);
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
   const [showVerifyMail, setShowVerifyMail] = useState(false);
+  const sideRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (sideRef.current &&!sideRef.current.contains(event.target)){
+      setSideBarIsOpen(false);
+    }
+  }
 
   useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    
     fetchData();
+    return() => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   }, []);
-
   const fetchData = async () => {
     try {
       const response = await fetch("https://autopay-qv54.onrender.com/api/v1/transaction", {
@@ -43,9 +54,9 @@ function App() {
   return (
     <>
     <Routes>
-        <Route path="/" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage}/>} />
-        <Route path="/landingpage" element={<LandingPageMain reloadDash={fetchData}/>} />
-        <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} />} />
+        <Route path="/signin" element={<SignIn showVerifyMail={showVerifyMail} hideVerifyMessage={hideVerifyMessage} fetchData={fetchData}/>} />
+        <Route path="/" element={<LandingPageMain reloadDash={fetchData}/>} />
+        <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} fetchData={fetchData} />} />
         <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
         <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
     </Routes>

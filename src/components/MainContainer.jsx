@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { RxCaretDown } from "react-icons/rx";
 import FetchTotalnetpay from "./FetchTotalnetpay";
@@ -20,6 +20,9 @@ function MainContainer(props) {
   const handleSearchName = (event) => {
     setSearchText(event);
   };
+  useEffect(() => {
+    props.fetchData();
+  }, []);
   const handleSelectChange = (event) => {
     if (event == "all") {
       setSelectedValue("");
@@ -38,7 +41,7 @@ function MainContainer(props) {
     : [];
 
   return (
-    <main className="absolute px-1 flex flex-col w-full h-full right-1">
+    <main className="absolute px-8 flex flex-col w-full h-full right-1">
       <div className="flex flex-col w-full h-full md:px-4 relative">
         <div className="min-w-full mt-6 mb-3 flex flex-row justify-between items-center">
           <h2 className="font-bold text-xl md:text-base text-primary">Payment Dashboard</h2>
@@ -183,7 +186,7 @@ function MainContainer(props) {
             )}
           </div>
           <div className="flex justify-between items-center w-full md:w-fit">
-            <div className="md:mr-2 mr-1 text-center flex-1 px-[2px] py-2 border border-[#A396FF] rounded-md">
+            <div className="md:mr-2 mr-1 text-center flex-1 px-[2px] py-2 border h-full flex items-center justify-center border-[#A396FF] rounded-md">
               <h3 className=" text-xs lg:text-sm font-bold text-[#735290]">
                 Total Net Salary:{" "}
                 <span className="text-[#422FC6] font-bold">
