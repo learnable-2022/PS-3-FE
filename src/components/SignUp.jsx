@@ -52,7 +52,7 @@ function SignUp(props) {
     .then(data => {
       console.log(data);
       props.showVerifyMessage(); 
-      navigate("/")
+      navigate("/signin")
       setFormData({
         firstName: "", 
         lastName: "",
