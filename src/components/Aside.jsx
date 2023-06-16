@@ -44,7 +44,7 @@ function SidebarLogoutBtn(props) {
   );
 }
 
-function Aside({ sideBarIsOpen }) {
+function Aside({ sideBarIsOpen, sideRef }) {
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -52,7 +52,7 @@ function Aside({ sideBarIsOpen }) {
     localStorage.removeItem("token");
 
     // Redirect user to the sign-in page
-    navigate("/");
+    navigate("/landingpage");
   }
   return (
     <div
@@ -60,7 +60,7 @@ function Aside({ sideBarIsOpen }) {
         sideBarIsOpen ? "block" : "hidden"
       } md:block transition ease-in duration-300 bg-black text-white w-[50%] md:w-[16%] min-w-[300px]`}
     >
-    <div className="md:block md:w-[16%] flex flex-row fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
+    <div className="md:block md:w-[16%] w-[50%] shadow-lg flex flex-row fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
         <div
           className="z-2 w-full h-full sm:translate-x-0 flex flex-col justify-between bg-[#F9FAFB]"
           aria-label="Sidebar"
