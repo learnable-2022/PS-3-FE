@@ -13,11 +13,12 @@ import { useReactToPrint } from 'react-to-print';
 import Employeeno from "./Employeeno";
 import { nanoid } from 'nanoid';
 import ClipLoader from "react-spinners/ClipLoader";
+import LoaderMini from "../tables/LoaderMini";
 
 function SuccessSlipp(props) {
     const nan =  nanoid()
   
-    const [loading, setLoading] =useState(true);
+    const [loading, setLoading] =useState(false);
     
   
     
@@ -36,7 +37,7 @@ function SuccessSlipp(props) {
           props.handlePayNow()
         ))
         .catch(error => console.error(error));
-    []; setLoading(loading)};
+    []; setLoading(false)};
   
     const componentRef = useRef();
     const handlePrint = useReactToPrint ({
@@ -92,25 +93,12 @@ function SuccessSlipp(props) {
               <p>Print</p>
               <img src={printer} alt="a printer" />
             </div>
-            {loading ? (
-            <div className={styles.pay} onClick= {() => { 
-            pay()
             
-              }}>
+            <div className={styles.pay} onClick= {pay}>
+            {loading ? <LoaderMini />:<>
              <p>Pay now</p>
-              <img src={money} alt="pay-icon" />
-  
-            </div>):(
-            
-             <ClipLoader
-             color={"blue"}
-             loading={!loading} 
-             size={40}
-             display={"block"}/> 
-             
-            )
-            }
-  
+              <img src={money} alt="pay-icon" /> </>}
+            </div>
           </div>
   
           {props.showReceipt && <SuccessReceipt />}
@@ -121,4 +109,4 @@ function SuccessSlipp(props) {
     )
 }
 
-export default SuccessSlipp
+export default SuccessSlipp;
