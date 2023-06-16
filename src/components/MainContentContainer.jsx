@@ -6,7 +6,7 @@ import SuccessReceipt from "./SuccessModal/SuccessReceipt"
 import SuccessSlipp from './SuccessModal/SuccessSlipp';
 import NavPay from "./NavPay"
 
-function MainContentContainer({data,  sideBarIsOpen, setSideBarIsOpen }) {
+function MainContentContainer({data,  sideBarIsOpen, setSideBarIsOpen, fetchData }) {
     const [popSlip, setPopSlip] = useState(false)
     const [showReceipt, setShowReceipt] = useState(false);
 
@@ -18,6 +18,7 @@ function MainContentContainer({data,  sideBarIsOpen, setSideBarIsOpen }) {
    function handlePayNow () {
     setPopSlip(false)
     setShowReceipt(true)
+    fetchData()
    }
 
    function closePopReceipt () {

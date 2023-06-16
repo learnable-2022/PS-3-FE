@@ -294,9 +294,11 @@ function EditEmployee(props) {
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="accountNumber" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Bank Account Number <span className=" text-red-500">*</span></label>
                                         <input 
-                                            type="number" 
+                                            type="text" 
                                             name="accountNumber" 
                                             id="accountNumber" 
+                                            title="Enter a 10-digit Account number."
+                                            pattern="[0-9]{10}"
                                             placeholder="Enter Account Number"  
                                             required
                                             value={addEmployeeData.accountNumber} 
@@ -359,9 +361,9 @@ function EditEmployee(props) {
                     </div>
         : null} 
         {successModal && (
-            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-3 shadow-md rounded-lg">
-              <div className="flex items-center justify-center text-lg text-[#0052CC] rounded-lg text-center">
-                <p >Successfully Added <span className='ml-2'>{`${addEmployeeData.firstName} ${addEmployeeData.lastName}`}</span></p>
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-300 p-3 shadow-md rounded-lg">
+              <div className="flex items-center justify-center text-sm text-[#298535] rounded-lg text-center">
+                <p >Successfully Updated Details</p>
               </div>
             </div>
           )}

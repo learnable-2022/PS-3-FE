@@ -33,7 +33,8 @@ function SuccessSlipp(props) {
       })
         .then(response =>  response.json())
         .then(data => data(
-          props.handlePayNow()
+          props.handlePayNow(),
+          props.fetchData()
         ))
         .catch(error => console.error(error));
     []; setLoading(loading)};
