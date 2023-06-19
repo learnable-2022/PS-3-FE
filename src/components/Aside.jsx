@@ -51,8 +51,8 @@ function Aside({ sideBarIsOpen, sideRef }) {
     // Clear token from local storage
     localStorage.removeItem("token");
 
-    // Redirect user to the sign-in page
-    navigate("/landingpage");
+    // Redirect user to the landing page
+    navigate("/");
   }
   return (
     <div
