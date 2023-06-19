@@ -209,7 +209,7 @@ function MainContainer(props) {
 
         <div className="relative w-full max-h-96 justify-center items-start overflow-y-scroll hidden md:flex">
           <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg w-full mt-2">
-            <table className=" border-l border-r w-full text-sm text-left text-gray-500">
+            <table className=" border-l border-r border-b w-full text-sm text-left text-gray-500">
               <thead className="text-xs text-white capitalize bg-[#422FC6] rounded-t-md text-center">
                 <tr>
                   <th scope="col" className="px-3 py-3">

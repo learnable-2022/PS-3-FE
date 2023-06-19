@@ -368,7 +368,7 @@ function AddEmployee(props) {
         {successModal && (
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-300 p-3 shadow-md rounded-lg">
               <div className="flex items-center justify-center text-sm text-[#298535] rounded-lg text-center">
-                <p >Successfully Added <span className='ml-2'>{`${addEmployeeData.firstName} ${addEmployeeData.lastName}`}</span></p>
+                <p >Successfully Added <span className='ml-1'>{`${addEmployeeData.firstName} ${addEmployeeData.lastName}`}</span></p>
               </div>
             </div>
           )}
