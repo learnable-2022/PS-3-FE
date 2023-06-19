@@ -47,7 +47,7 @@ setLast(last.charAt(0).toUpperCase())
             )}
           </svg>
         </button>
-        <Link to="/landingpage" className="flex items-center">
+        <Link to="/dashboard" className="flex items-center">
           <img src={Logo} className="h-5 mr-3" alt="AutoPay Logo" />
         </Link>
         <div className="flex flex-row items-center justify-between w-fit md:flex md:w-auto md:order-1">
