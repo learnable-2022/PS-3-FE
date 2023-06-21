@@ -76,7 +76,11 @@ function Aside({ sideBarIsOpen, sideRef }) {
               title="History"
               location={"/history/summary"}
             />
-            {/* <SidebarBtn icon={<RiAccountCircleLine />} title="Manage" /> */}
+{/*          
+            <SidebarBtn 
+            icon={<RiAccountCircleLine />} 
+            title="Manage"
+            location={"/wallet"} /> */}
           </div>
           <div className="px-3 py-4 overflow-y-auto bg-transparent mb-4">
             <SidebarBtn icon={<MdErrorOutline />} title="Policies" />
