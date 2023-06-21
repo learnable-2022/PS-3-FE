@@ -28,17 +28,14 @@ function SidebarBtn(props) {
 
 function SidebarLogoutBtn(props) {
   return (
-    <button className="font-semibold bg-transparent hover:bg-[#DC3545] group flex h-8 my-2 w-full items-center py-1">
+    <button onClick={props.handleLogout} className="font-semibold bg-transparent hover:bg-[#DC3545] group flex h-8 my-2 w-full items-center py-1">
       <span className="text-xl md:pl-3 lg:pl-6 bg-transparent text-[#DC3545] group-hover:text-white">
-        {" "}
-        {props.icon}{" "}
+        {props.icon}
       </span>
       <p
-        className="lg:ml-3 ml-1 md:text-xs bg-transparent text-[#DC3545] group-hover:text-white"
-        onClick={props.handleLogout}
+        className="lg:ml-3 ml-1 md:text-xs bg-transparent text-[#DC3545] group-hover:text-white"  
       >
-        {" "}
-        {props.title}{" "}
+        {props.title}
       </p>
     </button>
   );
@@ -50,6 +47,8 @@ function Aside({ sideBarIsOpen, sideRef }) {
   function handleLogout() {
     // Clear token from local storage
     localStorage.removeItem("token");
+    localStorage.removeItem("firstname");
+    localStorage.removeItem("lastname");
 
     // Redirect user to the landing page
     navigate("/");
@@ -58,7 +57,7 @@ function Aside({ sideBarIsOpen, sideRef }) {
     <div
       className={`${
         sideBarIsOpen ? "block" : "hidden"
-      } md:block transition ease-in duration-300 bg-black text-white w-[50%] md:w-[16%] min-w-[300px]`}
+      } md:block transition ease-in duration-300 text-white relative w-full md:w-full h-screen min-w-[300px]`}
     >
     <div className="md:block md:w-[16%] w-[50%] shadow-lg flex flex-row fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
         <div
