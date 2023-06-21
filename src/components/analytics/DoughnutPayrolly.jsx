@@ -47,12 +47,12 @@ function DoughnutPayroll ({paidData, pendingData}) {
   return (
     <div className='w-[90%] md:w-4/5 h-[90%] md:h-4/5 relative flex justify-center items-center'>
       <Doughnut data={data} options={options}/>
-      <div className='absolute top-[36%] left-[50%] text-center transform -translate-x-1/2 -translate-y-4 md:-translate-y-1/2' >
-        <span className='font-bold text-5xl md:text-sm  '>
+      <div className='absolute md:top-[36%] top-[30%] left-[50%] text-center transform -translate-x-1/2 -translate-y-4 md:-translate-y-1/2 text-gray-500' >
+        <span className='font-bold text-lg sm:text-2xl md:text-sm'>
           {sum}
         </span>
         <br />
-        <p className='text-3xl md:text-sm font-semibold '>Payments</p>
+        <p className='text-lg sm:text-2xl md:text-sm font-semibold'>Payments</p>
       </div>
     </div>
   );

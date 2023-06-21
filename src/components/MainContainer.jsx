@@ -67,7 +67,7 @@ function MainContainer(props) {
             className="block tracking-wide text-xs md:text-base min-w-[150px] text-[#262626]"
             htmlFor="grid-state"
           >
-            Who would you like to Pay?
+            View by Departments
           </label>
           <div className="relative w-full md:w-60 md:ml-6">
             <select
@@ -76,7 +76,7 @@ function MainContainer(props) {
               className="block appearance-none w-full border border-[#7352907d] text-sm text-[#735290] py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-state"
             >
-              <option value="all">All Employees</option>
+              <option value="all">All Departments</option>
               {departments ? (
                 departments.map((items, index) => (
                   <option value={items} key={index}>
@@ -102,7 +102,7 @@ function MainContainer(props) {
               id="search"
               placeholder="Search Employee"
               onChange={(event) => handleSearchName(event.target.value)}
-              className="w-60 h-9 rounded-tl-lg rounded-bl-lg focus:border-[#422FC6] outline-none px-2 border border-[#899197]"
+              className="w-52 h-9 rounded-tl-lg rounded-bl-lg focus:border-[#422FC6] outline-none px-2 border border-[#899197]"
             />
             <button className="flex justify-center items-center h-full rounded-tr-lg rounded-br-lg bg-[#422FC6]">
               <span className=" px-3 py-[9px] text-lg h-full text-white font-bold">

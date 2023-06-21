@@ -34,8 +34,8 @@ function AllCharts({ data, item}) {
     }
 
   return (
-    <div className='flex justify-center items-center w-full min-h-[490px]'>
-        <div className='grid grid-cols-1 md:grid-cols-2 w-full h-full' >
+    <div className='flex justify-center items-center w-full min-h-[490px] md:max-h-[78vh] overflow-y-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2  w-full h-full' >
             <div className='flexjustify-center flex-col items-center row-span-2'>
                 <ChartTitle title="Employees’ Summary" />
                 <DoughnutChart departments={departments} departmentNumbers={departmentNumbers} />
