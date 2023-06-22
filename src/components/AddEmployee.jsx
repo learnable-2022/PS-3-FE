@@ -185,9 +185,11 @@ function AddEmployee(props) {
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="employeeId" className="block mb-1 text-xs font-semibold text-[#241E4E] ">Employee Id <span className=" text-red-500">*</span></label>
                                         <input 
-                                            type="number" 
+                                            type="text" 
                                             name="employeeId" 
                                             id="employeeId" 
+                                            title="Enter a 4-digit Employee Id."
+                                            pattern="[0-9]{4}"
                                             placeholder="Enter Employee Id" 
                                             required
                                             value={addEmployeeData.employeeId} 
@@ -328,7 +330,6 @@ function AddEmployee(props) {
                                                 <option 
                                                     key={bank.code} 
                                                     value={bank.code}
-                                                    // selected={addEmployeeData.bankCode === bank.code}
                                                     >
                                                     {bank.name}
                                                 </option>
