@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import {ProtectedRoute} from "./PrivateRoute"
 import MainContentContainer from './components/MainContentContainer'
 import HistoryPage from './components/HistoryPage';
+import ManagePage from './components/ManagePage';
 import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
@@ -59,6 +60,7 @@ function App() {
         <Route element={<ProtectedRoute/>}>
           <Route path="/dashboard" element={<MainContentContainer data={data} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen} fetchData={fetchData} />} />
           <Route path="/history/*" element={<HistoryPage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
+          <Route path="/manage" element={<ManagePage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
         </Route>
         <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
     </Routes>

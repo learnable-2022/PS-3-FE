@@ -2,7 +2,7 @@
 import React from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { TbGraph } from "react-icons/tb";
-import { BiHomeAlt } from "react-icons/bi";
+import { BiHomeAlt, BiUserCircle } from "react-icons/bi";
 import { MdOutlineSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate, NavLink, useLocation } from "react-router-dom";
@@ -74,6 +74,11 @@ function Aside({ sideBarIsOpen, sideRef }) {
               icon={<TbGraph />}
               title="History"
               location={"/history/summary"}
+            />
+            <SidebarBtn
+              icon={<BiUserCircle />}
+              title="Manage"
+              location={"/manage"}
             />
             {/* <SidebarBtn icon={<RiAccountCircleLine />} title="Manage" /> */}
           </div>
