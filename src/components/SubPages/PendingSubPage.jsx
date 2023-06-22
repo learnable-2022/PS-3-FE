@@ -5,13 +5,13 @@ import "./../../assets/styles/checkbox.css";
 
 function PendingSubPage(props) {
   const [searchText, setSearchText] = useState("");
-  const employeeData = props.item.length ? (props.item) : null;
+  const employeeData = props.data.length ? props.data : null;
 
   const handleSearchName = (event) => {
     setSearchText(event);
   };
 
-  const pendingData = employeeData ? employeeData.filter(employee => employee.status != "Paid") : [];
+  const pendingData = employeeData ? employeeData : [];
 
   const filterNames = pendingData
     ? pendingData.filter(
@@ -45,7 +45,7 @@ function PendingSubPage(props) {
       </div>
       {/* BEGIN: Table development */}
 
-      <div className="relative w-full mt-4 max-h-96 flex justify-center items-start overflow-y-scroll">
+      <div className="relative w-full mt-4 md:max-h-96 flex justify-center items-start overflow-y-scroll">
         <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg w-full">
           <table className="table-fixed hidden md:block border-l border-r w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-white capitalize bg-[#422FC6] border border-[#422FC6] rounded-t-md text-center min-w-full">
@@ -57,7 +57,7 @@ function PendingSubPage(props) {
                   Department
                 </th>
                 <th scope="col" className="px-6 py-3 w-[25%]">
-                  Amount Paid
+                  Amount To Be Paid
                 </th>
                 <th scope="col" className="px-6 py-3 w-[25%]">
                   Account Number
@@ -79,7 +79,7 @@ function PendingSubPage(props) {
                     </th>
                     <td className="px-12 py-4">{`${details.department}`}</td>
                     <td className="px-6 py-4 uppercase">
-                      NGN{details.amount}
+                      NGN{details.netSalary}
                     </td>
                     <td className="px-6 py-4">{details.accountNumber}</td>
                     <td className="px-6 py-4 italic text-yellow-400">
@@ -123,10 +123,10 @@ function PendingSubPage(props) {
                   </div>
                   <div className="px-4">
                     <span className="text-gray-400 text-sm font-normal">
-                      Amount paid:
+                      Amount to be paid:
                     </span>
                     <span className="text-[#422FC6] font-semibold text-sm">
-                      NGN{details.amount}
+                      NGN{details.netSalary}
                     </span>
                   </div>
                   <div className="px-4">
@@ -138,8 +138,8 @@ function PendingSubPage(props) {
                       {details.accountNumber}
                     </span>
                   </div>
-                  <div className="px-4 py-2 text-green-400 font-semibold italic col-span-2 text-right">
-                    successful
+                  <div className="px-4 py-2 text-yellow-400 font-semibold italic col-span-2 text-right">
+                    Pending
                   </div>
                 </div>
               ))

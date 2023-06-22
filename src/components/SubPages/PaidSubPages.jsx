@@ -6,7 +6,6 @@ import "./../../assets/styles/checkbox.css";
 function PaidSubPage(props) {
   const [searchText, setSearchText] = useState("");
   const employeeData = props.item.length ? props.item : null;
-  console.log(props.item.length);
 
   const handleSearchName = (event) => {
     setSearchText(event);
