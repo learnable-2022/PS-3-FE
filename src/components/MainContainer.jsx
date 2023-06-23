@@ -41,7 +41,7 @@ function MainContainer(props) {
     : [];
 
   return (
-    <main className="absolute px-8 flex flex-col w-full h-full right-1">
+    <main className="absolute px-5 sm:px-8  flex flex-col w-full h-full right-1">
       <div className="flex flex-col w-full h-full md:px-4 relative">
         <div className="min-w-full mt-6 mb-3 flex flex-row justify-between items-center">
           <h2 className="font-bold text-xl md:text-base text-primary">Payment Dashboard</h2>
@@ -119,7 +119,7 @@ function MainContainer(props) {
                 >
                   <div
                     scope="row"
-                    className="px-4 capitalize font-medium text-gray-900"
+                    className="px-1 capitalize font-medium text-gray-900"
                   >
                     <span className="text-gray-400 text-sm font-normal">
                       ID:
@@ -128,20 +128,20 @@ function MainContainer(props) {
                   </div>
                   <div
                     scope="row"
-                    className="px-4 capitalize font-medium text-gray-900"
+                    className="px-1 capitalize font-medium text-gray-900"
                   >
                     <span className="text-gray-400 text-sm font-normal">
                       Name:
                     </span>
                     <span className="text-[#422FC6] font-semibold text-sm">{`${details.firstName} ${details.lastName}`}</span>
                   </div>
-                  <div className="px-4">
+                  <div className="px-1">
                     <span className="text-gray-400 text-sm font-normal">
                       Dept:
                     </span>
                     <span className="text-[#422FC6] font-semibold text-sm">{`${details.department}`}</span>
                   </div>
-                  <div className="px-4">
+                  <div className="px-1">
                     <span className="text-gray-400 text-sm font-normal">
                       Account number:
                     </span>
@@ -149,7 +149,7 @@ function MainContainer(props) {
                       {details.accountNumber}
                     </span>
                   </div>
-                  <div className="px-4">
+                  <div className="px-1">
                     <span className="text-gray-400 text-sm font-normal">
                       Bonus:
                     </span>
@@ -157,7 +157,7 @@ function MainContainer(props) {
                       ₦{details.bonus}
                     </span>
                   </div>
-                  <div className="px-4">
+                  <div className="px-1">
                     <span className="text-gray-400 text-sm font-normal">
                       Gross Salary:
                     </span>
@@ -165,7 +165,7 @@ function MainContainer(props) {
                     ₦{details.grossSalary}
                     </span>
                   </div>
-                  <div className="px-4">
+                  <div className="px-1">
                     <span className="text-gray-400 text-sm font-normal">
                       Net Salary:
                     </span>
@@ -178,7 +178,7 @@ function MainContainer(props) {
             ) : (
               <div className="bg-white border w-full rounded capitalize">
                 <div className="border-b grid grid-cols-2 pt-2">
-                  <div className="px-4 py-2 text-gray-800 font-semibold italic col-span-2 text-center uppercase">
+                  <div className="px-2 py-2 text-gray-800 font-semibold italic col-span-2 text-center uppercase">
                     No item found
                   </div>
                 </div>
