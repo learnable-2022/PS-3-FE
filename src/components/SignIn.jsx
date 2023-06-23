@@ -53,6 +53,7 @@ function SignIn(props) {
       // Save the token to local storage, and login data to local storage
       console.log(data);
       localStorage.setItem('token', data.token);
+      localStorage.setItem('email', data.data.email);
       localStorage.setItem('firstname', data.data.firstName);
       localStorage.setItem('lastname', data.data.lastName);
       // console.log(data);

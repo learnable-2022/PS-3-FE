@@ -49,6 +49,7 @@ function Aside({ sideBarIsOpen, sideRef }) {
     localStorage.removeItem("token");
     localStorage.removeItem("firstname");
     localStorage.removeItem("lastname");
+    localStorage.removeItem("email");
 
     // Redirect user to the landing page
     navigate("/");
@@ -57,9 +58,9 @@ function Aside({ sideBarIsOpen, sideRef }) {
     <div
       className={`${
         sideBarIsOpen ? "block" : "hidden"
-      } md:block transition ease-in duration-300 text-white relative w-full md:w-full h-screen min-w-[300px]`}
+      } md:block transition ease-in duration-300 text-white absolute w-full md:w-full h-screen min-w-[300px]`}
     >
-    <div className="md:block md:w-[16%] w-[50%] shadow-lg flex flex-row fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
+    <div className="md:block md:w-[16%] w-[50%] shadow-lg flex flex-row fixed top-14 bottom-0 overflow-y-auto m-0 p-0">
         <div
           className="z-2 w-full h-full sm:translate-x-0 flex flex-col justify-between bg-[#F9FAFB]"
           aria-label="Sidebar"

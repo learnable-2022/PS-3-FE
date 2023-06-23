@@ -90,8 +90,8 @@ const DeleteEmployeeModal = (props) => {
         </div> : null }
         {props.successModal && (
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-3 shadow-md rounded-lg">
-              <div className="flex items-center justify-center text-lg text-red-600 rounded-lg text-center">
-                <p >Successfully Delete <span className='ml-2'>{`${props.selectedEmp.firstName} ${props.selectedEmp.lastName}`}</span></p>
+              <div className="flex items-center justify-center text-sm text-red-500 rounded-lg text-center">
+                <p >Successfully Deleted <span className='ml-2'>{`${props.selectedEmp.firstName} ${props.selectedEmp.lastName}`}</span></p>
               </div>
             </div>
           )}

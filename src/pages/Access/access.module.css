@@ -10,7 +10,7 @@ font-family: sans-serif;
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
-  height: 330px;
+  min-height: 330px;
   border-radius: 8px;
   text-align: center;
   color:rgb(48, 56, 34);
@@ -22,7 +22,7 @@ font-family: sans-serif;
 
 .container header {
   height: 20px;
-  background-color: rgb(108, 122, 84);
+  background-color: #422FC6;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   font-weight: 700;
@@ -38,16 +38,18 @@ font-family: sans-serif;
 }
 
 .btn {
-  background-color: rgb(108, 122, 84);
+  background-color: #422FC6;
   color: white;
   cursor: pointer;
   margin-top: 15px;
+  margin-bottom: 15px;
   padding: 5px 8px;
 border-radius: 4px;
 }
 
 .btn:hover {
-  background-color: rgb(132, 151, 99);
+  background-color: rgb(85, 68, 196);
+  scale: 1.1;
 }
 
 @media screen and (max-width: 768px) {

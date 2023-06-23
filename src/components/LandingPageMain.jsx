@@ -108,17 +108,15 @@ function toggleDelEmployee () {
     }
 
   return (
-    <>
-      <div>
+    <div className="flex justify-center w-full">
+      <div className="w-full max-w-[1280px] ">
         <nav>
           <div className="flex flex-row justify-between items-center px-6 py-3 shadow-sm">
             <div className="flex flex-row items-center gap-4">
               {/* <GiHamburgerMenu className="text-xl" /> */}
               <div className="flex flex-row items-center gap-3">
                 <img src={ResourceEdgeLogo} alt="Resource Edge" />
-                <h2 className="border-l border-gray-300 hidden px-3 sm:block">
-                 Genesys Performance Management
-                </h2>
+                
               </div>
             </div>
             <NavLink 
@@ -130,9 +128,9 @@ function toggleDelEmployee () {
                     Pay Employees
             </NavLink>
           </div>
-          <div className="flex justify-center items-center sm:hidden">
-            <h2 className="font-bold text-lg">
-              Genesys Performance Management
+          <div className="flex justify-center items-center text-center">
+            <h2 className="font-bold text-lg mt-5 underline">
+              Genesys Payroll Data Input Page
             </h2>
           </div>
         </nav>
@@ -168,7 +166,7 @@ function toggleDelEmployee () {
           toggleDelEmployee={toggleDelEmployee}
           />
         </div>
-    </>
+    </div>
   );
 }
 

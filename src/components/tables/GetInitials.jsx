@@ -10,7 +10,7 @@ setFirst(a.charAt(0).toUpperCase())
 setLast(b.charAt(0).toUpperCase())
 },[])
   return (
-    <p>{`${first} ${last}`}</p>
+    <p className='text-xs md:text-base'>{`${first} ${last}`}</p>
   )
 }
 
