@@ -26,17 +26,17 @@ function MainContentContainer({fetchData, data,  sideBarIsOpen, setSideBarIsOpen
 
   return (
     <section className="flex justify-center w-full">
-      <div className='flex justify-center items-start w-full relative xl:max-w-[1280px]'>
-        <div className="flex flex-col w-screen h-screen max-w-screen-xl">
+      <div className='flex justify-center items-start w-full relative xl:max-w-[1350px]'>
+        <div className="flex flex-col w-screen h-screen">
             <div className="h-14 flex justify-center items-center w-full">
                 <NavPay sideRef={sideRef} sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>
             </div>
             
-            <div className="flex w-full h-full overflow-hidden xl:max-w-[1280px] ">
+            <div className="flex w-full h-full overflow-hidden ">
               <div className='w-full md:w-[16%] relative h-full overflow-hidden z-50 md:z-10'>
                   <Aside sideBarIsOpen={sideBarIsOpen} />    
               </div>
-                <div className="w-screen md:w-[84%] md:relative h-full z-0 md:z-10 px-4 max-w-screen-xl">
+                <div className="w-screen md:w-[84%] md:relative h-full z-0 md:z-10 px-4 ">
                     <MainContainer fetchData={fetchData} data={data} togglePaySLip={togglePaySLip} />
                     <SuccessSlipp showReceipt={showReceipt} popSlip={popSlip} togglePaySLip={togglePaySLip} handlePayNow={handlePayNow}/> 
                     <SuccessReceipt showReceipt={showReceipt} closePopReceipt={closePopReceipt} />

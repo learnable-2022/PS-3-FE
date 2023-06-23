@@ -18,7 +18,7 @@ setLast(last.charAt(0).toUpperCase())
   };
   return (
     <nav className="bg-white w-full h-17 z-20 shadow-md fixed">
-      <div className="max-w-screen-xl flex md:flex-wrap items-center justify-between mx-auto py-4 md:px-4">
+      <div className="max-w-screen-xl flex md:flex-wrap items-center justify-between mx-auto py-4 md:px-2">
         <button
           className="text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 pl-4 md:hidden"
           onClick={toggleSidebar}
