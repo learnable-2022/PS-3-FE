@@ -4,10 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import Aside from "./Aside"
 import HistoryPagesMain from "./HistoryPagesMain"
 import AuthTokenSet from './AuthTokenSet';
-
 import NavPay from "./NavPay"
 import PaidSubPage from './SubPages/PaidSubPages';
 import PendingSubPage from './SubPages/PendingSubPage';
+import AccountsPage from './Accounts/AccountsPage';
 
 function ManagePage({data, sideBarIsOpen, setSideBarIsOpen, sideRef }) {
     const [item, setItem] = useState({});
@@ -41,7 +41,8 @@ function ManagePage({data, sideBarIsOpen, setSideBarIsOpen, sideRef }) {
               <Aside sideBarIsOpen={sideBarIsOpen} />
             </div>
             <div className="w-screen md:w-[84%] md:relative h-fit z-0 md:z-10 px-4">
-                manage page
+              <p className='mt-6 ml-6 mb-6 text-lg font-bold text-primary border-b-4 w-48 border-primary'> Payment Account </p>
+                    <AccountsPage/>      
             </div>
         </div>
     </div>
