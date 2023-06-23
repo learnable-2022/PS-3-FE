@@ -21,7 +21,7 @@ function HistoryPagesMain({ data, item }) {
             {pageName.includes("/paid") ? (
               <PaidSubPage item={item} />
             ) : pageName.includes("/pending") ? (
-              <PendingSubPage item={item} />
+              <PendingSubPage item={item}  data={data} />
             ) : (
               <HistorySubPage item={item} data={data} />
             )}
