@@ -145,6 +145,7 @@ function toggleDelEmployee () {
           data={data} 
           loading={loading}
           handleEmployeeClick={handleEmployeeClick} 
+          toggleAddEmployeeCrypto={toggleAddEmployeeCrypto} 
           toggleAddEmployee={toggleAddEmployee} />  :
           
            </div>

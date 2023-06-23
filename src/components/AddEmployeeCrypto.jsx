@@ -329,7 +329,7 @@ function AddEmployeeCrypto(props) {
                                 <div className='w-full flex justify-center items-center'>
                                     <div className='w-full sm:w-3/4 flex justify-end'>
                                         <span 
-                                            onClick={props.toggleAddEmployee}
+                                            onClick={props.toggleAddEmployeeCrypto}
                                             className=" w-24 bg-red-600 hover:bg-red-500 py-2 px-4 flex items-start justify-center rounded-md">
                                             <span className="mt-[2px] text-lg mr-1"><ImCancelCircle /></span> 
                                             Cancel

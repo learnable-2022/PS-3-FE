@@ -84,6 +84,15 @@ const filteredNames = employeeData
                 </span>
                 
             </div>
+            <div className="md:flex justify-end items-center hidden w-full">
+                <span 
+                onClick={() => props.toggleAddEmployeeCrypto()}
+                className="h-9 border border-[#0052CC] rounded text-[#0052CC] font-bold hover:text-white hover:bg-[#0052CC] py-2 text-sm px-1 sm:px-2 flex items-center justify-center">
+                <span className="text-xl font-bold mr-1"><BiUserPlus /></span> 
+                Add <span className="hidden sm:block ml-1"> Employee Crypto</span>
+                </span>
+                
+            </div>
         </div>
         
         <div className="hidden md:block">
