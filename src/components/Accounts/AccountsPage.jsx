@@ -208,9 +208,9 @@ const handleSubmit = async (event) => {
       
       <div className="dataContainer">
       <div className="conn">
-              {!currentAccount ? (
+              {! currentAccount ? (
                
-            <button type="button" className=' btn-connect' onClick={connectWallet} >Connect Wallet</button>
+            <button type="button" className='connect' onClick={connectWallet} >Connect Wallet</button>
             ) : (
               <button className="btn-connect" onClick={null}>
               Connected

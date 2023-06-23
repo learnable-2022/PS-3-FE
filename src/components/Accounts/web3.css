@@ -114,3 +114,11 @@ color: rgb(213, 213, 31);
   justify-content: center;
 
 }
+.connect{
+  font-weight: 700;
+  color:black;
+  padding: 20px 15px;
+  border: 1px solid black;
+
+  
+}
