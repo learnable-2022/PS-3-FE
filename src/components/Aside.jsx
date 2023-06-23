@@ -2,7 +2,8 @@
 import React from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { TbGraph } from "react-icons/tb";
-import { BiHomeAlt, BiUserCircle } from "react-icons/bi";
+import { BiHomeAlt } from "react-icons/bi";
+import { FaEthereum } from "react-icons/fa";
 import { MdOutlineSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate, NavLink, useLocation } from "react-router-dom";
@@ -14,7 +15,7 @@ function SidebarBtn(props) {
   return (
     <NavLink
       to={props.location}
-      className={`font-semibold border-b-[4px] border-[#ffffff00] bg-transparent hover:bg-primary group flex h-8 my-2 w-full items-center rounded-md  py-6 ${isActive ? "border-primary" : ""}`}
+      className={`font-semibold border-b-4 border-[#ffffff00] bg-transparent hover:bg-primary group flex h-8 my-2 w-full items-center rounded-md  py-5 ${isActive ? "border-primary" : ""}`}
     >
       <span className={`text-xl md:pl-3 lg:pl-6 bg-transparent text-[#241E4E] group-hover:text-white`}>
         {props.icon}
@@ -28,7 +29,7 @@ function SidebarBtn(props) {
 
 function SidebarLogoutBtn(props) {
   return (
-    <button onClick={props.handleLogout} className="font-semibold bg-transparent hover:bg-[#DC3545] group flex h-8 my-2 w-full items-center py-6 py-1">
+    <button onClick={props.handleLogout} className="font-semibold bg-transparent hover:bg-[#DC3545] group flex h-8 my-2 w-full items-center py-5">
       <span className="text-xl md:pl-3 lg:pl-6 bg-transparent text-[#DC3545] group-hover:text-white">
         {props.icon}
       </span>
@@ -49,6 +50,7 @@ function Aside({ sideBarIsOpen, sideRef }) {
     localStorage.removeItem("token");
     localStorage.removeItem("firstname");
     localStorage.removeItem("lastname");
+    localStorage.removeItem("email");
 
     // Redirect user to the landing page
     navigate("/");
@@ -57,9 +59,9 @@ function Aside({ sideBarIsOpen, sideRef }) {
     <div
       className={`${
         sideBarIsOpen ? "block" : "hidden"
-      } md:block transition ease-in duration-300 text-white relative w-full md:w-full h-screen min-w-[300px]`}
+      } md:block transition ease-in duration-300 text-white absolute w-full md:w-full h-screen min-w-[300px]`}
     >
-    <div className="md:block md:w-[16%] w-[50%] shadow-lg flex flex-row fixed left-0 top-14 bottom-0 overflow-y-auto m-0 p-0">
+    <div className="md:block md:w-[16%] w-[50%] shadow-lg flex flex-row fixed top-14 bottom-0 overflow-y-auto m-0 p-0">
         <div
           className="z-2 w-full h-full sm:translate-x-0 flex flex-col justify-between bg-[#F9FAFB]"
           aria-label="Sidebar"
@@ -70,15 +72,15 @@ function Aside({ sideBarIsOpen, sideRef }) {
               title="Transactions"
               location={"/dashboard"}
             />
+            <SidebarBtn 
+            icon={< FaEthereum />} 
+            title="Crypto Pay"
+            location={"/manage"} />
+
             <SidebarBtn
               icon={<TbGraph />}
               title="History"
-              location={"/history/summary"}
-            />
-            <SidebarBtn 
-            icon={< BiUserCircle />} 
-            title="Crypto Payment"
-            location={"/manage"} />
+              location={"/history/summary"}/>
           </div>
           <div className="px-3 py-4 overflow-y-auto bg-transparent mb-4">
             <SidebarBtn icon={<MdErrorOutline />} title="Policies" />

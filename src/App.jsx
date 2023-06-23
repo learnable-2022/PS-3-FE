@@ -9,6 +9,7 @@ import LandingPageMain from './components/LandingPageMain';
 import SignUp from "./components/SignUp"
 import SignIn from "./components/SignIn"
 import AuthTokenSet from './components/AuthTokenSet';
+import AccessDenied from "./pages/Access/AccessDenied";
 
 function App() {
   const [data, setData] = useState(null);
@@ -63,6 +64,7 @@ function App() {
           <Route path="/manage" element={<ManagePage data={data}  sideBarIsOpen={sideBarIsOpen} setSideBarIsOpen={setSideBarIsOpen}/>} />
         </Route>
         <Route path="/signup" element={<SignUp showVerifyMail={showVerifyMail} showVerifyMessage={showVerifyMessage}/>} />
+        <Route path="/unauthorized" element={<AccessDenied />} />
     </Routes>
     </>
   )

@@ -154,7 +154,7 @@ function MainContainer(props) {
                       Bonus:
                     </span>
                     <span className="text-[#422FC6] font-semibold text-sm">
-                      {details.bonus}
+                      ₦{details.bonus}
                     </span>
                   </div>
                   <div className="px-4">
@@ -162,7 +162,7 @@ function MainContainer(props) {
                       Gross Salary:
                     </span>
                     <span className="text-[#422FC6] font-semibold text-sm">
-                     NGN{details.grossSalary}
+                    ₦{details.grossSalary}
                     </span>
                   </div>
                   <div className="px-4">
@@ -170,7 +170,7 @@ function MainContainer(props) {
                       Net Salary:
                     </span>
                     <span className="text-[#422FC6] font-semibold text-sm">
-                      NGN{details.netSalary}
+                    ₦{details.netSalary}
                     </span>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ function MainContainer(props) {
               <h3 className=" text-xs lg:text-sm font-bold text-[#735290]">
                 Total Net Salary:{" "}
                 <span className="text-[#422FC6] font-bold">
-                  NGN
+                ₦
                   <FetchTotalnetpay />
                 </span>
               </h3>
@@ -252,13 +252,13 @@ function MainContainer(props) {
                         {`${details.firstName} ${details.lastName}`}
                       </td>
                       <td className="px-6 py-4">{details.department}</td>
-                      <td className="px-6 py-4">{details.bonus}</td>
+                      <td className="px-6 py-4">₦{details.bonus}</td>
                       <td className="px-6 py-4">{details.accountNumber}</td>
                       <td className="px-6 py-4 uppercase">
-                        NGN{details.grossSalary}
+                      ₦{details.grossSalary}
                       </td>
                       <td className="px-6 py-4 uppercase">
-                        NGN{details.netSalary}
+                      ₦{details.netSalary}
                       </td>
                     </tr>
                   ))

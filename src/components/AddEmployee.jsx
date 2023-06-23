@@ -149,7 +149,7 @@ function AddEmployee(props) {
                                 <h2 className=' text-lg font-bold text-[#0052CC]'>Add Employee</h2> 
                                 <p className='text-sm mt-1'>Add new employee details </p>
                             </div>
-                            <div className=' w-full grid grid-cols-1  sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
+                            <div className=' w-full grid grid-cols-1 border border-[#0052CC] sm:border-none sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
 
                             <div className='w-full flex justify-center items-center'>
                                     <div className=' w-[90%] sm:w-3/4 '>
