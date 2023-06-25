@@ -149,9 +149,9 @@ function AddEmployee(props) {
                                 <h2 className=' text-lg font-bold text-[#0052CC]'>Add Employee</h2> 
                                 <p className='text-sm mt-1'>Add new employee details </p>
                             </div>
-                            <div className=' w-full grid grid-cols-1 border border-[#0052CC] sm:border-none sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
+                            <div className='w-full grid grid-cols-1 border border-[#0052CC] sm:border-none sm:grid-cols-2 gap-y-2 md:gap-y-3 sm:gap-y-3 bg-white overflow-y-auto overflow-hidden'>
 
-                            <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="firstName" className="block mb-1 text-xs font-semibold text-[#241E4E] ">First Name <span className=" text-red-500 ml-[2px]">*</span></label>
                                         <input 
@@ -166,7 +166,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="lastName" className="block mb-1 text-xs font-semibold text-[#241E4E] ">Last Name <span className=" text-red-500">*</span></label>
                                         <input 
@@ -181,7 +181,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="employeeId" className="block mb-1 text-xs font-semibold text-[#241E4E] ">Employee Id <span className=" text-red-500">*</span></label>
                                         <input 
@@ -198,7 +198,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="email" className="block mb-1 text-xs font-semibold text-[#241E4E] ">Employee Email <span className=" text-red-500">*</span></label>
                                         <input 
@@ -213,7 +213,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
                                     <div className='w-[90%] sm:w-3/4'>
                                         <label htmlFor="department" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Department <span className=" text-red-500">*</span></label>
                                         <select 
@@ -238,7 +238,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
                             
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="performance" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Performance (0 to 5.0) <span className=" text-red-500">*</span></label>
                                         <input 
@@ -257,7 +257,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="grossSalary" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Gross Salary <span className=" text-red-500">*</span></label>
                                         <input 
@@ -272,7 +272,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="month" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Month for Salary <span className=" text-red-500">*</span></label>
                                         <select 
@@ -297,7 +297,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="accountNumber" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Bank Account Number <span className=" text-red-500">*</span></label>
                                         <input 
@@ -314,7 +314,7 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
                                 
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
                                     <div className=' w-[90%] sm:w-3/4 '>
                                         <label htmlFor="bankCode" className="block mb-1 text-xs font-semibold text-[#241E4E] "> Bank Name <span className=" text-red-500">*</span></label>
                                         <select 
@@ -338,9 +338,9 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-[90%] sm:w-full grid grid-cols-2 place-items-center text-sm text-white mt-4">
-                                <div className='w-full flex justify-center items-center'>
-                                    <div className='w-full sm:w-3/4 flex justify-start items-center'>
+                            <div className="w-full sm:w-full grid grid-cols-2 place-items-center text-sm text-white mt-4 ">
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
+                                    <div className='w-full sm:w-3/4 '>
                                         <button
                                             className="bg-[#0052CC] hover:bg-blue-600 py-2 w-20  px-4 flex items-center justify-center rounded-md">
                                             
@@ -348,7 +348,7 @@ function AddEmployee(props) {
                                         </button>
                                     </div>
                                 </div>
-                                <div className='w-full flex justify-center items-center'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
                                     <div className='w-full sm:w-3/4 flex justify-end'>
                                         <span 
                                             onClick={props.toggleAddEmployee}
