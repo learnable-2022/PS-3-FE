@@ -20,6 +20,7 @@ function Reviews(props) {
               data={props.data} 
               loading={props.loading}
               handleEmployeeClick={props.handleEmployeeClick}
+              toggleAddEmployeeCrypto={props.toggleAddEmployeeCrypto}
               toggleAddEmployee={props.toggleAddEmployee}/>
         </div>
     </div>
