@@ -18,7 +18,7 @@ setLast(last.charAt(0).toUpperCase())
   };
   return (
     <nav className="bg-white w-full h-17 z-20 shadow-md fixed">
-      <div className="max-w-screen-xl flex md:flex-wrap items-center justify-between mx-auto py-4 md:px-2">
+      <div className="max-w-[1350px] flex md:flex-wrap items-center justify-between mx-auto py-4 md:px-2">
         <button
           className="text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 pl-4 md:hidden"
           onClick={toggleSidebar}
@@ -48,7 +48,7 @@ setLast(last.charAt(0).toUpperCase())
           </svg>
         </button>
         <Link to="/dashboard" className="flex items-center">
-          <img src={Logo} className="h-5 mr-3" alt="AutoPay Logo" />
+          <img src={Logo} className="h-5" alt="AutoPay Logo" />
         </Link>
         <div className="flex flex-row items-center justify-between w-fit md:flex md:w-auto md:order-1">
           <span className="text-lg mr-6 cursor-pointer">
