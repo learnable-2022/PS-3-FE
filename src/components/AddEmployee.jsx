@@ -338,8 +338,8 @@ function AddEmployee(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full sm:w-full grid grid-cols-2 place-items-center text-sm text-white mt-4 border border-pink-500">
-                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0 border border-blue-500'>
+                            <div className="w-full sm:w-full grid grid-cols-2 place-items-center text-sm text-white mt-4 ">
+                                <div className='w-full flex sm:justify-end justify-center items-center sm:pr-[6%] pr-0'>
                                     <div className='w-full sm:w-3/4 '>
                                         <button
                                             className="bg-[#0052CC] hover:bg-blue-600 py-2 w-20  px-4 flex items-center justify-center rounded-md">
@@ -348,8 +348,8 @@ function AddEmployee(props) {
                                         </button>
                                     </div>
                                 </div>
-                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0 border border-green-500'>
-                                    <div className='w-full sm:w-3/4 flex justify-end border-blue-500'>
+                                <div className='w-full flex sm:justify-start justify-center items-center sm:pl-[6%] pl-0'>
+                                    <div className='w-full sm:w-3/4 flex justify-end'>
                                         <span 
                                             onClick={props.toggleAddEmployee}
                                             className=" w-24 bg-red-600 hover:bg-red-500 py-2 px-4 flex items-start justify-center rounded-md">
