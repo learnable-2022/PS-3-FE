@@ -11,6 +11,9 @@
   min-width: 100px;
   
 }
+.trans{
+ 
+}
 
 .btns{
   display: flex;
@@ -31,6 +34,27 @@ button{
   border-radius: 5px;
   margin-top: 20px;
 
+}
+.pop{
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center;
+
+}
+.emp{
+  font-size: 15px;
+  font-weight: 700;
+  color: #422FC6;
+  opacity: 0.8;
+}
+.employee{
+  margin-top: 20px;
+  margin-left: 5px;
+  border: 1px solid #422FC6;
+  border-radius: 12px;
+  min-height: 300px;
+  padding: 20px;
 }
 .address{
 color: rgb(213, 213, 31);

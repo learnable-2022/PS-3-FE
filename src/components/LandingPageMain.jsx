@@ -115,7 +115,7 @@ function toggleDelEmployee () {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="w-full max-w-[1350px]">
+      <div className="w-full max-w-full">
         <nav className="w-full shadow-md fixed bg-white">
           <div className="flex flex-row justify-between items-center px-6 py-3 shadow-sm">
             <div className="flex flex-row items-center gap-4">

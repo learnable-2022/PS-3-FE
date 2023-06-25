@@ -2,6 +2,7 @@ import "./web3.css";
 import React, { useEffect,useState,useRef} from "react";
 import abi from "./utilis/send.json";
 import { ethers ,} from "ethers";
+import BlockData from "./BlockData";
 
 // const ethers = require("ethers") 
 const getEthereumObject = () => window.ethereum;
@@ -48,10 +49,11 @@ function AccountsPage( ) {
   const [showDiv, setShowDiv] = useState(false);
   const [displayDiv, setDisplayDiv] = useState(false);
   const textRef = useRef(null);
+  const [myData, setMyData] = useState([])
 
 
   const contractABI = abi.abi;
-  const contractAddress = "0x1CeC813543d285F6bBF0C1b7067f61c4Dd1C3Bc0"; 
+  const contractAddress = "0xFBD508Bc97F6abaCb1B70EE01414E3771A7dE78E"; 
 
   const handleRecipientChange = (event) => {
     setRecipient(event.target.value);
@@ -75,6 +77,7 @@ const connectWallet = async () => {
 
       console.log("Connected", accounts[0]);
       setCurrentAccount(accounts[0]);
+   
     } catch (error) {
       console.error(error);
     }
@@ -87,7 +90,9 @@ const getAddress = async () => {
     setAddress(accounts[0]);
     const reducedAddress = accounts[0].substring(0,15);
     setRedaddress(reducedAddress);
-    getAccountBalance();  
+    getAccountBalance(); 
+    // getAllEmployees(); 
+    
     
   
   } catch (error) {
@@ -110,7 +115,7 @@ const getAddress = async () => {
         const balance1 = await sendContract.getBalance(address);
         console.log('Raw balance:', balance1);
         const formattedBalance = ethers.utils.formatEther(balance1);
-        const mainbalance =formattedBalance.substring(0,8);
+        const mainbalance =formattedBalance.substring(0,11);
         setBalance(mainbalance.toString()); 
         console.log('Account Balance:', balance1.toString());
       } else {
@@ -121,19 +126,24 @@ const getAddress = async () => {
     }
   };
 
-  // const callBatchEtherTransfer = async () => {
-  //   try {
-  //     const { ethereum } = window;
-  //     if (ethereum) {
-  //       console.log('Ethereum object exists');
-  //       const provider = new ethers.providers.Web3Provider(ethereum);
-  //       const signer = provider.getSigner();
-  //       const contract= new ethers.Contract(contractAddress, contractABI, signer);
-  //       // const transaction = await contract.batchEtherTransfer(recipients, amounts, overrides)
-  //     }}catch (error) {
-  //       console.error(error);
-  //   }
-  // };
+  
+
+  const callBatchEtherTransfer = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        console.log('Ethereum object exists');
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract= new ethers.Contract(contractAddress, contractABI, signer);
+        const transaction = await contract.sendEtherToAllEmployees()
+        await transaction.sendEtherToAllEmployees();
+        console.log("Success")
+        // await getAllEmployees();
+      }}catch (error) {
+        console.error(error);
+    }
+  };
   
 const handleSubmit = async (event) => {
     event.preventDefault();
@@ -188,18 +198,65 @@ const handleSubmit = async (event) => {
         });
     }
   };
+  const getAllEmployees = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+        const employeeCount = await contract.getAllEmployees();
+        console.log("Data",employeeCount)
+        
+        let employeecounts = [];
+        employeeCount.forEach(employe => {
+            employeecounts.push({
+            firstName: employe.firstName,
+            lastName: employe.lastName,
+            grossSalary: employe.grossSalary,
+            walletAddress: employe.walletAddress
+            });
+            });
+    // const employees = [];
+
+    //   for (let i = 0; i < employeeCount; i++) {
+    //     const emp = await contract.getAllEmployees(i);
+    //     employees.push({
+    //       firstName: emp.firstName,
+    //       lastName: emp.lastName,
+    //       grossSalary: emp.grossSalary,
+    //       walletAddress: emp.walletAddress
+    //     });
+    //   }
+      
+      console.log("anti",employeecounts)
+        setMyData(employeecounts);
+      } else {
+        console.log("Ethereum object doesn't exist!")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+//   getAllEmployees();
  
   useEffect(() => {
     const fetchData = async () => {
+        getAllEmployees();
+       
       const account = await findMetaMaskAccount();
       if (account !== null) {
         setCurrentAccount(account);
         console.log('Acc',account);
+        
+        
+
       }
 
     };
    
      fetchData();
+     
   }, []);
  
   return (
@@ -233,17 +290,18 @@ const handleSubmit = async (event) => {
         </div>
        
 
+        
+
      </div>
-     {showDiv &&  <div className="popup">
-      <p> Recipient Address: Goerli test network</p>
-          <input type="text"className="input" value={recipient} onChange={handleRecipientChange} />
-          <p> Amount (ETH):</p>
-          <input className="input" type="text" value={amount} onChange={handleAmountChange} />
-          <div className="btbt">
-          <button className="btn btns" onClick={handleSubmit}>Send</button>
+     {showDiv &&  <div className="popup pop">
+      <p> Make sure you go through list of Employees list </p>
+      <p> Click on Pay to make payment  </p>
+
+        
+          <button className="btn btns" onClick={callBatchEtherTransfer}>Pay</button>
           <button className="btn btns" onClick={handleClose}>Close</button>
           </div>
-        </div>}
+       }
 
         {displayDiv && <div className="popup">
           <div className="pop">
@@ -257,7 +315,31 @@ const handleSubmit = async (event) => {
           </div>
           </div>}
       </div>
+    
+      
     </div>
+    <div className="employee">
+        <p className="emp">Employee List for Crypto payment</p>
+        
+        
+
+        {myData.map((employe, index) => {
+          return (
+            <>
+            {/* <p className="emp">Employee List for Crypto payment</p> */}
+            <div key={index}>
+              <div>Firstname{employe.Firstname}</div>
+              <div>Lastname {employe.Lastname}</div>
+              <div> Salary{employe.Salary}</div>
+              <div>Wallet Addres {employe.walletAddress}</div>
+
+            </div>
+            </>)
+        })}
+    </div>
+    
+    
+       
   </>
   )
 }
