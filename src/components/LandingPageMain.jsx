@@ -115,8 +115,9 @@ function toggleDelEmployee () {
 
   return (
     <div className="flex justify-center w-full">
-      <div className="w-full max-w-[1350px]">
-        <nav className="w-full shadow-md fixed bg-white">
+      <div className=" flex justify-center w-full relative xl:max-w-[1350px]">
+      <div className="flex flex-col w-screen">
+        <nav className="w-full shadow-md fixed bg-white max-w-[1350px]">
           <div className="flex flex-row justify-between items-center px-6 py-3 shadow-sm">
             <div className="flex flex-row items-center gap-4">
               {/* <GiHamburgerMenu className="text-xl" /> */}
@@ -135,20 +136,20 @@ function toggleDelEmployee () {
             </NavLink>
           </div>
         </nav>
-        <div className="flex justify-center items-center text-center mt-14">
+        <div className="flex pl-6 justify-start items-center text-center mt-14">
             <h2 className="font-bold text-lg mt-5">
               Genesys Payroll Data Input Page
             </h2>
           </div>
         <div>
-        <Reviews 
-          data={data} 
-          loading={loading}
-          handleEmployeeClick={handleEmployeeClick} 
-          toggleAddEmployeeCrypto={toggleAddEmployeeCrypto} 
-          toggleAddEmployee={toggleAddEmployee} />  :
+          <Reviews 
+            data={data} 
+            loading={loading}
+            handleEmployeeClick={handleEmployeeClick} 
+            toggleAddEmployeeCrypto={toggleAddEmployeeCrypto} 
+            toggleAddEmployee={toggleAddEmployee} />  :
           
-           </div>
+        </div>
       
         <AddEmployee 
           showaddEmp={showaddEmp} 
@@ -175,6 +176,7 @@ function toggleDelEmployee () {
           showaddEmpCrypto={showaddEmpCrypto} 
           toggleAddEmployeeCrypto={toggleAddEmployeeCrypto} 
           fetchData={fetchData} />
+      </div>
         </div>
     </div>
   );

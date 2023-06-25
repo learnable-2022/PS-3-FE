@@ -3,6 +3,7 @@ import React from "react";
 import { MdErrorOutline } from "react-icons/md";
 import { TbGraph } from "react-icons/tb";
 import { BiHomeAlt } from "react-icons/bi";
+import { TbCurrencyNaira } from "react-icons/tb";
 import { FaEthereum } from "react-icons/fa";
 import { MdOutlineSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
@@ -68,7 +69,8 @@ function Aside({ sideBarIsOpen, sideRef }) {
         >
           <div className="mt-4 px-3 overflow-y-auto">
             <SidebarBtn
-              icon={<BiHomeAlt />}
+              icon={<TbCurrencyNaira />}
+              // icon={<BiHomeAlt />}
               title="Transactions"
               location={"/dashboard"}
             />

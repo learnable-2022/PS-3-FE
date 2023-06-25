@@ -44,7 +44,7 @@ function MainContainer(props) {
     <main className="absolute px-5 sm:px-8  flex flex-col w-full h-full right-1">
       <div className="flex flex-col w-full h-full md:px-4 relative">
         <div className="min-w-full mt-6 mb-3 flex flex-row justify-between items-center">
-          <h2 className="font-bold text-xl md:text-base text-primary">Payment Dashboard</h2>
+          <h2 className="font-bold text-xl md:text-base text-primary">Pay Employees(₦)</h2>
           <form className="md:hidden rounded-lg flex items-center border border-[#7352907d]">
             <input
               type="search"
@@ -104,11 +104,11 @@ function MainContainer(props) {
               onChange={(event) => handleSearchName(event.target.value)}
               className="w-52 h-9 rounded-tl-lg rounded-bl-lg focus:border-[#422FC6] outline-none px-2 border border-[#899197]"
             />
-            <button className="flex justify-center items-center h-full rounded-tr-lg rounded-br-lg bg-[#422FC6]">
+            <span className="flex justify-center items-center h-full rounded-tr-lg rounded-br-lg bg-[#422FC6]">
               <span className=" px-3 py-[9px] text-lg h-full text-white font-bold">
                 <RiSearchLine />
               </span>
-            </button>
+            </span>
           </form>
           <div className="bg-white border w-full h-[85%] overflow-y-auto rounded capitalize md:hidden mb-6">
             {filteredNames.length !== 0 ? (

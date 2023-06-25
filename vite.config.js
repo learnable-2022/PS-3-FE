@@ -10,11 +10,11 @@ export default defineConfig({
     },
 
     // or
-    alias: [
-      {
-        find: 'web3',
-        replacement: 'web3/dist/web3.min.js',
-      },
-    ],
+    // alias: [
+    //   {
+    //     find: 'web3',
+    //     replacement: 'web3/dist/web3.min.js',
+    //   },
+    // ],
   },
 })
