@@ -4,6 +4,7 @@ import Aside from "./Aside"
 import AuthTokenSet from './AuthTokenSet';
 import NavPay from "./NavPay"
 import AccountsPage from './Accounts/AccountsPage';
+import BlockData from './Accounts/BlockData';
 
 function ManagePage({data, sideBarIsOpen, setSideBarIsOpen, sideRef }) {
     const [item, setItem] = useState({});
@@ -39,8 +40,9 @@ function ManagePage({data, sideBarIsOpen, setSideBarIsOpen, sideRef }) {
                   <Aside sideBarIsOpen={sideBarIsOpen} />
                 </div>
                 <div className="w-screen md:w-[84%] md:relative h-fit z-0 md:z-10 px-4">
-                  <p className='mt-6 ml-6 mb-6 text-lg font-bold text-primary border-b-4 w-48 border-primary'> Payment Account </p>
-                    <AccountsPage/>      
+                  <p className='mt-6 ml-6 mb-6 text-lg font-bold text-primary border-b-4 w-48 border-primary opacity-90'> Payment Account </p>
+                    <AccountsPage/>   
+                    {/* <BlockData/>    */}
                 </div>
             </div>
         </div>
