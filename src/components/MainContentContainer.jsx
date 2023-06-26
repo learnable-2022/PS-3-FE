@@ -38,7 +38,7 @@ function MainContentContainer({fetchData, data,  sideBarIsOpen, setSideBarIsOpen
               </div>
                 <div className="w-screen md:w-[84%] md:relative h-full z-0 md:z-10 px-4 ">
                     <MainContainer fetchData={fetchData} data={data} togglePaySLip={togglePaySLip} />
-                    <SuccessSlipp showReceipt={showReceipt} popSlip={popSlip} togglePaySLip={togglePaySLip} handlePayNow={handlePayNow}/> 
+                    <SuccessSlipp  fetchData={fetchData} showReceipt={showReceipt} popSlip={popSlip} togglePaySLip={togglePaySLip} handlePayNow={handlePayNow}/> 
                     <SuccessReceipt showReceipt={showReceipt} closePopReceipt={closePopReceipt} />
                 </div>
             </div> 
