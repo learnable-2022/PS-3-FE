@@ -11,9 +11,6 @@
   min-width: 100px;
   
 }
-.trans{
- 
-}
 
 .btns{
   display: flex;
@@ -34,27 +31,6 @@ button{
   border-radius: 5px;
   margin-top: 20px;
 
-}
-.pop{
-  display: flex;
-  flex-direction:column ;
-  justify-content: center;
-  align-items: center;
-
-}
-.emp{
-  font-size: 15px;
-  font-weight: 700;
-  color: #422FC6;
-  opacity: 0.8;
-}
-.employee{
-  margin-top: 20px;
-  margin-left: 5px;
-  border: 1px solid #422FC6;
-  border-radius: 12px;
-  min-height: 300px;
-  padding: 20px;
 }
 .address{
 color: rgb(213, 213, 31);
@@ -93,7 +69,7 @@ color: rgb(213, 213, 31);
   min-width: 300px;
   max-width: 800px;
   height: auto;
-  border: 1px solid black;
+  border: 1px solid gray;
   border-radius: 12px;
   padding: 10px 20px;
   justify-content: center;
@@ -138,3 +114,36 @@ color: rgb(213, 213, 31);
   justify-content: center;
 
 }
+.connect{
+  font-weight: 700;
+  color:black;
+  padding: 20px 15px;
+  border: 1px solid black;
+}
+
+/* 
+<div className="popup">
+          <div className="pop">
+          <p>To fund this account here is your Account wallet address : Goerli test network :</p>
+          <p className="addr" ref={textRef} ><b >***{address}***</b></p>
+          <div className="btbt">
+          <button  className="btn btns" onClick={handleClose}>Close</button>
+          <button className=" btn btns"onClick={copyText}>Copy</button>
+          </div>
+         
+          </div>
+          </div>
+*/
+
+
+/* <div className="popup">
+      <p> Recipient Address: Sepolia test network</p>
+      
+          <input type="text"className="input" value={recipient} onChange={handleRecipientChange} />
+          <p> Amount (ETH):</p>
+          <input className="input" type="text" value={amount} onChange={handleAmountChange} />
+          <div className="btbt">
+          <button className="btn btns" onClick={handleSubmit}>Send</button>
+          <button className="btn btns" onClick={handleClose}>Close</button>
+          </div>
+        </div> */
