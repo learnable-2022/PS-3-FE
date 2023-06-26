@@ -8,7 +8,7 @@ function Totalnetpay() {
 
   useEffect(() => {
     fetchNetSalary();
-  }, [item]);
+  }, [item.totalNetSalary]);
 
   const fetchNetSalary = async () => {
     // setLoading(true);

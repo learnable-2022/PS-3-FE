@@ -51,7 +51,9 @@ function SignIn(props) {
     .then(response => response.json())
     .then(data => {
       // Save the token to local storage, and login data to local storage
+      console.log(data);
       localStorage.setItem('token', data.token);
+      localStorage.setItem('email', data.data.email);
       localStorage.setItem('firstname', data.data.firstName);
       localStorage.setItem('lastname', data.data.lastName);
       // console.log(data);
@@ -61,10 +63,10 @@ function SignIn(props) {
 
       // redirect to dashboard on succefull login.
       navigate("/dashboard")
-      setFormData({
-        email: "", 
-        password: ""
-      });
+      // setFormData({
+      //   email: "", 
+      //   password: ""
+      // });
       
     })
     

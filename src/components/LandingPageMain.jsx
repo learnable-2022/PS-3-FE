@@ -5,6 +5,7 @@ import Reviews from "../pages/Reviews";
 import axios from "axios";
 import AuthTokenSet from "./AuthTokenSet";
 import AddEmployee from "./AddEmployee";
+import AddEmployeeCrypto from "./AddEmployeeCrypto";
 import DeleteEmployeeModal from "./DeleteEmployeeModal";
 import { NavLink } from "react-router-dom";
 import EditEmployee from "./EditEmployee";
@@ -16,6 +17,7 @@ function LandingPageMain(props) {
   const [loading, setLoading] = useState(false); 
 
   const [showaddEmp, setShowaddEmp] = useState(false);
+  const [showaddEmpCrypto, setShowaddEmpCrypto] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
   const [showUpdateEmp, setShowUpdateEmp] = useState(false);
   const [selectedEmp, setSelectedEmp] = useState({});
@@ -56,6 +58,10 @@ function LandingPageMain(props) {
     // Add employee modal functions
     function toggleAddEmployee () {
       setShowaddEmp(!showaddEmp);
+      }
+    // AddCrypto employee modal functions
+    function toggleAddEmployeeCrypto () {
+      setShowaddEmpCrypto(!showaddEmpCrypto);
       }
 
 // delete employee functions
@@ -108,17 +114,18 @@ function toggleDelEmployee () {
     }
 
   return (
-    <>
-      <div>
-        <nav>
+    <div className="flex justify-center w-full">
+
+      <div className=" flex justify-center w-full relative xl:max-w-[1350px]">
+      <div className="flex flex-col w-screen">
+        <nav className="w-full shadow-md fixed bg-white max-w-[1350px]">
+
           <div className="flex flex-row justify-between items-center px-6 py-3 shadow-sm">
             <div className="flex flex-row items-center gap-4">
               {/* <GiHamburgerMenu className="text-xl" /> */}
               <div className="flex flex-row items-center gap-3">
-                <img src={ResourceEdgeLogo} alt="Resource Edge" />
-                <h2 className="border-l border-gray-300 hidden px-3 sm:block">
-                 Genesys Performance Management
-                </h2>
+                <img src={ResourceEdgeLogo} alt="Resource Edge"/>
+                
               </div>
             </div>
             <NavLink 
@@ -126,25 +133,25 @@ function toggleDelEmployee () {
                 onClick={() => {
                     props.reloadDash();
                   }}
-                className="rounded ml-2 bg-[#0052CC] hover:bg-primaryHover text-white py-2 font-bold text-sm px-2 sm:px-4">
+                className="rounded ml-2 bg-[#0052CC] hover:bg-primaryHover text-white text-center py-2 font-bold text-sm px-2 sm:px-4">
                     Pay Employees
             </NavLink>
           </div>
-          <div className="flex justify-center items-center sm:hidden">
-            <h2 className="font-bold text-lg">
-              Genesys Performance Management
+        </nav>
+        <div className="flex pl-6 justify-start items-center text-center mt-14">
+            <h2 className="font-bold text-lg mt-5">
+              Genesys Payroll Data Input Page
             </h2>
           </div>
-        </nav>
         <div>
-          {/* {currentPage == "review" ?  */}
-        <Reviews 
-          data={data} 
-          loading={loading}
-          handleEmployeeClick={handleEmployeeClick} 
-          toggleAddEmployee={toggleAddEmployee} />  :
+          <Reviews 
+            data={data} 
+            loading={loading}
+            handleEmployeeClick={handleEmployeeClick} 
+            toggleAddEmployeeCrypto={toggleAddEmployeeCrypto} 
+            toggleAddEmployee={toggleAddEmployee} />  :
           
-           </div>
+        </div>
       
         <AddEmployee 
           showaddEmp={showaddEmp} 
@@ -167,8 +174,13 @@ function toggleDelEmployee () {
           cancelUpdateEmployee={cancelUpdateEmployee} 
           toggleDelEmployee={toggleDelEmployee}
           />
+          <AddEmployeeCrypto
+          showaddEmpCrypto={showaddEmpCrypto} 
+          toggleAddEmployeeCrypto={toggleAddEmployeeCrypto} 
+          fetchData={fetchData} />
+      </div>
         </div>
-    </>
+    </div>
   );
 }
 
